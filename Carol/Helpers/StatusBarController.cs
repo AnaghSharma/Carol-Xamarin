@@ -9,6 +9,7 @@ namespace Carol.Helpers
         readonly NSStatusItem statusItem;
         readonly NSPopover popover;
         NSStatusBarButton button;
+        EventMonitor eventMonitor;
 
         public StatusBarController()
         { 
@@ -31,6 +32,9 @@ namespace Carol.Helpers
             button.Target = this;
 
             this.popover = popover;
+
+			eventMonitor = new EventMonitor((NSEventMask.LeftMouseDown | NSEventMask.RightMouseDown), MouseEventHandler);
+			eventMonitor.Start();
         }
 
         [Export("toggle:")]
@@ -45,11 +49,19 @@ namespace Carol.Helpers
         {
             button = statusItem.Button;
             popover.Show(button.Bounds, button, NSRectEdge.MaxYEdge);
+            eventMonitor.Start();
         }
 
         void HidePopover(NSObject sender)
         {
             popover.PerformClose(sender);
+            eventMonitor.Stop();
+        }
+
+        void MouseEventHandler(NSEvent _event)
+        {
+            if (popover.Shown)
+                HidePopover(_event);
         }
     }
 }
