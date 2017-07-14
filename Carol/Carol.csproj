@@ -66,6 +66,7 @@
   <ItemGroup>
     <Folder Include="Resources\" />
     <Folder Include="Helpers\" />
+    <Folder Include="Controls\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Info.plist" />
@@ -80,6 +81,7 @@
     </Compile>
     <Compile Include="Helpers\StatusBarController.cs" />
     <Compile Include="Helpers\EventMonitor.cs" />
+    <Compile Include="Controls\PopoverView.cs" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Main.storyboard" />
