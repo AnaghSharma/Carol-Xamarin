@@ -79,6 +79,7 @@
       <DependentUpon>ViewController.cs</DependentUpon>
     </Compile>
     <Compile Include="Helpers\StatusBarController.cs" />
+    <Compile Include="Helpers\EventMonitor.cs" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Main.storyboard" />
