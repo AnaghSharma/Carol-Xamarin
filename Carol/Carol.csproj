@@ -67,10 +67,12 @@
     <Folder Include="Resources\" />
     <Folder Include="Helpers\" />
     <Folder Include="Controls\" />
+    <Folder Include="Scripts\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Info.plist" />
     <None Include="Entitlements.plist" />
+    <None Include="Scripts\GetCurrentSong.txt" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Main.cs" />
