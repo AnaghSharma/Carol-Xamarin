@@ -11,13 +11,12 @@ if application "iTunes" is running and application "Spotify" is not running then
             if player state is paused then
                 set state to "(Paused) "
             end if
-            return track_artist & " - " & track_name
+            return {track_artist, track_name}
         end if
     end tell
-
-
-
--- If only Spotify is running
+    
+    
+    -- If only Spotify is running
     
 else if application "Spotify" is running and application "iTunes" is not running then
     tell application "Spotify"
@@ -30,13 +29,12 @@ else if application "Spotify" is running and application "iTunes" is not running
             if player state is paused then
                 set state to "(Paused) "
             end if
-            return track_artist & " - " & track_name
+            return {track_artist, track_name}
         end if
     end tell
     
-
-
--- If iTunes and Spotify both are running
+    
+    -- If iTunes and Spotify both are running
     
 else if application "Spotify" is running and application "iTunes" is running then
     --Get current states of iTunes and Spotify
@@ -54,7 +52,7 @@ else if application "Spotify" is running and application "iTunes" is running the
                 if player state is paused then
                     set state to "(Paused) "
                 end if
-                return track_artist & " - " & track_name
+                return {track_artist, track_name}
             end if
         end tell
     else if itunesState is "playing" and (spotifyState is "paused" or spotifyState is "stopped") then
@@ -68,7 +66,7 @@ else if application "Spotify" is running and application "iTunes" is running the
                 if player state is paused then
                     set state to "(Paused) "
                 end if
-                return track_artist & " - " & track_name
+                return {track_artist, track_name}
             end if
         end tell
     else if (itunesState is "paused" or itunesState is "stopped") and spotifyState is "paused" then
