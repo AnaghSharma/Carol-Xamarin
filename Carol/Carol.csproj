@@ -94,6 +94,7 @@
     <Compile Include="Helpers\LyricsHelper.cs" />
     <Compile Include="Helpers\SecretsReader.cs" />
     <Compile Include="Models\Tracks.cs" />
+    <Compile Include="Models\TrackLyrics.cs" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Main.storyboard" />
