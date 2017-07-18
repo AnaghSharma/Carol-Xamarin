@@ -44,6 +44,7 @@ namespace Carol
 		{
 			base.ViewDidAppear();
 
+            LyricsText.StringValue = "";
 			var getCurrentSongScript = File.ReadAllText("Scripts/GetCurrentSong.txt");
 			script = new NSAppleScript(getCurrentSongScript);
 			result = script.ExecuteAndReturnError(out errors);
@@ -51,7 +52,11 @@ namespace Carol
 			var artist = result.DescriptorAtIndex(1).StringValue;
 			var track = result.DescriptorAtIndex(2).StringValue;
 
-            var lyrics = lyricsHelper.GetLyrics(track, artist, Console.WriteLine);
+            var lyrics = lyricsHelper.GetLyrics(track, artist,(response) => 
+            {
+                TrackLyrics.RootObject tracklyrics = JsonConvert.DeserializeObject<TrackLyrics.RootObject>(response);
+                LyricsText.StringValue = tracklyrics.message.body.lyrics.lyrics_body;
+            });
         }
     }
 }
