@@ -4,15 +4,17 @@ using Newtonsoft.Json.Linq;
 
 namespace Carol.Helpers
 {
-    public class SecretsReader
+    public static class SecretsReader
     {
-        public string GetSecrets()
+        private static JObject secrets;
+
+        public static string GetSecrets()
         {
-            JObject secrets = JObject.Parse(GetSecretKey());
+            secrets = JObject.Parse(GetSecretKey());
             return secrets["API_key"].Value<String>();
         }
 
-        public string GetSecretKey()
+        public static string GetSecretKey()
         {
             return File.ReadAllText("Secrets.json");
         }

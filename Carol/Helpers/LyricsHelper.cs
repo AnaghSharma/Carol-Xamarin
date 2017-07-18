@@ -1,4 +1,4 @@
-﻿using System;
+﻿﻿using System;
 using System.Net.Http;
 using System.Threading.Tasks;
 
@@ -12,9 +12,7 @@ namespace Carol.Helpers
         public LyricsHelper()
         {
             client = new HttpClient();
-
-            //Method to get apikey from local file
-            apikey = "";
+            apikey = SecretsReader.GetSecrets();
         }
 
 		public async Task GetSongId(string track, string artist, Action<string> onSuccess)
