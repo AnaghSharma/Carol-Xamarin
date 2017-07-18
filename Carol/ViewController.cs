@@ -1,7 +1,10 @@
-﻿using System;
+﻿﻿using System;
 using System.IO;
 using AppKit;
+using Carol.Helpers;
+using Carol.Models;
 using Foundation;
+using Newtonsoft.Json;
 
 namespace Carol
 {
@@ -10,6 +13,7 @@ namespace Carol
         NSAppleScript script;
         NSDictionary errors;
         NSAppleEventDescriptor result;
+        LyricsHelper lyricsHelper;
 
         public ViewController(IntPtr handle) : base(handle)
         {
@@ -20,6 +24,7 @@ namespace Carol
             base.ViewDidLoad();
 
             // Do any additional setup after loading the view.
+            lyricsHelper = new LyricsHelper();
         }
 
         public override NSObject RepresentedObject
@@ -46,7 +51,11 @@ namespace Carol
 			var artist = result.DescriptorAtIndex(1).StringValue;
 			var track = result.DescriptorAtIndex(2).StringValue;
 
-			Console.WriteLine(track + " - " + artist);
-		}
+            lyricsHelper.GetSongId(track, artist,(response) => 
+            {
+                Tracks.RootObject trackresult = JsonConvert.DeserializeObject<Tracks.RootObject>(response);
+                Console.WriteLine(trackresult.message.body.track_list[0].track.track_id);
+            });
+        }
     }
 }
