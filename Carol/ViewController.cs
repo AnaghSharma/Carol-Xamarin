@@ -51,11 +51,7 @@ namespace Carol
 			var artist = result.DescriptorAtIndex(1).StringValue;
 			var track = result.DescriptorAtIndex(2).StringValue;
 
-            lyricsHelper.GetSongId(track, artist,(response) => 
-            {
-                Tracks.RootObject trackresult = JsonConvert.DeserializeObject<Tracks.RootObject>(response);
-                Console.WriteLine(trackresult.message.body.track_list[0].track.track_id);
-            });
+            var lyrics = lyricsHelper.GetLyrics(track, artist, Console.WriteLine);
         }
     }
 }
