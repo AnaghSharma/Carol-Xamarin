@@ -74,6 +74,7 @@
     <Folder Include="Helpers\" />
     <Folder Include="Controls\" />
     <Folder Include="Scripts\" />
+    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Info.plist" />
@@ -92,6 +93,7 @@
     <Compile Include="Controls\PopoverView.cs" />
     <Compile Include="Helpers\LyricsHelper.cs" />
     <Compile Include="Helpers\SecretsReader.cs" />
+    <Compile Include="Models\Tracks.cs" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Main.storyboard" />
