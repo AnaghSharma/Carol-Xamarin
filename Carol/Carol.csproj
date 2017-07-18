@@ -91,6 +91,7 @@
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Scripts\GetCurrentSong.txt" />
+    <BundleResource Include="Secrets.json" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Mac\Xamarin.Mac.CSharp.targets" />
 </Project>
