@@ -42,7 +42,7 @@ namespace Carol
 
 		public override void ViewDidAppear()
 		{
-			base.ViewDidAppear();
+            base.ViewDidAppear();
 
             LyricsText.StringValue = "";
 			var getCurrentSongScript = File.ReadAllText("Scripts/GetCurrentSong.txt");
@@ -55,7 +55,8 @@ namespace Carol
             var lyrics = lyricsHelper.GetLyrics(track, artist,(response) => 
             {
                 TrackLyrics.RootObject tracklyrics = JsonConvert.DeserializeObject<TrackLyrics.RootObject>(response);
-                LyricsText.StringValue = tracklyrics.message.body.lyrics.lyrics_body;
+                //LyricsText.StringValue = tracklyrics.message.body.lyrics.lyrics_body;
+                LyricsTextView.Value = tracklyrics.message.body.lyrics.lyrics_body;
             });
         }
     }
