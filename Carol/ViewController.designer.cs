@@ -13,18 +13,10 @@ namespace Carol
 	partial class ViewController
 	{
 		[Outlet]
-		AppKit.NSTextField LyricsText { get; set; }
-
-		[Outlet]
 		AppKit.NSTextView LyricsTextView { get; set; }
 		
 		void ReleaseDesignerOutlets ()
 		{
-			if (LyricsText != null) {
-				LyricsText.Dispose ();
-				LyricsText = null;
-			}
-
 			if (LyricsTextView != null) {
 				LyricsTextView.Dispose ();
 				LyricsTextView = null;

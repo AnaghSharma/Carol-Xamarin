@@ -1,4 +1,4 @@
-﻿﻿using System;
+﻿﻿﻿using System;
 using System.IO;
 using AppKit;
 using Carol.Helpers;
@@ -25,6 +25,7 @@ namespace Carol
 
             // Do any additional setup after loading the view.
             lyricsHelper = new LyricsHelper();
+            LyricsTextView.BackgroundColor = NSColor.FromCalibratedRgba(0.07f, 0.07f, 0.07f, 1.0f);
         }
 
         public override NSObject RepresentedObject
@@ -44,7 +45,6 @@ namespace Carol
 		{
             base.ViewDidAppear();
 
-            LyricsText.StringValue = "";
 			var getCurrentSongScript = File.ReadAllText("Scripts/GetCurrentSong.txt");
 			script = new NSAppleScript(getCurrentSongScript);
 			result = script.ExecuteAndReturnError(out errors);
@@ -55,7 +55,6 @@ namespace Carol
             var lyrics = lyricsHelper.GetLyrics(track, artist,(response) => 
             {
                 TrackLyrics.RootObject tracklyrics = JsonConvert.DeserializeObject<TrackLyrics.RootObject>(response);
-                //LyricsText.StringValue = tracklyrics.message.body.lyrics.lyrics_body;
                 LyricsTextView.Value = tracklyrics.message.body.lyrics.lyrics_body;
             });
         }
