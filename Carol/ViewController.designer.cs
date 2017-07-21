@@ -14,12 +14,20 @@ namespace Carol
 	{
 		[Outlet]
 		AppKit.NSTextView LyricsTextView { get; set; }
+
+		[Outlet]
+		AppKit.NSVisualEffectView MediaPlayer { get; set; }
 		
 		void ReleaseDesignerOutlets ()
 		{
 			if (LyricsTextView != null) {
 				LyricsTextView.Dispose ();
 				LyricsTextView = null;
+			}
+
+			if (MediaPlayer != null) {
+				MediaPlayer.Dispose ();
+				MediaPlayer = null;
 			}
 		}
 	}

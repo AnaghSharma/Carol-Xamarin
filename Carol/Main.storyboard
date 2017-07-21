@@ -700,6 +700,7 @@
                     </view>
                     <connections>
                         <outlet property="LyricsTextView" destination="Syc-Mp-Chh" id="5K6-se-aoy"/>
+                        <outlet property="MediaPlayer" destination="vhg-aH-LMl" id="GNT-HU-Xvv"/>
                     </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>

@@ -17,6 +17,7 @@ namespace Carol
 
         public ViewController(IntPtr handle) : base(handle)
         {
+            
         }
 
         public override void ViewDidLoad()
@@ -25,7 +26,7 @@ namespace Carol
 
             // Do any additional setup after loading the view.
             lyricsHelper = new LyricsHelper();
-            LyricsTextView.BackgroundColor = NSColor.FromCalibratedRgba(0.07f, 0.07f, 0.07f, 1.0f);
+            LyricsTextView.BackgroundColor = NSColor.Clear;
         }
 
         public override NSObject RepresentedObject
@@ -45,6 +46,7 @@ namespace Carol
 		{
             base.ViewDidAppear();
 
+            MediaPlayer.Layer.CornerRadius = 4.0f;
 			var getCurrentSongScript = File.ReadAllText("Scripts/GetCurrentSong.txt");
 			script = new NSAppleScript(getCurrentSongScript);
 			result = script.ExecuteAndReturnError(out errors);
