@@ -653,28 +653,28 @@
             <objects>
                 <viewController storyboardIdentifier="PopupController" id="XfG-lQ-9wD" customClass="ViewController" sceneMemberID="viewController">
                     <view key="view" id="m2S-Jp-Qdl" customClass="PopoverView">
-                        <rect key="frame" x="0.0" y="0.0" width="400" height="320"/>
+                        <rect key="frame" x="0.0" y="0.0" width="400" height="360"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <scrollView fixedFrame="YES" borderType="none" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" hasVerticalScroller="NO" usesPredominantAxisScrolling="NO" horizontalScrollElasticity="none" translatesAutoresizingMaskIntoConstraints="NO" id="EjX-ll-Pz2">
-                                <rect key="frame" x="18" y="20" width="364" height="280"/>
+                                <rect key="frame" x="12" y="141" width="328" height="155"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <clipView key="contentView" ambiguous="YES" drawsBackground="NO" copiesOnScroll="NO" id="cSK-XD-eQR">
-                                    <rect key="frame" x="0.0" y="0.0" width="364" height="280"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="328" height="155"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <textView ambiguous="YES" editable="NO" selectable="NO" importsGraphics="NO" continuousSpellChecking="YES" allowsNonContiguousLayout="YES" quoteSubstitution="YES" dashSubstitution="YES" spellingCorrection="YES" smartInsertDelete="YES" id="Syc-Mp-Chh">
-                                            <rect key="frame" x="0.0" y="0.0" width="364" height="280"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="328" height="155"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <color key="textColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            <size key="minSize" width="364" height="280"/>
+                                            <size key="minSize" width="328" height="155"/>
                                             <size key="maxSize" width="463" height="10000000"/>
                                             <attributedString key="textStorage">
                                                 <fragment content="Space">
                                                     <attributes>
                                                         <color key="NSColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
-                                                        <font key="NSFont" size="18" name="SFUIText-Semibold"/>
+                                                        <font key="NSFont" size="26" name="SFUIText-Semibold"/>
                                                         <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                     </attributes>
                                                 </fragment>
@@ -692,6 +692,10 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                             </scrollView>
+                            <visualEffectView appearanceType="vibrantDark" fixedFrame="YES" blendingMode="behindWindow" material="appearanceBased" state="followsWindowActiveState" translatesAutoresizingMaskIntoConstraints="NO" id="vhg-aH-LMl">
+                                <rect key="frame" x="12" y="12" width="376" height="80"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            </visualEffectView>
                         </subviews>
                     </view>
                     <connections>
