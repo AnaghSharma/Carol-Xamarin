@@ -58,6 +58,8 @@ namespace Carol
             {
                 TrackLyrics.RootObject tracklyrics = JsonConvert.DeserializeObject<TrackLyrics.RootObject>(response);
                 LyricsTextView.Value = tracklyrics.message.body.lyrics.lyrics_body;
+                TrackName.StringValue = track;
+                ArtistName.StringValue = artist;
             });
         }
     }

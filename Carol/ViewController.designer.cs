@@ -13,10 +13,19 @@ namespace Carol
 	partial class ViewController
 	{
 		[Outlet]
+		AppKit.NSTextField AlbumName { get; set; }
+
+		[Outlet]
+		AppKit.NSTextField ArtistName { get; set; }
+
+		[Outlet]
 		AppKit.NSTextView LyricsTextView { get; set; }
 
 		[Outlet]
 		AppKit.NSVisualEffectView MediaPlayer { get; set; }
+
+		[Outlet]
+		AppKit.NSTextField TrackName { get; set; }
 		
 		void ReleaseDesignerOutlets ()
 		{
@@ -28,6 +37,21 @@ namespace Carol
 			if (MediaPlayer != null) {
 				MediaPlayer.Dispose ();
 				MediaPlayer = null;
+			}
+
+			if (TrackName != null) {
+				TrackName.Dispose ();
+				TrackName = null;
+			}
+
+			if (ArtistName != null) {
+				ArtistName.Dispose ();
+				ArtistName = null;
+			}
+
+			if (AlbumName != null) {
+				AlbumName.Dispose ();
+				AlbumName = null;
 			}
 		}
 	}
