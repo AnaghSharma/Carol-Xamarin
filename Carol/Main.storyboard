@@ -4,7 +4,6 @@
         <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="12121"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
-        <capability name="stacking Non-gravity area distributions on NSStackView" minToolsVersion="7.0" minSystemVersion="10.11"/>
     </dependencies>
     <scenes>
         <!--Application-->
@@ -657,14 +656,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="400" height="360"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <scrollView fixedFrame="YES" borderType="none" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" hasVerticalScroller="NO" usesPredominantAxisScrolling="NO" horizontalScrollElasticity="none" translatesAutoresizingMaskIntoConstraints="NO" id="EjX-ll-Pz2">
+                            <scrollView borderType="none" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" hasVerticalScroller="NO" usesPredominantAxisScrolling="NO" horizontalScrollElasticity="none" translatesAutoresizingMaskIntoConstraints="NO" id="EjX-ll-Pz2">
                                 <rect key="frame" x="12" y="141" width="328" height="155"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <clipView key="contentView" ambiguous="YES" drawsBackground="NO" copiesOnScroll="NO" id="cSK-XD-eQR">
+                                <clipView key="contentView" drawsBackground="NO" copiesOnScroll="NO" id="cSK-XD-eQR">
                                     <rect key="frame" x="0.0" y="0.0" width="328" height="155"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <textView ambiguous="YES" editable="NO" selectable="NO" importsGraphics="NO" continuousSpellChecking="YES" allowsNonContiguousLayout="YES" quoteSubstitution="YES" dashSubstitution="YES" spellingCorrection="YES" smartInsertDelete="YES" id="Syc-Mp-Chh">
+                                        <textView editable="NO" selectable="NO" importsGraphics="NO" continuousSpellChecking="YES" allowsNonContiguousLayout="YES" quoteSubstitution="YES" dashSubstitution="YES" spellingCorrection="YES" smartInsertDelete="YES" id="Syc-Mp-Chh">
                                             <rect key="frame" x="0.0" y="0.0" width="328" height="155"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <color key="textColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
@@ -672,7 +670,7 @@
                                             <size key="minSize" width="328" height="155"/>
                                             <size key="maxSize" width="463" height="10000000"/>
                                             <attributedString key="textStorage">
-                                                <fragment content="Space">
+                                                <fragment content="Play some jam">
                                                     <attributes>
                                                         <color key="NSColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                                                         <font key="NSFont" size="26" name="SFUIText-Semibold"/>
@@ -693,55 +691,56 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                             </scrollView>
-                            <visualEffectView appearanceType="vibrantDark" fixedFrame="YES" blendingMode="behindWindow" material="appearanceBased" state="followsWindowActiveState" translatesAutoresizingMaskIntoConstraints="NO" id="vhg-aH-LMl">
+                            <visualEffectView appearanceType="vibrantDark" blendingMode="behindWindow" material="appearanceBased" state="followsWindowActiveState" translatesAutoresizingMaskIntoConstraints="NO" id="vhg-aH-LMl">
                                 <rect key="frame" x="12" y="12" width="376" height="80"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <subviews>
-                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G9w-IW-v1x">
+                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G9w-IW-v1x">
                                         <rect key="frame" x="10" y="26" width="264" height="17"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="260" id="ENP-Kw-TkT"/>
+                                            <constraint firstAttribute="height" constant="17" id="jeI-y5-fSL"/>
+                                        </constraints>
                                         <textFieldCell key="cell" sendsActionOnEndEditing="YES" placeholderString="" id="AOZ-G4-J7k">
                                             <font key="font" metaFont="cellTitle"/>
                                             <color key="textColor" red="0.7019608021" green="0.7019608021" blue="0.7019608021" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                         </textFieldCell>
                                     </textField>
-                                    <stackView distribution="equalSpacing" orientation="horizontal" alignment="top" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="I2G-M9-nJc">
-                                        <rect key="frame" x="12" y="12" width="108" height="14"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <subviews>
-                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" preferredMaxLayoutWidth="84" translatesAutoresizingMaskIntoConstraints="NO" id="5LI-lX-u2v">
-                                                <rect key="frame" x="-2" y="0.0" width="54" height="14"/>
-                                                <textFieldCell key="cell" sendsActionOnEndEditing="YES" id="6D5-Ai-Qdo">
-                                                    <font key="font" metaFont="smallSystem"/>
-                                                    <color key="textColor" red="0.50196081400000003" green="0.50196081400000003" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                                </textFieldCell>
-                                            </textField>
-                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" preferredMaxLayoutWidth="84" translatesAutoresizingMaskIntoConstraints="NO" id="RKD-Rz-uNV">
-                                                <rect key="frame" x="56" y="0.0" width="54" height="14"/>
-                                                <textFieldCell key="cell" sendsActionOnEndEditing="YES" id="tE8-hz-1vM">
-                                                    <font key="font" metaFont="smallSystem"/>
-                                                    <color key="textColor" red="0.50196081400000003" green="0.50196081400000003" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                                </textFieldCell>
-                                            </textField>
-                                        </subviews>
-                                        <visibilityPriorities>
-                                            <integer value="1000"/>
-                                            <integer value="1000"/>
-                                        </visibilityPriorities>
-                                        <customSpacing>
-                                            <real value="3.4028234663852886e+38"/>
-                                            <real value="3.4028234663852886e+38"/>
-                                        </customSpacing>
-                                    </stackView>
+                                    <box verticalHuggingPriority="750" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="8HF-ez-egf">
+                                        <rect key="frame" x="12" y="53" width="48" height="5"/>
+                                    </box>
+                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5LI-lX-u2v">
+                                        <rect key="frame" x="10" y="12" width="4" height="14"/>
+                                        <textFieldCell key="cell" sendsActionOnEndEditing="YES" id="6D5-Ai-Qdo">
+                                            <font key="font" metaFont="smallSystem"/>
+                                            <color key="textColor" red="0.50196081400000003" green="0.50196081400000003" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="8HF-ez-egf" secondAttribute="trailing" constant="316" id="147-IT-EcM"/>
+                                    <constraint firstItem="G9w-IW-v1x" firstAttribute="leading" secondItem="5LI-lX-u2v" secondAttribute="leading" id="7XV-Dd-7GB"/>
+                                    <constraint firstItem="G9w-IW-v1x" firstAttribute="leading" secondItem="vhg-aH-LMl" secondAttribute="leading" constant="12" id="8DI-dG-AEe"/>
+                                    <constraint firstItem="G9w-IW-v1x" firstAttribute="leading" secondItem="8HF-ez-egf" secondAttribute="leading" id="SNf-hx-zwH"/>
+                                    <constraint firstItem="G9w-IW-v1x" firstAttribute="top" secondItem="8HF-ez-egf" secondAttribute="bottom" constant="12" id="T48-68-xVX"/>
+                                    <constraint firstItem="5LI-lX-u2v" firstAttribute="top" secondItem="G9w-IW-v1x" secondAttribute="bottom" id="TQH-Qh-QYf"/>
+                                    <constraint firstItem="8HF-ez-egf" firstAttribute="top" secondItem="vhg-aH-LMl" secondAttribute="top" constant="24" id="Vpa-it-bGX"/>
+                                </constraints>
                             </visualEffectView>
                         </subviews>
+                        <constraints>
+                            <constraint firstItem="vhg-aH-LMl" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="12" id="3a0-Xy-AEN"/>
+                            <constraint firstItem="vhg-aH-LMl" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="268" id="6cl-Zx-2Ov"/>
+                            <constraint firstAttribute="trailing" secondItem="EjX-ll-Pz2" secondAttribute="trailing" constant="60" id="NmD-JB-G74"/>
+                            <constraint firstItem="vhg-aH-LMl" firstAttribute="leading" secondItem="EjX-ll-Pz2" secondAttribute="leading" id="PV8-iu-hrl"/>
+                            <constraint firstItem="EjX-ll-Pz2" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="64" id="PcC-uh-3HG"/>
+                            <constraint firstAttribute="bottom" secondItem="vhg-aH-LMl" secondAttribute="bottom" constant="12" id="c8t-jL-GOt"/>
+                            <constraint firstItem="vhg-aH-LMl" firstAttribute="top" secondItem="EjX-ll-Pz2" secondAttribute="bottom" constant="49" id="vK2-mx-ePJ"/>
+                            <constraint firstAttribute="trailing" secondItem="vhg-aH-LMl" secondAttribute="trailing" constant="12" id="ySy-HJ-yBB"/>
+                        </constraints>
                     </view>
                     <connections>
-                        <outlet property="AlbumName" destination="RKD-Rz-uNV" id="ujR-lf-hh3"/>
                         <outlet property="ArtistName" destination="5LI-lX-u2v" id="Aip-Vs-aes"/>
                         <outlet property="LyricsTextView" destination="Syc-Mp-Chh" id="5K6-se-aoy"/>
                         <outlet property="MediaPlayer" destination="vhg-aH-LMl" id="GNT-HU-Xvv"/>

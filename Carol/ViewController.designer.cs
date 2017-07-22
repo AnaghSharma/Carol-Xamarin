@@ -13,9 +13,6 @@ namespace Carol
 	partial class ViewController
 	{
 		[Outlet]
-		AppKit.NSTextField AlbumName { get; set; }
-
-		[Outlet]
 		AppKit.NSTextField ArtistName { get; set; }
 
 		[Outlet]
@@ -29,6 +26,11 @@ namespace Carol
 		
 		void ReleaseDesignerOutlets ()
 		{
+			if (ArtistName != null) {
+				ArtistName.Dispose ();
+				ArtistName = null;
+			}
+
 			if (LyricsTextView != null) {
 				LyricsTextView.Dispose ();
 				LyricsTextView = null;
@@ -42,16 +44,6 @@ namespace Carol
 			if (TrackName != null) {
 				TrackName.Dispose ();
 				TrackName = null;
-			}
-
-			if (ArtistName != null) {
-				ArtistName.Dispose ();
-				ArtistName = null;
-			}
-
-			if (AlbumName != null) {
-				AlbumName.Dispose ();
-				AlbumName = null;
 			}
 		}
 	}
