@@ -661,6 +661,11 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="Felt" id="WPe-Yz-soD"/>
                             </imageView>
+                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jh0-WR-yx2">
+                                <rect key="frame" x="0.0" y="0.0" width="400" height="360"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="gradient_background" id="2MK-Mn-XKZ"/>
+                            </imageView>
                             <scrollView borderType="none" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" hasVerticalScroller="NO" usesPredominantAxisScrolling="NO" horizontalScrollElasticity="none" translatesAutoresizingMaskIntoConstraints="NO" id="EjX-ll-Pz2">
                                 <rect key="frame" x="12" y="141" width="328" height="155"/>
                                 <clipView key="contentView" drawsBackground="NO" copiesOnScroll="NO" id="cSK-XD-eQR">
@@ -781,5 +786,6 @@
     </scenes>
     <resources>
         <image name="Felt" width="401" height="401"/>
+        <image name="gradient_background" width="400" height="360"/>
     </resources>
 </document>
