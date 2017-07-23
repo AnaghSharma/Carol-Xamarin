@@ -3,15 +3,15 @@
 if application "iTunes" is running and application "Spotify" is not running then
     tell application "iTunes"
         if player state is stopped then
-            return "No Track Playing"
+            return "1"
         else
             set track_artist to artist of current track
             set track_name to name of current track
             set state to ""
             if player state is paused then
-                set state to "(Paused) "
+                set state to "(Paused)"
             end if
-            return {track_artist, track_name}
+            return {track_artist, track_name, "iTunes"}
         end if
     end tell
     
@@ -21,15 +21,15 @@ if application "iTunes" is running and application "Spotify" is not running then
 else if application "Spotify" is running and application "iTunes" is not running then
     tell application "Spotify"
         if player state is stopped then
-            set display to "No Track Playing"
+            return "1"
         else
             set track_artist to artist of current track
             set track_name to name of current track
             set state to ""
             if player state is paused then
-                set state to "(Paused) "
+                set state to "(Paused)"
             end if
-            return {track_artist, track_name}
+            return {track_artist, track_name, "Spotify"}
         end if
     end tell
     
@@ -44,36 +44,36 @@ else if application "Spotify" is running and application "iTunes" is running the
     if (itunesState is "paused" or itunesState is "stopped") and spotifyState is "playing" then
         tell application "Spotify"
             if player state is stopped then
-                set display to "No Track Playing"
+                return "1"
             else
                 set track_artist to artist of current track
                 set track_name to name of current track
                 set state to ""
                 if player state is paused then
-                    set state to "(Paused) "
+                    set state to "(Paused)"
                 end if
-                return {track_artist, track_name}
+                return {track_artist, track_name, "Spotify"}
             end if
         end tell
     else if itunesState is "playing" and (spotifyState is "paused" or spotifyState is "stopped") then
         tell application "iTunes"
             if player state is stopped then
-                set display to "No Track Playing"
+                return "1"
             else
                 set track_artist to artist of current track
                 set track_name to name of current track
                 set state to ""
                 if player state is paused then
-                    set state to "(Paused) "
+                    set state to "(Paused)"
                 end if
-                return {track_artist, track_name}
+                return {track_artist, track_name, "iTunes"}
             end if
         end tell
     else if (itunesState is "paused" or itunesState is "stopped") and spotifyState is "paused" then
-        return "No Track Playing"
+        return "1"
     else
-        return "You playin' two songs at a time. We are doomed"
+        return "3"
     end if
 else
-    return "No music app is running"
+    return "2"
 end if

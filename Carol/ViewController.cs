@@ -51,16 +51,38 @@ namespace Carol
 			script = new NSAppleScript(getCurrentSongScript);
 			result = script.ExecuteAndReturnError(out errors);
 
-			var artist = result.DescriptorAtIndex(1).StringValue;
-			var track = result.DescriptorAtIndex(2).StringValue;
-
-            var lyrics = lyricsHelper.GetLyrics(track, artist,(response) => 
+            if (result.NumberOfItems == 3)
             {
-                TrackLyrics.RootObject tracklyrics = JsonConvert.DeserializeObject<TrackLyrics.RootObject>(response);
-                LyricsTextView.Value = tracklyrics.message.body.lyrics.lyrics_body;
-                TrackName.StringValue = track;
-                ArtistName.StringValue = artist;
-            });
+                var artist = result.DescriptorAtIndex(1).StringValue;
+                var track = result.DescriptorAtIndex(2).StringValue;
+                var app = result.DescriptorAtIndex(3).StringValue;
+
+                var lyrics = lyricsHelper.GetLyrics(track, artist, (response) =>
+                 {
+                     TrackLyrics.RootObject tracklyrics = JsonConvert.DeserializeObject<TrackLyrics.RootObject>(response);
+                     LyricsTextView.Value = tracklyrics.message.body.lyrics.lyrics_body;
+                     TrackName.StringValue = track;
+                     ArtistName.StringValue = artist;
+                     Console.WriteLine(app);
+                 });
+            }
+            else if (result.NumberOfItems == 0)
+            {
+                switch (result.StringValue)
+                {
+                    case "1":
+                        LyricsTextView.Value = "No track playing";
+                        break;
+                    case "2":
+                        LyricsTextView.Value = "No music app is running";
+                        break;
+                    case "3":
+                        LyricsTextView.Value = "You playin' two songs at a time. Livin' in 3017";
+                        break;
+                }
+            }
+            else
+                LyricsTextView.Value = "Something went wrong. It happens.";
         }
     }
 }
