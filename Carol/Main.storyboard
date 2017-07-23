@@ -701,7 +701,7 @@
                                             <constraint firstAttribute="height" constant="17" id="jeI-y5-fSL"/>
                                         </constraints>
                                         <textFieldCell key="cell" sendsActionOnEndEditing="YES" placeholderString="" id="AOZ-G4-J7k">
-                                            <font key="font" metaFont="cellTitle"/>
+                                            <font key="font" size="13" name="SFUIText-Regular"/>
                                             <color key="textColor" red="0.7019608021" green="0.7019608021" blue="0.7019608021" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                         </textFieldCell>
@@ -710,9 +710,9 @@
                                         <rect key="frame" x="12" y="53" width="48" height="5"/>
                                     </box>
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5LI-lX-u2v">
-                                        <rect key="frame" x="10" y="12" width="4" height="14"/>
+                                        <rect key="frame" x="10" y="9" width="4" height="17"/>
                                         <textFieldCell key="cell" sendsActionOnEndEditing="YES" id="6D5-Ai-Qdo">
-                                            <font key="font" metaFont="smallSystem"/>
+                                            <font key="font" size="11" name="SFUIText-Regular"/>
                                             <color key="textColor" red="0.50196081400000003" green="0.50196081400000003" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                         </textFieldCell>
