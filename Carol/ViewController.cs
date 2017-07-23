@@ -46,7 +46,11 @@ namespace Carol
 		{
             base.ViewDidAppear();
 
+            MediaPlayer.WantsLayer = true;
+            MediaPlayer.Material = NSVisualEffectMaterial.Dark;
+            MediaPlayer.BlendingMode = NSVisualEffectBlendingMode.WithinWindow;
             MediaPlayer.Layer.CornerRadius = 4.0f;
+
 			var getCurrentSongScript = File.ReadAllText("Scripts/GetCurrentSong.txt");
 			script = new NSAppleScript(getCurrentSongScript);
 			result = script.ExecuteAndReturnError(out errors);

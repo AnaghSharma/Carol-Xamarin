@@ -47,11 +47,6 @@ namespace Carol
 				MediaPlayer = null;
 			}
 
-			if (TrackName != null) {
-				TrackName.Dispose ();
-				TrackName = null;
-			}
-
 			if (PlayerIcon != null) {
 				PlayerIcon.Dispose ();
 				PlayerIcon = null;
@@ -60,6 +55,11 @@ namespace Carol
 			if (PlayerName != null) {
 				PlayerName.Dispose ();
 				PlayerName = null;
+			}
+
+			if (TrackName != null) {
+				TrackName.Dispose ();
+				TrackName = null;
 			}
 		}
 	}

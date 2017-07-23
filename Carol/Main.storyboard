@@ -656,6 +656,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="400" height="360"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
+                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4hu-ov-aYy">
+                                <rect key="frame" x="0.0" y="-9" width="400" height="400"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="Felt" id="WPe-Yz-soD"/>
+                            </imageView>
                             <scrollView borderType="none" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" hasVerticalScroller="NO" usesPredominantAxisScrolling="NO" horizontalScrollElasticity="none" translatesAutoresizingMaskIntoConstraints="NO" id="EjX-ll-Pz2">
                                 <rect key="frame" x="12" y="141" width="328" height="155"/>
                                 <clipView key="contentView" drawsBackground="NO" copiesOnScroll="NO" id="cSK-XD-eQR">
@@ -691,7 +696,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                             </scrollView>
-                            <visualEffectView appearanceType="vibrantDark" blendingMode="behindWindow" material="appearanceBased" state="followsWindowActiveState" translatesAutoresizingMaskIntoConstraints="NO" id="vhg-aH-LMl">
+                            <visualEffectView appearanceType="vibrantDark" blendingMode="behindWindow" material="dark" state="active" translatesAutoresizingMaskIntoConstraints="NO" id="vhg-aH-LMl">
                                 <rect key="frame" x="12" y="12" width="376" height="91"/>
                                 <subviews>
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G9w-IW-v1x">
@@ -700,7 +705,7 @@
                                             <constraint firstAttribute="width" constant="260" id="ENP-Kw-TkT"/>
                                             <constraint firstAttribute="height" constant="17" id="jeI-y5-fSL"/>
                                         </constraints>
-                                        <textFieldCell key="cell" sendsActionOnEndEditing="YES" placeholderString="" id="AOZ-G4-J7k">
+                                        <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" placeholderString="" id="AOZ-G4-J7k">
                                             <font key="font" size="13" name="SFUIText-Regular"/>
                                             <color key="textColor" red="0.7019608021" green="0.7019608021" blue="0.7019608021" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -774,4 +779,7 @@
             <point key="canvasLocation" x="74" y="244"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Felt" width="401" height="401"/>
+    </resources>
 </document>
