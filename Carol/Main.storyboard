@@ -692,7 +692,7 @@
                                 </scroller>
                             </scrollView>
                             <visualEffectView appearanceType="vibrantDark" blendingMode="behindWindow" material="appearanceBased" state="followsWindowActiveState" translatesAutoresizingMaskIntoConstraints="NO" id="vhg-aH-LMl">
-                                <rect key="frame" x="12" y="12" width="376" height="80"/>
+                                <rect key="frame" x="12" y="12" width="376" height="91"/>
                                 <subviews>
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G9w-IW-v1x">
                                         <rect key="frame" x="10" y="26" width="264" height="17"/>
@@ -707,7 +707,7 @@
                                         </textFieldCell>
                                     </textField>
                                     <box verticalHuggingPriority="750" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="8HF-ez-egf">
-                                        <rect key="frame" x="12" y="53" width="48" height="5"/>
+                                        <rect key="frame" x="12" y="54" width="64" height="5"/>
                                     </box>
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5LI-lX-u2v">
                                         <rect key="frame" x="10" y="9" width="4" height="17"/>
@@ -717,26 +717,46 @@
                                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                         </textFieldCell>
                                     </textField>
+                                    <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xFl-eR-wgZ">
+                                        <rect key="frame" x="12" y="65" width="14" height="14"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="14" id="Kj1-XC-K8P"/>
+                                        </constraints>
+                                        <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="f5f-82-oxZ"/>
+                                    </imageView>
+                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hTa-yL-Stx">
+                                        <rect key="frame" x="30" y="65" width="4" height="17"/>
+                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" id="7Oi-x3-NSf">
+                                            <font key="font" size="11" name="SFUIText-Regular"/>
+                                            <color key="textColor" red="0.49803921579999999" green="0.49803921579999999" blue="0.49803921579999999" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="8HF-ez-egf" secondAttribute="trailing" constant="316" id="147-IT-EcM"/>
+                                    <constraint firstAttribute="trailing" secondItem="8HF-ez-egf" secondAttribute="trailing" constant="300" id="147-IT-EcM"/>
                                     <constraint firstItem="G9w-IW-v1x" firstAttribute="leading" secondItem="5LI-lX-u2v" secondAttribute="leading" id="7XV-Dd-7GB"/>
                                     <constraint firstItem="G9w-IW-v1x" firstAttribute="leading" secondItem="vhg-aH-LMl" secondAttribute="leading" constant="12" id="8DI-dG-AEe"/>
+                                    <constraint firstItem="xFl-eR-wgZ" firstAttribute="top" secondItem="vhg-aH-LMl" secondAttribute="top" constant="12" id="8qV-pP-koF"/>
+                                    <constraint firstItem="xFl-eR-wgZ" firstAttribute="leading" secondItem="8HF-ez-egf" secondAttribute="leading" id="BBo-jK-yOm"/>
+                                    <constraint firstItem="8HF-ez-egf" firstAttribute="top" secondItem="xFl-eR-wgZ" secondAttribute="bottom" constant="8" id="LmL-Ka-I0i"/>
+                                    <constraint firstItem="hTa-yL-Stx" firstAttribute="leading" secondItem="xFl-eR-wgZ" secondAttribute="trailing" constant="6" id="Myk-ng-qSd"/>
                                     <constraint firstItem="G9w-IW-v1x" firstAttribute="leading" secondItem="8HF-ez-egf" secondAttribute="leading" id="SNf-hx-zwH"/>
-                                    <constraint firstItem="G9w-IW-v1x" firstAttribute="top" secondItem="8HF-ez-egf" secondAttribute="bottom" constant="12" id="T48-68-xVX"/>
+                                    <constraint firstItem="G9w-IW-v1x" firstAttribute="top" secondItem="8HF-ez-egf" secondAttribute="bottom" constant="13" id="T48-68-xVX"/>
                                     <constraint firstItem="5LI-lX-u2v" firstAttribute="top" secondItem="G9w-IW-v1x" secondAttribute="bottom" id="TQH-Qh-QYf"/>
-                                    <constraint firstItem="8HF-ez-egf" firstAttribute="top" secondItem="vhg-aH-LMl" secondAttribute="top" constant="24" id="Vpa-it-bGX"/>
+                                    <constraint firstItem="8HF-ez-egf" firstAttribute="top" secondItem="vhg-aH-LMl" secondAttribute="top" constant="34" id="Vpa-it-bGX"/>
+                                    <constraint firstItem="xFl-eR-wgZ" firstAttribute="centerY" secondItem="hTa-yL-Stx" secondAttribute="centerY" constant="1" id="k4u-bD-R8u"/>
                                 </constraints>
                             </visualEffectView>
                         </subviews>
                         <constraints>
                             <constraint firstItem="vhg-aH-LMl" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="12" id="3a0-Xy-AEN"/>
-                            <constraint firstItem="vhg-aH-LMl" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="268" id="6cl-Zx-2Ov"/>
+                            <constraint firstItem="vhg-aH-LMl" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="257" id="6cl-Zx-2Ov"/>
                             <constraint firstAttribute="trailing" secondItem="EjX-ll-Pz2" secondAttribute="trailing" constant="60" id="NmD-JB-G74"/>
                             <constraint firstItem="vhg-aH-LMl" firstAttribute="leading" secondItem="EjX-ll-Pz2" secondAttribute="leading" id="PV8-iu-hrl"/>
                             <constraint firstItem="EjX-ll-Pz2" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="64" id="PcC-uh-3HG"/>
                             <constraint firstAttribute="bottom" secondItem="vhg-aH-LMl" secondAttribute="bottom" constant="12" id="c8t-jL-GOt"/>
-                            <constraint firstItem="vhg-aH-LMl" firstAttribute="top" secondItem="EjX-ll-Pz2" secondAttribute="bottom" constant="49" id="vK2-mx-ePJ"/>
+                            <constraint firstItem="vhg-aH-LMl" firstAttribute="top" secondItem="EjX-ll-Pz2" secondAttribute="bottom" constant="38" id="vK2-mx-ePJ"/>
                             <constraint firstAttribute="trailing" secondItem="vhg-aH-LMl" secondAttribute="trailing" constant="12" id="ySy-HJ-yBB"/>
                         </constraints>
                     </view>
@@ -744,6 +764,8 @@
                         <outlet property="ArtistName" destination="5LI-lX-u2v" id="Aip-Vs-aes"/>
                         <outlet property="LyricsTextView" destination="Syc-Mp-Chh" id="5K6-se-aoy"/>
                         <outlet property="MediaPlayer" destination="vhg-aH-LMl" id="GNT-HU-Xvv"/>
+                        <outlet property="PlayerIcon" destination="xFl-eR-wgZ" id="5ST-h7-mP7"/>
+                        <outlet property="PlayerName" destination="hTa-yL-Stx" id="qTx-9B-b0F"/>
                         <outlet property="TrackName" destination="G9w-IW-v1x" id="1LV-8J-8y6"/>
                     </connections>
                 </viewController>

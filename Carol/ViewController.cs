@@ -63,7 +63,16 @@ namespace Carol
                      LyricsTextView.Value = tracklyrics.message.body.lyrics.lyrics_body;
                      TrackName.StringValue = track;
                      ArtistName.StringValue = artist;
-                     Console.WriteLine(app);
+                     if (app == "iTunes")
+                     {
+                         PlayerIcon.Image = new NSImage("icon_itunes.pdf");
+                         PlayerName.StringValue = app;
+                     }
+                     else 
+                    {
+						 PlayerIcon.Image = new NSImage("icon_spotify.pdf");
+						 PlayerName.StringValue = app;
+                    }
                  });
             }
             else if (result.NumberOfItems == 0)

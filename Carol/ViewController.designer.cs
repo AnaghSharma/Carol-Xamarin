@@ -22,6 +22,12 @@ namespace Carol
 		AppKit.NSVisualEffectView MediaPlayer { get; set; }
 
 		[Outlet]
+		AppKit.NSImageView PlayerIcon { get; set; }
+
+		[Outlet]
+		AppKit.NSTextField PlayerName { get; set; }
+
+		[Outlet]
 		AppKit.NSTextField TrackName { get; set; }
 		
 		void ReleaseDesignerOutlets ()
@@ -44,6 +50,16 @@ namespace Carol
 			if (TrackName != null) {
 				TrackName.Dispose ();
 				TrackName = null;
+			}
+
+			if (PlayerIcon != null) {
+				PlayerIcon.Dispose ();
+				PlayerIcon = null;
+			}
+
+			if (PlayerName != null) {
+				PlayerName.Dispose ();
+				PlayerName = null;
 			}
 		}
 	}
