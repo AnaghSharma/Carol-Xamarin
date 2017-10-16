@@ -104,7 +104,6 @@
     <BundleResource Include="Secrets.json" />
     <BundleResource Include="Resources\icon_itunes.pdf" />
     <BundleResource Include="Resources\icon_spotify.pdf" />
-    <BundleResource Include="Resources\Felt.png" />
     <BundleResource Include="Resources\gradient_background.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Mac\Xamarin.Mac.CSharp.targets" />

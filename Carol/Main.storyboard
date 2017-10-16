@@ -659,7 +659,7 @@
                             <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4hu-ov-aYy">
                                 <rect key="frame" x="0.0" y="-9" width="400" height="400"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="Felt" id="WPe-Yz-soD"/>
+                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="gradient_background" id="WPe-Yz-soD"/>
                             </imageView>
                             <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jh0-WR-yx2">
                                 <rect key="frame" x="0.0" y="0.0" width="400" height="360"/>
@@ -785,7 +785,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Felt" width="401" height="401"/>
         <image name="gradient_background" width="400" height="360"/>
     </resources>
 </document>
