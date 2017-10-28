@@ -3,6 +3,7 @@ using System.IO;
 using AppKit;
 using Carol.Helpers;
 using Carol.Models;
+using CoreGraphics;
 using Foundation;
 using Newtonsoft.Json;
 
@@ -14,6 +15,8 @@ namespace Carol
         NSDictionary errors;
         NSAppleEventDescriptor result;
         LyricsHelper lyricsHelper;
+        CGRect progress;
+        float containerHeight;
 
         public ViewController(IntPtr handle) : base(handle)
         {
@@ -32,6 +35,8 @@ namespace Carol
 			MediaPlayer.BlendingMode = NSVisualEffectBlendingMode.WithinWindow;
             MediaPlayer.Layer.CornerRadius = 4.0f;
 
+            progress = ProgressBox.Frame;
+
             MainScroll.ContentView.PostsBoundsChangedNotifications = true;
             NSNotificationCenter.DefaultCenter.AddObserver(this, new ObjCRuntime.Selector("boundsChange:"),
             NSView.BoundsChangedNotification, MainScroll.ContentView);
@@ -42,7 +47,11 @@ namespace Carol
         {
             var notification = sender as NSNotification;
             var view = notification.Object as NSView;
-            Console.WriteLine("Scroll position: " + view.Bounds.Location.Y);
+            var position = view.Bounds.Location.Y;
+            Console.WriteLine("Scroll height: " + view.Bounds.Location.Y);
+            var width = (position * 100) / (containerHeight - MainScroll.Bounds.Height);
+            progress.Width = width;
+            ProgressBox.Frame = progress;
         } 
 
 
@@ -79,6 +88,7 @@ namespace Carol
                      LyricsTextView.Value = tracklyrics.message.body.lyrics.lyrics_body;
                      TrackName.StringValue = track;
                      ArtistName.StringValue = artist;
+                     
                      if (app == "iTunes")
                      {
                          PlayerIcon.Image = new NSImage("icon_itunes.pdf");
@@ -89,6 +99,9 @@ namespace Carol
 						 PlayerIcon.Image = new NSImage("icon_spotify.pdf");
 						 PlayerName.StringValue = app;
                     }
+
+                    containerHeight = (float)LyricsTextView.Bounds.Height;
+                     Console.WriteLine(containerHeight);
                  });
             }
             else if (result.NumberOfItems == 0)

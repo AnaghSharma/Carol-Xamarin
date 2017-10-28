@@ -31,6 +31,9 @@ namespace Carol
 		AppKit.NSTextField PlayerName { get; set; }
 
 		[Outlet]
+		AppKit.NSBox ProgressBox { get; set; }
+
+		[Outlet]
 		AppKit.NSTextField TrackName { get; set; }
 		
 		void ReleaseDesignerOutlets ()
@@ -43,6 +46,11 @@ namespace Carol
 			if (LyricsTextView != null) {
 				LyricsTextView.Dispose ();
 				LyricsTextView = null;
+			}
+
+			if (MainScroll != null) {
+				MainScroll.Dispose ();
+				MainScroll = null;
 			}
 
 			if (MediaPlayer != null) {
@@ -65,9 +73,9 @@ namespace Carol
 				TrackName = null;
 			}
 
-			if (MainScroll != null) {
-				MainScroll.Dispose ();
-				MainScroll = null;
+			if (ProgressBox != null) {
+				ProgressBox.Dispose ();
+				ProgressBox = null;
 			}
 		}
 	}
