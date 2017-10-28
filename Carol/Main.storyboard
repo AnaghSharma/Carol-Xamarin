@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
-        <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="12121"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -773,6 +772,7 @@
                     <connections>
                         <outlet property="ArtistName" destination="5LI-lX-u2v" id="Aip-Vs-aes"/>
                         <outlet property="LyricsTextView" destination="Syc-Mp-Chh" id="5K6-se-aoy"/>
+                        <outlet property="MainScroll" destination="EjX-ll-Pz2" id="QbB-6d-xBN"/>
                         <outlet property="MediaPlayer" destination="vhg-aH-LMl" id="GNT-HU-Xvv"/>
                         <outlet property="PlayerIcon" destination="xFl-eR-wgZ" id="5ST-h7-mP7"/>
                         <outlet property="PlayerName" destination="hTa-yL-Stx" id="qTx-9B-b0F"/>

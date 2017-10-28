@@ -30,8 +30,21 @@ namespace Carol
 			MediaPlayer.WantsLayer = true;
 			MediaPlayer.Material = NSVisualEffectMaterial.Dark;
 			MediaPlayer.BlendingMode = NSVisualEffectBlendingMode.WithinWindow;
-			MediaPlayer.Layer.CornerRadius = 4.0f;
+            MediaPlayer.Layer.CornerRadius = 4.0f;
+
+            MainScroll.ContentView.PostsBoundsChangedNotifications = true;
+            NSNotificationCenter.DefaultCenter.AddObserver(this, new ObjCRuntime.Selector("boundsChange:"),
+            NSView.BoundsChangedNotification, MainScroll.ContentView);
 		}
+
+        [Export("boundsChange:")]
+        public void BoundsDidChangeNotification(NSObject sender)
+        {
+            var notification = sender as NSNotification;
+            var view = notification.Object as NSView;
+            Console.WriteLine("Scroll position: " + view.Bounds.Location.Y);
+        } 
+
 
         public override NSObject RepresentedObject
         {

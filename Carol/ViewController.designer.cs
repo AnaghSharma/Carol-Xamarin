@@ -19,6 +19,9 @@ namespace Carol
 		AppKit.NSTextView LyricsTextView { get; set; }
 
 		[Outlet]
+		AppKit.NSScrollView MainScroll { get; set; }
+
+		[Outlet]
 		AppKit.NSVisualEffectView MediaPlayer { get; set; }
 
 		[Outlet]
@@ -60,6 +63,11 @@ namespace Carol
 			if (TrackName != null) {
 				TrackName.Dispose ();
 				TrackName = null;
+			}
+
+			if (MainScroll != null) {
+				MainScroll.Dispose ();
+				MainScroll = null;
 			}
 		}
 	}
