@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="12121"/>
+        <capability name="box content view" minToolsVersion="7.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -700,6 +701,24 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                             </scrollView>
+                            <box fixedFrame="YES" boxType="custom" borderType="none" borderWidth="0.0" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="rnR-GE-7pv">
+                                <rect key="frame" x="153" y="122" width="5" height="2"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <view key="contentView" ambiguous="YES" id="Ljo-5f-WnL">
+                                    <rect key="frame" x="0.0" y="0.0" width="5" height="2"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                </view>
+                                <color key="fillColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </box>
+                            <box fixedFrame="YES" boxType="custom" borderType="none" borderWidth="0.0" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="BOR-1A-F26">
+                                <rect key="frame" x="153" y="122" width="100" height="2"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <view key="contentView" ambiguous="YES" id="9y5-BD-dOC">
+                                    <rect key="frame" x="0.0" y="0.0" width="100" height="2"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                </view>
+                                <color key="fillColor" red="1" green="1" blue="1" alpha="0.2365421660958904" colorSpace="calibratedRGB"/>
+                            </box>
                             <visualEffectView appearanceType="vibrantDark" blendingMode="behindWindow" material="dark" state="active" translatesAutoresizingMaskIntoConstraints="NO" id="vhg-aH-LMl">
                                 <rect key="frame" x="12" y="12" width="376" height="91"/>
                                 <subviews>
@@ -757,10 +776,6 @@
                                     <constraint firstItem="xFl-eR-wgZ" firstAttribute="centerY" secondItem="hTa-yL-Stx" secondAttribute="centerY" constant="1" id="k4u-bD-R8u"/>
                                 </constraints>
                             </visualEffectView>
-                            <box verticalHuggingPriority="750" fixedFrame="YES" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="nDP-ie-CIO">
-                                <rect key="frame" x="150" y="123" width="4" height="1"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                            </box>
                         </subviews>
                         <constraints>
                             <constraint firstItem="vhg-aH-LMl" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="12" id="3a0-Xy-AEN"/>
@@ -780,7 +795,8 @@
                         <outlet property="MediaPlayer" destination="vhg-aH-LMl" id="GNT-HU-Xvv"/>
                         <outlet property="PlayerIcon" destination="xFl-eR-wgZ" id="5ST-h7-mP7"/>
                         <outlet property="PlayerName" destination="hTa-yL-Stx" id="qTx-9B-b0F"/>
-                        <outlet property="ProgressBox" destination="nDP-ie-CIO" id="muH-bj-QHf"/>
+                        <outlet property="ProgressBackground" destination="BOR-1A-F26" id="Wl3-7m-hgH"/>
+                        <outlet property="ProgressBar" destination="rnR-GE-7pv" id="zKn-o4-DKH"/>
                         <outlet property="TrackName" destination="G9w-IW-v1x" id="1LV-8J-8y6"/>
                     </connections>
                 </viewController>

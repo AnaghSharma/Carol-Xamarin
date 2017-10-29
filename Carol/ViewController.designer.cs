@@ -31,7 +31,10 @@ namespace Carol
 		AppKit.NSTextField PlayerName { get; set; }
 
 		[Outlet]
-		AppKit.NSBox ProgressBox { get; set; }
+		AppKit.NSBox ProgressBackground { get; set; }
+
+		[Outlet]
+		AppKit.NSBox ProgressBar { get; set; }
 
 		[Outlet]
 		AppKit.NSTextField TrackName { get; set; }
@@ -73,9 +76,14 @@ namespace Carol
 				TrackName = null;
 			}
 
-			if (ProgressBox != null) {
-				ProgressBox.Dispose ();
-				ProgressBox = null;
+			if (ProgressBackground != null) {
+				ProgressBackground.Dispose ();
+				ProgressBackground = null;
+			}
+
+			if (ProgressBar != null) {
+				ProgressBar.Dispose ();
+				ProgressBar = null;
 			}
 		}
 	}

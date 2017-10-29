@@ -35,7 +35,7 @@ namespace Carol
 			MediaPlayer.BlendingMode = NSVisualEffectBlendingMode.WithinWindow;
             MediaPlayer.Layer.CornerRadius = 4.0f;
 
-            progress = ProgressBox.Frame;
+            progress = ProgressBar.Frame;
 
             MainScroll.ContentView.PostsBoundsChangedNotifications = true;
             NSNotificationCenter.DefaultCenter.AddObserver(this, new ObjCRuntime.Selector("boundsChange:"),
@@ -48,10 +48,9 @@ namespace Carol
             var notification = sender as NSNotification;
             var view = notification.Object as NSView;
             var position = view.Bounds.Location.Y;
-            Console.WriteLine("Scroll height: " + view.Bounds.Location.Y);
-            var width = (position * 100) / (containerHeight - MainScroll.Bounds.Height);
-            progress.Width = width;
-            ProgressBox.Frame = progress;
+
+            progress.Width = (position * 100) / (containerHeight - MainScroll.Bounds.Height);
+            ProgressBar.Frame = progress;
         } 
 
 
@@ -101,7 +100,6 @@ namespace Carol
                     }
 
                     containerHeight = (float)LyricsTextView.Bounds.Height;
-                     Console.WriteLine(containerHeight);
                  });
             }
             else if (result.NumberOfItems == 0)
