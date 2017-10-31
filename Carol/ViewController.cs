@@ -49,7 +49,9 @@ namespace Carol
             var view = notification.Object as NSView;
             var position = view.Bounds.Location.Y;
 
-            progress.Width = (position * 100) / (containerHeight - MainScroll.Bounds.Height);
+            var width = (position * 100) / (containerHeight - MainScroll.Bounds.Height);
+            if (width > 4 && width <=100)
+                progress.Width = width;
             ProgressBar.Frame = progress;
         } 
 
