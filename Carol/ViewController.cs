@@ -94,6 +94,12 @@ namespace Carol
                      {
                          PlayerIcon.Image = new NSImage("icon_itunes.pdf");
                          PlayerName.StringValue = app;
+                         
+                         var getAlbumArt = File.ReadAllText("Scripts/GetAlbumArt.txt");
+                         script = new NSAppleScript(getAlbumArt);
+                         result = script.ExecuteAndReturnError(out errors);
+                         NSImage cover = new NSImage(result.Data);
+                         AlbumArtView.Image = cover;
                      }
                      else 
                     {
