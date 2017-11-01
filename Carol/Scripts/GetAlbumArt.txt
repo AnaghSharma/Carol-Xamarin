@@ -1,0 +1,5 @@
+﻿-- Return the bytes of the artwork
+
+tell application "iTunes" to tell artwork 1 of current track
+    return raw data
+end tell

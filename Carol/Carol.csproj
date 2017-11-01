@@ -105,6 +105,7 @@
     <BundleResource Include="Resources\icon_itunes.pdf" />
     <BundleResource Include="Resources\icon_spotify.pdf" />
     <BundleResource Include="Resources\gradient_background.png" />
+    <BundleResource Include="Scripts\GetAlbumArt.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Mac\Xamarin.Mac.CSharp.targets" />
 </Project>

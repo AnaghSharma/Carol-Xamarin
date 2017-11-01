@@ -13,6 +13,9 @@ namespace Carol
 	partial class ViewController
 	{
 		[Outlet]
+		AppKit.NSImageView AlbumArtView { get; set; }
+
+		[Outlet]
 		AppKit.NSTextField ArtistName { get; set; }
 
 		[Outlet]
@@ -71,11 +74,6 @@ namespace Carol
 				PlayerName = null;
 			}
 
-			if (TrackName != null) {
-				TrackName.Dispose ();
-				TrackName = null;
-			}
-
 			if (ProgressBackground != null) {
 				ProgressBackground.Dispose ();
 				ProgressBackground = null;
@@ -84,6 +82,16 @@ namespace Carol
 			if (ProgressBar != null) {
 				ProgressBar.Dispose ();
 				ProgressBar = null;
+			}
+
+			if (TrackName != null) {
+				TrackName.Dispose ();
+				TrackName = null;
+			}
+
+			if (AlbumArtView != null) {
+				AlbumArtView.Dispose ();
+				AlbumArtView = null;
 			}
 		}
 	}

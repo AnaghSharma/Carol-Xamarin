@@ -789,6 +789,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="AlbumArtView" destination="4hu-ov-aYy" id="P7r-Tm-N15"/>
                         <outlet property="ArtistName" destination="5LI-lX-u2v" id="Aip-Vs-aes"/>
                         <outlet property="LyricsTextView" destination="Syc-Mp-Chh" id="5K6-se-aoy"/>
                         <outlet property="MainScroll" destination="EjX-ll-Pz2" id="QbB-6d-xBN"/>
