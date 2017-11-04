@@ -50,8 +50,12 @@ namespace Carol
             var position = view.Bounds.Location.Y;
 
             var width = (position * 100) / (containerHeight - MainScroll.Bounds.Height);
-            if (width > 4 && width <=100)
+            if (width > 4 && width <= 100)
                 progress.Width = width;
+            else if (width < 0)
+                progress.Width = 4;
+            else if (width > 100)
+                progress.Width = 100;
             ProgressBar.Frame = progress;
         } 
 
