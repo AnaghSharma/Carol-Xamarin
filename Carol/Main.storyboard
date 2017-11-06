@@ -776,15 +776,28 @@
                                     <constraint firstItem="xFl-eR-wgZ" firstAttribute="centerY" secondItem="hTa-yL-Stx" secondAttribute="centerY" constant="1" id="k4u-bD-R8u"/>
                                 </constraints>
                             </visualEffectView>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="fJQ-Qm-OpT">
+                                <rect key="frame" x="370" y="330" width="20" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="20" id="3M3-cd-A7C"/>
+                                    <constraint firstAttribute="height" constant="20" id="jY2-nH-TFh"/>
+                                </constraints>
+                                <buttonCell key="cell" type="smallSquare" bezelStyle="smallSquare" image="settings" imagePosition="overlaps" alignment="center" alternateImage="settings_alternate" lineBreakMode="truncatingTail" state="on" imageScaling="proportionallyDown" inset="2" id="ri8-mD-fni">
+                                    <behavior key="behavior" lightByContents="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                            </button>
                         </subviews>
                         <constraints>
                             <constraint firstItem="vhg-aH-LMl" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="12" id="3a0-Xy-AEN"/>
                             <constraint firstItem="vhg-aH-LMl" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="257" id="6cl-Zx-2Ov"/>
+                            <constraint firstItem="fJQ-Qm-OpT" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="10" id="7Qq-Ff-lSf"/>
                             <constraint firstAttribute="trailing" secondItem="EjX-ll-Pz2" secondAttribute="trailing" constant="60" id="NmD-JB-G74"/>
                             <constraint firstItem="vhg-aH-LMl" firstAttribute="leading" secondItem="EjX-ll-Pz2" secondAttribute="leading" id="PV8-iu-hrl"/>
                             <constraint firstItem="EjX-ll-Pz2" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="64" id="PcC-uh-3HG"/>
                             <constraint firstAttribute="bottom" secondItem="vhg-aH-LMl" secondAttribute="bottom" constant="12" id="c8t-jL-GOt"/>
                             <constraint firstItem="vhg-aH-LMl" firstAttribute="top" secondItem="EjX-ll-Pz2" secondAttribute="bottom" constant="38" id="vK2-mx-ePJ"/>
+                            <constraint firstAttribute="trailing" secondItem="fJQ-Qm-OpT" secondAttribute="trailing" constant="10" id="xnw-9t-Ed1"/>
                             <constraint firstAttribute="trailing" secondItem="vhg-aH-LMl" secondAttribute="trailing" constant="12" id="ySy-HJ-yBB"/>
                         </constraints>
                     </view>
@@ -808,5 +821,7 @@
     </scenes>
     <resources>
         <image name="gradient_background" width="400" height="360"/>
+        <image name="settings" width="20" height="20"/>
+        <image name="settings_alternate" width="20" height="20"/>
     </resources>
 </document>
