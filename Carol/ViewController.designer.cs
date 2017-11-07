@@ -41,9 +41,17 @@ namespace Carol
 
 		[Outlet]
 		AppKit.NSTextField TrackName { get; set; }
+
+		[Action ("SettingsButtonClick:")]
+		partial void SettingsButtonClick (Foundation.NSObject sender);
 		
 		void ReleaseDesignerOutlets ()
 		{
+			if (AlbumArtView != null) {
+				AlbumArtView.Dispose ();
+				AlbumArtView = null;
+			}
+
 			if (ArtistName != null) {
 				ArtistName.Dispose ();
 				ArtistName = null;
@@ -87,11 +95,6 @@ namespace Carol
 			if (TrackName != null) {
 				TrackName.Dispose ();
 				TrackName = null;
-			}
-
-			if (AlbumArtView != null) {
-				AlbumArtView.Dispose ();
-				AlbumArtView = null;
 			}
 		}
 	}

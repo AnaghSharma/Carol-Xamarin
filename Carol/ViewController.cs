@@ -17,6 +17,9 @@ namespace Carol
         LyricsHelper lyricsHelper;
         CGRect progress;
         float containerHeight;
+        NSMenu settingsMenu;
+        NSMenuItem launch;
+        NSCursor cursor;
 
         public ViewController(IntPtr handle) : base(handle)
         {
@@ -40,6 +43,20 @@ namespace Carol
             MainScroll.ContentView.PostsBoundsChangedNotifications = true;
             NSNotificationCenter.DefaultCenter.AddObserver(this, new ObjCRuntime.Selector("boundsChange:"),
             NSView.BoundsChangedNotification, MainScroll.ContentView);
+
+            settingsMenu = new NSMenu();
+
+            launch = new NSMenuItem("Launch at Login", new ObjCRuntime.Selector("launch:"), "");
+            NSMenuItem about = new NSMenuItem("About", new ObjCRuntime.Selector("about:"), "");
+            NSMenuItem quit = new NSMenuItem("Quit", new ObjCRuntime.Selector("quit:"), "q");
+
+
+            settingsMenu.AddItem(launch);
+            settingsMenu.AddItem(about);
+            settingsMenu.AddItem(NSMenuItem.SeparatorItem);
+            settingsMenu.AddItem(quit);
+
+            cursor = NSCursor.CurrentSystemCursor;
 		}
 
         [Export("boundsChange:")]
@@ -131,6 +148,12 @@ namespace Carol
             }
             else
                 LyricsTextView.Value = "Something went wrong. It happens.";
+        }
+
+        partial void SettingsButtonClick(NSObject sender)
+        {
+            var current = NSApplication.SharedApplication.CurrentEvent;
+            NSMenu.PopUpContextMenu(settingsMenu, current, sender as NSView);
         }
     }
 }

@@ -786,6 +786,9 @@
                                     <behavior key="behavior" lightByContents="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
+                                <connections>
+                                    <action selector="SettingsButtonClick:" target="XfG-lQ-9wD" id="QJ1-Ki-Xsy"/>
+                                </connections>
                             </button>
                         </subviews>
                         <constraints>
@@ -821,7 +824,7 @@
     </scenes>
     <resources>
         <image name="gradient_background" width="400" height="360"/>
-        <image name="settings" width="20" height="20"/>
-        <image name="settings_alternate" width="20" height="20"/>
+        <image name="settings" width="18" height="18"/>
+        <image name="settings_alternate" width="18" height="18"/>
     </resources>
 </document>
