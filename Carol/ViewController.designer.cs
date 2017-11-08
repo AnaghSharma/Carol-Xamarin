@@ -40,6 +40,9 @@ namespace Carol
 		AppKit.NSBox ProgressBar { get; set; }
 
 		[Outlet]
+		AppKit.NSButton SettingsButton { get; set; }
+
+		[Outlet]
 		AppKit.NSTextField TrackName { get; set; }
 
 		[Action ("SettingsButtonClick:")]
@@ -95,6 +98,11 @@ namespace Carol
 			if (TrackName != null) {
 				TrackName.Dispose ();
 				TrackName = null;
+			}
+
+			if (SettingsButton != null) {
+				SettingsButton.Dispose ();
+				SettingsButton = null;
 			}
 		}
 	}

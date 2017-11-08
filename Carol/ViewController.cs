@@ -17,6 +17,7 @@ namespace Carol
         LyricsHelper lyricsHelper;
         CGRect progress;
         float containerHeight;
+        NSTrackingArea hoverarea;
         NSMenu settingsMenu;
         NSMenuItem launch;
         NSCursor cursor;
@@ -45,6 +46,8 @@ namespace Carol
             NSView.BoundsChangedNotification, MainScroll.ContentView);
 
             settingsMenu = new NSMenu();
+            hoverarea = new NSTrackingArea(SettingsButton.Bounds, NSTrackingAreaOptions.MouseEnteredAndExited | NSTrackingAreaOptions.ActiveAlways, this, null);
+            SettingsButton.AddTrackingArea(hoverarea);
 
             launch = new NSMenuItem("Launch at Login", new ObjCRuntime.Selector("launch:"), "");
             NSMenuItem about = new NSMenuItem("About", new ObjCRuntime.Selector("about:"), "");
@@ -154,6 +157,22 @@ namespace Carol
         {
             var current = NSApplication.SharedApplication.CurrentEvent;
             NSMenu.PopUpContextMenu(settingsMenu, current, sender as NSView);
+        }
+
+        //Method override to change cursor to pointing hand on Mouse Enter (Hover)
+        public override void MouseEntered(NSEvent theEvent)
+        {
+            base.MouseEntered(theEvent);
+
+            cursor = NSCursor.PointingHandCursor;
+            cursor.Push();
+        }
+        //Method override to change cursor to pointing hand on Mouse Exit
+        public override void MouseExited(NSEvent theEvent)
+        {
+            base.MouseEntered(theEvent);
+
+            cursor.Pop();
         }
     }
 }

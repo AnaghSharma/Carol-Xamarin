@@ -814,6 +814,7 @@
                         <outlet property="PlayerName" destination="hTa-yL-Stx" id="qTx-9B-b0F"/>
                         <outlet property="ProgressBackground" destination="BOR-1A-F26" id="Wl3-7m-hgH"/>
                         <outlet property="ProgressBar" destination="rnR-GE-7pv" id="zKn-o4-DKH"/>
+                        <outlet property="SettingsButton" destination="fJQ-Qm-OpT" id="OBY-4P-qQH"/>
                         <outlet property="TrackName" destination="G9w-IW-v1x" id="1LV-8J-8y6"/>
                     </connections>
                 </viewController>
