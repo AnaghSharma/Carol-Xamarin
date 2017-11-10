@@ -21,6 +21,7 @@ namespace Carol
         NSMenu settingsMenu;
         NSMenuItem launch;
         NSCursor cursor;
+        public static event EventHandler QuitButtonClicked;
 
         public ViewController(IntPtr handle) : base(handle)
         {
@@ -158,6 +159,8 @@ namespace Carol
             var current = NSApplication.SharedApplication.CurrentEvent;
             NSMenu.PopUpContextMenu(settingsMenu, current, sender as NSView);
         }
+
+        [Export("quit:")]         void Quit(NSObject sender)         {             QuitButtonClicked?.Invoke(this, null);         }
 
         //Method override to change cursor to pointing hand on Mouse Enter (Hover)
         public override void MouseEntered(NSEvent theEvent)

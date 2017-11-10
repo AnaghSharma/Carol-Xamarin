@@ -35,6 +35,13 @@ namespace Carol.Helpers
 
 			eventMonitor = new EventMonitor((NSEventMask.LeftMouseDown | NSEventMask.RightMouseDown), MouseEventHandler);
 			eventMonitor.Start();
+
+            ViewController.QuitButtonClicked += HandleQuitButtonClicked;
+        }
+
+        ~StatusBarController()
+        {
+            ViewController.QuitButtonClicked -= HandleQuitButtonClicked;
         }
 
         [Export("toggle:")]
@@ -63,5 +70,20 @@ namespace Carol.Helpers
             if (popover.Shown)
                 HidePopover(_event);
         }
+
+        void HandleQuitButtonClicked(object sender, System.EventArgs e)
+        {
+            HidePopover(sender as NSObject);
+            var alert = new NSAlert()
+            {
+                MessageText = "Are you sure you want to Quit Carol?"
+            };
+            alert.AddButton("Quit");
+            alert.AddButton("Cancel");
+            var retValue = alert.RunModal();
+            if (retValue == 1000)
+                NSApplication.SharedApplication.Terminate((sender as NSObject));
+        }
+
     }
 }
