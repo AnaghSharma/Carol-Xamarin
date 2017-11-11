@@ -130,6 +130,7 @@ namespace Carol
                     {
 						 PlayerIcon.Image = new NSImage("icon_spotify.pdf");
 						 PlayerName.StringValue = app;
+                         AlbumArtView.Image = null;
                     }
 
                     containerHeight = (float)LyricsTextView.Bounds.Height;
