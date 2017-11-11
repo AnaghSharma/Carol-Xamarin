@@ -21,6 +21,7 @@ namespace Carol
         NSMenu settingsMenu;
         NSMenuItem launch;
         NSCursor cursor;
+        bool isLoginItem;
         public static event EventHandler QuitButtonClicked;
 
         public ViewController(IntPtr handle) : base(handle)
@@ -158,8 +159,35 @@ namespace Carol
         partial void SettingsButtonClick(NSObject sender)
         {
             var current = NSApplication.SharedApplication.CurrentEvent;
+
+            var checkLoginItemsScript = File.ReadAllText("Scripts/LoginCheck.txt");
+            script = new NSAppleScript(checkLoginItemsScript);
+            result = script.ExecuteAndReturnError(out errors);
+            isLoginItem = result.BooleanValue;
+
+            if (!isLoginItem)
+            {
+                launch.State = NSCellStateValue.Off;
+            }
+            else if (isLoginItem)
+                launch.State = NSCellStateValue.On;
+            
             NSMenu.PopUpContextMenu(settingsMenu, current, sender as NSView);
         }
+
+        [Export("launch:")]         void Launch(NSObject sender)         {
+            if (!isLoginItem)
+            {
+                var addToLoginScript = File.ReadAllText("Scripts/LoginAdd.txt");
+                script = new NSAppleScript(addToLoginScript);
+                script.ExecuteAndReturnError(out errors);
+            }
+            else
+            {
+                var removeFromLoginScript = File.ReadAllText("Scripts/LoginRemove.txt");
+                script = new NSAppleScript(removeFromLoginScript);
+                script.ExecuteAndReturnError(out errors);
+            }         } 
 
         [Export("quit:")]         void Quit(NSObject sender)         {             QuitButtonClicked?.Invoke(this, null);         }
 

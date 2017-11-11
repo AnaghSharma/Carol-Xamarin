@@ -80,9 +80,6 @@
     <None Include="Info.plist" />
     <None Include="Entitlements.plist" />
     <None Include="packages.config" />
-    <None Include="Scripts\LoginCheck.txt" />
-    <None Include="Scripts\LoginAdd.txt" />
-    <None Include="Scripts\LoginRemove.txt" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Main.cs" />
@@ -113,6 +110,9 @@
     <BundleResource Include="Resources\settings_alternate.png" />
     <BundleResource Include="Resources\StatusBarIcon.png" />
     <BundleResource Include="Resources\Logo.png" />
+    <BundleResource Include="Scripts\LoginAdd.txt" />
+    <BundleResource Include="Scripts\LoginCheck.txt" />
+    <BundleResource Include="Scripts\LoginRemove.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Mac\Xamarin.Mac.CSharp.targets" />
 </Project>
