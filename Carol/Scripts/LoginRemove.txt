@@ -1,0 +1,5 @@
+﻿-- Remove the app from the login items of macOS
+
+tell application "System Events"
+    delete login item "Carol"
+end tell

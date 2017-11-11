@@ -80,6 +80,9 @@
     <None Include="Info.plist" />
     <None Include="Entitlements.plist" />
     <None Include="packages.config" />
+    <None Include="Scripts\LoginCheck.txt" />
+    <None Include="Scripts\LoginAdd.txt" />
+    <None Include="Scripts\LoginRemove.txt" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Main.cs" />

@@ -1,0 +1,5 @@
+﻿-- Add the app to the login items of macOS
+
+tell application "System Events"
+    make new login item at end of login items with properties {name:"Carol", path:"/Applications/Carol.app", hidden:false}
+end tell

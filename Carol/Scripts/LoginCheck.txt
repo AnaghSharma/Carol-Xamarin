@@ -1,0 +1,10 @@
+﻿-- Check if the app is in the login items of macOS
+
+tell application "System Events"
+    get the name of every login item
+    if login item "Carol" exists then
+        return true
+    else
+        return false
+    end if
+end tell
