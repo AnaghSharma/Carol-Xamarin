@@ -16,18 +16,18 @@ namespace Carol.Helpers
             
         }
 
-        public StatusBarController(NSPopover popover)
+        public StatusBarController(NSPopover popover, string image)
         {
             //Initialisation
             statusBar = new NSStatusBar();
             statusItem = statusBar.CreateStatusItem(NSStatusItemLength.Variable);
 
             button = statusItem.Button;
-            //button.Image = new NSImage(image)
-            //{
-            //    Template = true
-            //};
-            button.Title = "Carol";
+            button.Image = new NSImage(image)
+            {
+                Template = true
+            };
+
             button.Action = new ObjCRuntime.Selector("toggle:");
             button.Target = this;
 

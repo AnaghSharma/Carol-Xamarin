@@ -108,6 +108,7 @@
     <BundleResource Include="Scripts\GetAlbumArt.txt" />
     <BundleResource Include="Resources\settings.png" />
     <BundleResource Include="Resources\settings_alternate.png" />
+    <BundleResource Include="Resources\StatusBarIcon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Mac\Xamarin.Mac.CSharp.targets" />
 </Project>

@@ -23,7 +23,7 @@ namespace Carol
 
             popover.ContentViewController = controller;
 
-            StatusBarController statusBar = new StatusBarController(popover);
+            StatusBarController statusBar = new StatusBarController(popover, "StatusBarIcon.png");
         }
 
         public override void WillTerminate(NSNotification notification)
