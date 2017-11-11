@@ -23,6 +23,7 @@ namespace Carol
         NSCursor cursor;
         bool isLoginItem;
         public static event EventHandler QuitButtonClicked;
+        public static event EventHandler AboutMenuItemClicked;
 
         public ViewController(IntPtr handle) : base(handle)
         {
@@ -188,6 +189,11 @@ namespace Carol
                 script = new NSAppleScript(removeFromLoginScript);
                 script.ExecuteAndReturnError(out errors);
             }         } 
+        [Export("about:")]
+        void About(NSObject sender)
+        {
+            AboutMenuItemClicked?.Invoke(this, null);
+        }
 
         [Export("quit:")]         void Quit(NSObject sender)         {             QuitButtonClicked?.Invoke(this, null);         }
 

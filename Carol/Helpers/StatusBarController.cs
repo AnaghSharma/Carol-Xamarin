@@ -10,6 +10,9 @@ namespace Carol.Helpers
         readonly NSPopover popover;
         NSStatusBarButton button;
         EventMonitor eventMonitor;
+        NSWindow aboutWindow;
+        NSStoryboard storyboard;
+        NSWindowController windowController;
 
         public StatusBarController()
         { 
@@ -36,11 +39,16 @@ namespace Carol.Helpers
 			eventMonitor = new EventMonitor((NSEventMask.LeftMouseDown | NSEventMask.RightMouseDown), MouseEventHandler);
 			eventMonitor.Start();
 
+            ViewController.AboutMenuItemClicked += HandleAboutMenuItemClicked;
             ViewController.QuitButtonClicked += HandleQuitButtonClicked;
+
+            storyboard = NSStoryboard.FromName("Main", null);
+            windowController = storyboard.InstantiateControllerWithIdentifier("AboutWindow") as NSWindowController;
         }
 
         ~StatusBarController()
         {
+            ViewController.AboutMenuItemClicked -= HandleAboutMenuItemClicked;
             ViewController.QuitButtonClicked -= HandleQuitButtonClicked;
         }
 
@@ -71,6 +79,18 @@ namespace Carol.Helpers
                 HidePopover(_event);
         }
 
+        void HandleAboutMenuItemClicked(object sender, System.EventArgs e)
+        {
+            HidePopover(sender as NSObject);
+
+            aboutWindow = windowController.Window;
+            aboutWindow.Title = "";
+            aboutWindow.TitlebarAppearsTransparent = true;
+            aboutWindow.MovableByWindowBackground = true;
+
+            windowController.ShowWindow(sender as NSObject);
+        }
+
         void HandleQuitButtonClicked(object sender, System.EventArgs e)
         {
             HidePopover(sender as NSObject);
@@ -84,6 +104,5 @@ namespace Carol.Helpers
             if (retValue == 1000)
                 NSApplication.SharedApplication.Terminate((sender as NSObject));
         }
-
     }
 }

@@ -95,6 +95,10 @@
     <Compile Include="Helpers\SecretsReader.cs" />
     <Compile Include="Models\Tracks.cs" />
     <Compile Include="Models\TrackLyrics.cs" />
+    <Compile Include="AboutViewController.cs" />
+    <Compile Include="AboutViewController.designer.cs">
+      <DependentUpon>AboutViewController.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Main.storyboard" />
