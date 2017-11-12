@@ -36,6 +36,13 @@ namespace Carol
 
         #endregion
 
+        public override void ViewDidLoad()
+        {
+            base.ViewDidLoad();
+
+            GitHubLink.Href = "https://github.com/AnaghSharma/Carol";
+            TwitterLink.Href = "https://twitter.com/AnaghSharma";
+        }
 
     }
 }

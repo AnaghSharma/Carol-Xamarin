@@ -99,6 +99,7 @@
     <Compile Include="AboutViewController.designer.cs">
       <DependentUpon>AboutViewController.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controls\HyperlinkTextField.cs" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Main.storyboard" />
