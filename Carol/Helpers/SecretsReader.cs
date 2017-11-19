@@ -1,4 +1,14 @@
-﻿using System;
+﻿/*
+ * Helper class to retrieve API key from Secrets.json fole
+ * 
+ * Author - Anagh Sharma
+ * http://www.anaghsharma.com
+ * 
+ * 2017
+ * 
+ */
+
+using System;
 using System.IO;
 using Newtonsoft.Json.Linq;
 
@@ -8,6 +18,10 @@ namespace Carol.Helpers
     {
         private static JObject secrets;
 
+        /// <summary>
+        /// Gets the API key
+        /// </summary>
+        /// <returns>API Key</returns>
         public static string GetSecrets()
         {
             secrets = JObject.Parse(GetSecretKey());

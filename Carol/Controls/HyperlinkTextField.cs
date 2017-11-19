@@ -1,10 +1,21 @@
-﻿using System;
+﻿/*
+ * Custom Text field control that works as a hyperlink
+ * 
+ * Author - Anagh Sharma
+ * http://www.anaghsharma.com
+ * 
+ * 2017
+ * 
+ */
+
+using System;
 using System.ComponentModel;
 using AppKit;
 using Foundation;
 
 namespace Carol.Controls
 {
+    // DesignTimeVisible(true) makes sure that the class is visible in Xcode at design time
     [Register("HyperlinkTextField"), DesignTimeVisible(true)]
     public class HyperlinkTextField : NSTextField
     {
@@ -23,6 +34,7 @@ namespace Carol.Controls
             set => href = value;
         }
 
+        #region Constructors
         public HyperlinkTextField(IntPtr p) : base(p)
         {
 
@@ -32,6 +44,7 @@ namespace Carol.Controls
         {
             
         }
+        #endregion
 
         public override void AwakeFromNib()
         {
@@ -39,6 +52,7 @@ namespace Carol.Controls
 
             AttributedStringValue = new NSAttributedString(StringValue, new NSStringAttributes()
             {
+                //You can change the color of link after uncommenting the following
                 //ForegroundColor = NSColor.Blue,
                 UnderlineStyle = NSUnderlineStyle.Single.GetHashCode()
             });

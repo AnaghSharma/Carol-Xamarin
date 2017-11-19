@@ -1,4 +1,14 @@
-﻿﻿using System;
+﻿/*
+ * Helper class to get the lyrics of a track
+ * 
+ * Author - Anagh Sharma
+ * http://www.anaghsharma.com
+ * 
+ * 2017
+ * 
+ */
+
+﻿using System;
 using System.Net.Http;
 using System.Threading.Tasks;
 using Carol.Models;
@@ -18,6 +28,12 @@ namespace Carol.Helpers
             apikey = SecretsReader.GetSecrets();
         }
 
+        /// <summary>
+        /// Method to get the track id of currently playing track
+        /// </summary>
+        /// <returns>Trackid.</returns>
+        /// <param name="track">Track Name.</param>
+        /// <param name="artist">Artist Name.</param>
 		public async Task GetTrackId(string track, string artist)
 		{
             var uri = new Uri(String.Format("https://api.musixmatch.com/ws/1.1/track.search?q_track={0}&q_artist={1}&apikey={2}", track, artist, apikey));
@@ -29,6 +45,13 @@ namespace Carol.Helpers
 			}
 		}
 
+        /// <summary>
+        /// Method to get the lyrics of a track
+        /// </summary>
+        /// <returns>Lyrics of the track.</returns>
+        /// <param name="track">Track.</param>
+        /// <param name="artist">Artist.</param>
+        /// <param name="onSuccess">Action.</param>
         public async Task GetLyrics(string track, string artist, Action<string> onSuccess)
         {
             await GetTrackId(track, artist);

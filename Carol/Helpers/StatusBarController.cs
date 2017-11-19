@@ -1,4 +1,14 @@
-﻿using AppKit;
+﻿/*
+ * Helper class to create and maintain a Status Bar Item
+ * 
+ * Author - Anagh Sharma
+ * http://www.anaghsharma.com
+ * 
+ * 2017
+ * 
+ */
+
+using AppKit;
 using Foundation;
 
 namespace Carol.Helpers
@@ -14,6 +24,7 @@ namespace Carol.Helpers
         NSStoryboard storyboard;
         NSWindowController windowController;
 
+        #region Constructors
         public StatusBarController()
         { 
             
@@ -45,7 +56,9 @@ namespace Carol.Helpers
             storyboard = NSStoryboard.FromName("Main", null);
             windowController = storyboard.InstantiateControllerWithIdentifier("AboutWindow") as NSWindowController;
         }
+        #endregion
 
+        //Destructor
         ~StatusBarController()
         {
             ViewController.AboutMenuItemClicked -= HandleAboutMenuItemClicked;
@@ -73,12 +86,21 @@ namespace Carol.Helpers
             eventMonitor.Stop();
         }
 
+        /// <summary>
+        /// Hides popover on external mouse click
+        /// </summary>
+        /// <param name="_event">Event.</param>
         void MouseEventHandler(NSEvent _event)
         {
             if (popover.Shown)
                 HidePopover(_event);
         }
 
+        /// <summary>
+        /// Handles the about menu item click.
+        /// </summary>
+        /// <param name="sender">Sender.</param>
+        /// <param name="e">E.</param>
         void HandleAboutMenuItemClicked(object sender, System.EventArgs e)
         {
             HidePopover(sender as NSObject);
@@ -91,6 +113,11 @@ namespace Carol.Helpers
             windowController.ShowWindow(sender as NSObject);
         }
 
+        /// <summary>
+        /// Handles the quit button click.
+        /// </summary>
+        /// <param name="sender">Sender.</param>
+        /// <param name="e">E.</param>
         void HandleQuitButtonClicked(object sender, System.EventArgs e)
         {
             HidePopover(sender as NSObject);

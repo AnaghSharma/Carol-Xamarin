@@ -37,17 +37,22 @@ namespace Carol
             // Do any additional setup after loading the view.
             lyricsHelper = new LyricsHelper();
             LyricsTextView.BackgroundColor = NSColor.Clear;
+
+            // Media Player is the Visual Effect View with Blur and Vibrancy
 			MediaPlayer.WantsLayer = true;
 			MediaPlayer.Material = NSVisualEffectMaterial.Dark;
 			MediaPlayer.BlendingMode = NSVisualEffectBlendingMode.WithinWindow;
             MediaPlayer.Layer.CornerRadius = 4.0f;
 
+            // Progress bar shows how much of lyrics have you covered. It works with scrollview
             progress = ProgressBar.Frame;
 
+            //Adding observer of Scroll view change in Notification Center. It helps to update the width of progress bar
             MainScroll.ContentView.PostsBoundsChangedNotifications = true;
             NSNotificationCenter.DefaultCenter.AddObserver(this, new ObjCRuntime.Selector("boundsChange:"),
             NSView.BoundsChangedNotification, MainScroll.ContentView);
 
+            #region Settings Menu
             settingsMenu = new NSMenu();
             hoverarea = new NSTrackingArea(SettingsButton.Bounds, NSTrackingAreaOptions.MouseEnteredAndExited | NSTrackingAreaOptions.ActiveAlways, this, null);
             SettingsButton.AddTrackingArea(hoverarea);
@@ -61,27 +66,10 @@ namespace Carol
             settingsMenu.AddItem(about);
             settingsMenu.AddItem(NSMenuItem.SeparatorItem);
             settingsMenu.AddItem(quit);
+            #endregion
 
             cursor = NSCursor.CurrentSystemCursor;
 		}
-
-        [Export("boundsChange:")]
-        public void BoundsDidChangeNotification(NSObject sender)
-        {
-            var notification = sender as NSNotification;
-            var view = notification.Object as NSView;
-            var position = view.Bounds.Location.Y;
-
-            var width = (position * 100) / (containerHeight - MainScroll.Bounds.Height);
-            if (width > 4 && width <= 100)
-                progress.Width = width;
-            else if (width < 0)
-                progress.Width = 4;
-            else if (width > 100)
-                progress.Width = 100;
-            ProgressBar.Frame = progress;
-        } 
-
 
         public override NSObject RepresentedObject
         {
@@ -104,6 +92,7 @@ namespace Carol
 			script = new NSAppleScript(getCurrentSongScript);
 			result = script.ExecuteAndReturnError(out errors);
 
+            //The NumberofItems property is being used to handle different use cases. Check GetCurrentSong.txt in Scripts folder to know more
             if (result.NumberOfItems == 3)
             {
                 var artist = result.DescriptorAtIndex(1).StringValue;
@@ -157,10 +146,30 @@ namespace Carol
                 LyricsTextView.Value = "Something went wrong. It happens.";
         }
 
+        //Observer method called to update the progress bar whenever scrolling occurs 
+        [Export("boundsChange:")]
+        public void BoundsDidChangeNotification(NSObject sender)
+        {
+            var notification = sender as NSNotification;
+            var view = notification.Object as NSView;
+            var position = view.Bounds.Location.Y;
+
+            var width = (position * 100) / (containerHeight - MainScroll.Bounds.Height);
+            if (width > 4 && width <= 100)
+                progress.Width = width;
+            else if (width < 0)
+                progress.Width = 4;
+            else if (width > 100)
+                progress.Width = 100;
+            ProgressBar.Frame = progress;
+        }
+
+
         partial void SettingsButtonClick(NSObject sender)
         {
             var current = NSApplication.SharedApplication.CurrentEvent;
 
+            //Check if the app is in login items of macOS or not
             var checkLoginItemsScript = File.ReadAllText("Scripts/LoginCheck.txt");
             script = new NSAppleScript(checkLoginItemsScript);
             result = script.ExecuteAndReturnError(out errors);
@@ -176,6 +185,7 @@ namespace Carol
             NSMenu.PopUpContextMenu(settingsMenu, current, sender as NSView);
         }
 
+        //Method to handle Launch at Login functionality
         [Export("launch:")]         void Launch(NSObject sender)         {
             if (!isLoginItem)
             {
@@ -188,13 +198,15 @@ namespace Carol
                 var removeFromLoginScript = File.ReadAllText("Scripts/LoginRemove.txt");
                 script = new NSAppleScript(removeFromLoginScript);
                 script.ExecuteAndReturnError(out errors);
-            }         } 
+            }         }
+         //Delegating the About Menu Item click event to Helpers/StatusBarController.cs
         [Export("about:")]
         void About(NSObject sender)
         {
             AboutMenuItemClicked?.Invoke(this, null);
         }
 
+        //Delegating the Quit Menu Item click event to Helpers/StatusBarController.cs
         [Export("quit:")]         void Quit(NSObject sender)         {             QuitButtonClicked?.Invoke(this, null);         }
 
         //Method override to change cursor to pointing hand on Mouse Enter (Hover)

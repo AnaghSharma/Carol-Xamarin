@@ -1,4 +1,14 @@
-﻿using System;
+﻿/*
+ * Model for track
+ * 
+ * Author - Anagh Sharma
+ * http://www.anaghsharma.com
+ * 
+ * 2017
+ * 
+ */
+
+using System;
 using System.Collections.Generic;
 
 namespace Carol.Models
