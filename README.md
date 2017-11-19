@@ -1,4 +1,5 @@
-<p align="center"><img width=100% src="https://www.dropbox.com/s/ui6ihgtrnrx7hdc/GitHub%20Hero.jpg?raw=1"></p>
+
+<p align="center"><img width=97% src="https://www.dropbox.com/s/ui6ihgtrnrx7hdc/GitHub%20Hero.jpg?raw=1"></p>
 <h2 align="center">Carol</h2>
 <p align="center">Carol is a minimal and beautiful lyrics app for macOS</p>
 <br>
@@ -11,13 +12,12 @@
 * Fetches lyrics from ![Musixmatch](https://www.musixmatch.com) - world's largest catalog of lyrics
 * Stays in the menu bar of macOS for quick access
 * Light in size
-<br>
 
 ## How to use
 #### Requirements
 macOS 10.10 (OS X Yosemite) and above
 #### Download
-Download the latest release from here.
+![Download the latest release from here.](https://github.com/AnaghSharma/Carol/releases)
 #### Install
 1. Double click the `Carol-<version>.pkg` file.
 2. Follow the onscreen instructions to install the app.
@@ -28,8 +28,9 @@ Launch the app from Applications folder. It will open in your menu bar. Enjoy.
 <br>
 
 ## Note
-1. The app uses the free version of Musixmatch api which returns only 30% of a song's lyrics.
+1. The app uses the free version of Musixmatch API which returns only 30% of a song's lyrics.
 2. Background artwork only works with songs that are in your iTunes library.
+3. The API calls are limited to 2000 per day.
 
 ## Disclaimer
 This project is for learning purpose only. If you want to learn macOS development and Xamarin technologies, feel free to use this project. Please do not sell/re-sell the project or its content as it uses the free plan of Musixmatch API which prohibits it for any commercial use. Use it at your own risk.
