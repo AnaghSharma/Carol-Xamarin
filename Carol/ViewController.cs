@@ -20,7 +20,6 @@ namespace Carol
         NSTrackingArea hoverarea;
         NSMenu settingsMenu;
         NSMenuItem launch;
-        NSCursor cursor;
         bool isLoginItem;
         public static event EventHandler QuitButtonClicked;
         public static event EventHandler AboutMenuItemClicked;
@@ -68,7 +67,6 @@ namespace Carol
             settingsMenu.AddItem(quit);
             #endregion
 
-            cursor = NSCursor.CurrentSystemCursor;
 		}
 
         public override NSObject RepresentedObject
@@ -208,21 +206,5 @@ namespace Carol
 
         //Delegating the Quit Menu Item click event to Helpers/StatusBarController.cs
         [Export("quit:")]         void Quit(NSObject sender)         {             QuitButtonClicked?.Invoke(this, null);         }
-
-        //Method override to change cursor to pointing hand on Mouse Enter (Hover)
-        public override void MouseEntered(NSEvent theEvent)
-        {
-            base.MouseEntered(theEvent);
-
-            cursor = NSCursor.PointingHandCursor;
-            cursor.Push();
-        }
-        //Method override to change cursor to pointing hand on Mouse Exit
-        public override void MouseExited(NSEvent theEvent)
-        {
-            base.MouseEntered(theEvent);
-
-            cursor.Pop();
-        }
     }
 }

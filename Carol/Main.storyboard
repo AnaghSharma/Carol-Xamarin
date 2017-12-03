@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="12121"/>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="13529"/>
         <capability name="box content view" minToolsVersion="7.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
         <capability name="stacking Non-gravity area distributions on NSStackView" minToolsVersion="7.0" minSystemVersion="10.11"/>
@@ -673,7 +674,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="328" height="155"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <textView editable="NO" selectable="NO" importsGraphics="NO" continuousSpellChecking="YES" allowsNonContiguousLayout="YES" quoteSubstitution="YES" dashSubstitution="YES" spellingCorrection="YES" smartInsertDelete="YES" id="Syc-Mp-Chh">
+                                        <textView editable="NO" selectable="NO" importsGraphics="NO" verticallyResizable="YES" continuousSpellChecking="YES" allowsNonContiguousLayout="YES" quoteSubstitution="YES" dashSubstitution="YES" spellingCorrection="YES" smartInsertDelete="YES" id="Syc-Mp-Chh">
                                             <rect key="frame" x="0.0" y="0.0" width="328" height="155"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -684,7 +685,7 @@
                                                 <fragment content="Play some jam">
                                                     <attributes>
                                                         <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                        <font key="NSFont" size="26" name="SFUIText-Semibold"/>
+                                                        <font key="NSFont" metaFont="system" size="26"/>
                                                         <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                     </attributes>
                                                 </fragment>
@@ -723,14 +724,14 @@
                             <visualEffectView appearanceType="vibrantDark" blendingMode="behindWindow" material="dark" state="active" translatesAutoresizingMaskIntoConstraints="NO" id="vhg-aH-LMl">
                                 <rect key="frame" x="12" y="12" width="376" height="91"/>
                                 <subviews>
-                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G9w-IW-v1x">
+                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="G9w-IW-v1x">
                                         <rect key="frame" x="10" y="26" width="264" height="17"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="260" id="ENP-Kw-TkT"/>
                                             <constraint firstAttribute="height" constant="17" id="jeI-y5-fSL"/>
                                         </constraints>
                                         <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" placeholderString="" id="AOZ-G4-J7k">
-                                            <font key="font" size="13" name="SFUIText-Regular"/>
+                                            <font key="font" metaFont="system"/>
                                             <color key="textColor" red="0.7019608021" green="0.7019608021" blue="0.7019608021" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                         </textFieldCell>
@@ -738,10 +739,10 @@
                                     <box verticalHuggingPriority="750" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="8HF-ez-egf">
                                         <rect key="frame" x="12" y="54" width="64" height="5"/>
                                     </box>
-                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5LI-lX-u2v">
-                                        <rect key="frame" x="10" y="9" width="4" height="17"/>
+                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="5LI-lX-u2v">
+                                        <rect key="frame" x="10" y="12" width="4" height="14"/>
                                         <textFieldCell key="cell" sendsActionOnEndEditing="YES" id="6D5-Ai-Qdo">
-                                            <font key="font" size="11" name="SFUIText-Regular"/>
+                                            <font key="font" metaFont="smallSystem"/>
                                             <color key="textColor" red="0.50196081400000003" green="0.50196081400000003" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                         </textFieldCell>
@@ -753,10 +754,10 @@
                                         </constraints>
                                         <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="f5f-82-oxZ"/>
                                     </imageView>
-                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hTa-yL-Stx">
-                                        <rect key="frame" x="30" y="65" width="4" height="17"/>
+                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="hTa-yL-Stx">
+                                        <rect key="frame" x="30" y="66" width="4" height="14"/>
                                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" id="7Oi-x3-NSf">
-                                            <font key="font" size="11" name="SFUIText-Regular"/>
+                                            <font key="font" metaFont="smallSystem"/>
                                             <color key="textColor" red="0.49803921579999999" green="0.49803921579999999" blue="0.49803921579999999" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                         </textFieldCell>
@@ -829,9 +830,11 @@
                 <windowController storyboardIdentifier="AboutWindow" id="7L0-UJ-mzo" sceneMemberID="viewController">
                     <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="Fud-Gr-h7W">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES"/>
-                        <windowPositionMask key="initialPositionMask" topStrut="YES" bottomStrut="YES"/>
-                        <rect key="contentRect" x="245" y="550" width="480" height="270"/>
+                        <rect key="contentRect" x="245" y="222" width="480" height="270"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
+                        <connections>
+                            <outlet property="delegate" destination="7L0-UJ-mzo" id="Uwj-xT-oXu"/>
+                        </connections>
                     </window>
                     <connections>
                         <segue destination="an7-CN-1bD" kind="relationship" relationship="window.shadowedContentViewController" id="jfo-f2-2hq"/>
@@ -850,35 +853,35 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <box boxType="custom" borderType="none" borderWidth="0.0" translatesAutoresizingMaskIntoConstraints="NO" id="QQc-kk-MlN">
-                                <rect key="frame" x="20" y="246" width="80" height="4"/>
+                                <rect key="frame" x="20" y="232" width="80" height="5"/>
                                 <view key="contentView" id="eiA-oi-Ktj">
-                                    <rect key="frame" x="0.0" y="0.0" width="80" height="4"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="80" height="5"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 </view>
                                 <color key="borderColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="fillColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="1" colorSpace="calibratedRGB"/>
                             </box>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LJw-cG-RzK">
-                                <rect key="frame" x="18" y="199" width="88" height="42"/>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="LJw-cG-RzK">
+                                <rect key="frame" x="18" y="193" width="78" height="34"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="About" id="YIU-zk-2G2">
-                                    <font key="font" size="28" name="SFUIText-Semibold"/>
+                                    <font key="font" metaFont="system" size="28"/>
                                     <color key="textColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" preferredMaxLayoutWidth="464" translatesAutoresizingMaskIntoConstraints="NO" id="DL5-pE-lIT">
-                                <rect key="frame" x="18" y="119" width="444" height="60"/>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" preferredMaxLayoutWidth="464" translatesAutoresizingMaskIntoConstraints="NO" id="DL5-pE-lIT">
+                                <rect key="frame" x="18" y="119" width="444" height="54"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="440" id="A3r-ZT-PR7"/>
                                 </constraints>
                                 <textFieldCell key="cell" sendsActionOnEndEditing="YES" id="zT9-38-pNZ">
-                                    <font key="font" size="14" name="SFUIText-Regular"/>
+                                    <font key="font" metaFont="system" size="14"/>
                                     <string key="title">Carol is a lyrics app that stays in the menu bar of your macOS. The lyrics are powered by Musixmatch. This project is for learning purpose only and not for any commercial use.</string>
                                     <color key="textColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Ps-F5-h1E" customClass="HyperlinkTextField">
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="5Ps-F5-h1E" customClass="HyperlinkTextField">
                                 <rect key="frame" x="18" y="17" width="154" height="17"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Check Project on GitHub" id="JlM-pP-R4f">
                                     <font key="font" metaFont="system"/>
@@ -886,7 +889,7 @@
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sJQ-NC-dXN" customClass="HyperlinkTextField">
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="sJQ-NC-dXN" customClass="HyperlinkTextField">
                                 <rect key="frame" x="192" y="17" width="123" height="17"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Say hello on Twitter" id="81A-tv-VjH">
                                     <font key="font" metaFont="system"/>
@@ -895,29 +898,29 @@
                                 </textFieldCell>
                             </textField>
                             <stackView distribution="fill" orientation="horizontal" alignment="top" spacing="2" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" fixedFrame="YES" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EgT-BJ-DKK">
-                                <rect key="frame" x="20" y="62" width="283" height="20"/>
+                                <rect key="frame" x="20" y="64" width="276" height="18"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GPR-WK-m99" userLabel="Designed">
-                                        <rect key="frame" x="-2" y="0.0" width="71" height="20"/>
+                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" setsMaxLayoutWidthAtFirstLayout="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GPR-WK-m99" userLabel="Designed">
+                                        <rect key="frame" x="-2" y="0.0" width="69" height="18"/>
                                         <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="Designed" id="dVP-eS-HdF">
-                                            <font key="font" size="14" name="SFUIText-Bold"/>
+                                            <font key="font" metaFont="systemBold" size="14"/>
                                             <color key="textColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                         </textFieldCell>
                                     </textField>
-                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3sB-kg-7fa" userLabel="Designed">
-                                        <rect key="frame" x="67" y="0.0" width="109" height="20"/>
+                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" setsMaxLayoutWidthAtFirstLayout="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3sB-kg-7fa" userLabel="Designed">
+                                        <rect key="frame" x="65" y="0.0" width="106" height="18"/>
                                         <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="&amp; Developed by" id="bkG-nO-nyr">
-                                            <font key="font" size="14" name="SFUIText-Regular"/>
+                                            <font key="font" metaFont="system" size="14"/>
                                             <color key="textColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                         </textFieldCell>
                                     </textField>
-                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YPw-8m-bot" userLabel="Designed">
-                                        <rect key="frame" x="174" y="0.0" width="111" height="20"/>
+                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" setsMaxLayoutWidthAtFirstLayout="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YPw-8m-bot" userLabel="Designed">
+                                        <rect key="frame" x="169" y="0.0" width="109" height="18"/>
                                         <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="Anagh Sharma " id="DKR-H5-zdT">
-                                            <font key="font" size="14" name="SFUIText-Bold"/>
+                                            <font key="font" metaFont="systemBold" size="14"/>
                                             <color key="textColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                         </textFieldCell>
@@ -940,7 +943,7 @@
                             <constraint firstItem="DL5-pE-lIT" firstAttribute="top" secondItem="LJw-cG-RzK" secondAttribute="bottom" constant="20" id="EsI-PS-Q11"/>
                             <constraint firstItem="5Ps-F5-h1E" firstAttribute="baseline" secondItem="sJQ-NC-dXN" secondAttribute="baseline" id="JVR-Gi-uZE"/>
                             <constraint firstItem="sJQ-NC-dXN" firstAttribute="leading" secondItem="5Ps-F5-h1E" secondAttribute="trailing" constant="24" id="MG0-iJ-egc"/>
-                            <constraint firstItem="QQc-kk-MlN" firstAttribute="top" secondItem="dGd-6m-SWN" secondAttribute="top" constant="38" id="OpI-9f-GhY"/>
+                            <constraint firstItem="QQc-kk-MlN" firstAttribute="top" secondItem="dGd-6m-SWN" secondAttribute="top" constant="51" id="OpI-9f-GhY"/>
                             <constraint firstItem="5Ps-F5-h1E" firstAttribute="top" secondItem="DL5-pE-lIT" secondAttribute="bottom" constant="85" id="PiR-em-7PC"/>
                             <constraint firstItem="QQc-kk-MlN" firstAttribute="leading" secondItem="DL5-pE-lIT" secondAttribute="leading" id="YLg-7g-AHc"/>
                             <constraint firstItem="5Ps-F5-h1E" firstAttribute="leading" secondItem="dGd-6m-SWN" secondAttribute="leading" constant="20" symbolic="YES" id="ZHd-V1-Qhx"/>
