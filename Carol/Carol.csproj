@@ -110,7 +110,7 @@
     <BundleResource Include="Resources\icon_itunes.pdf" />
     <BundleResource Include="Resources\icon_spotify.pdf" />
     <BundleResource Include="Resources\gradient_background.png" />
-    <BundleResource Include="Scripts\GetAlbumArt.txt" />
+    <BundleResource Include="Scripts\GetAlbumArtiTunes.txt" />
     <BundleResource Include="Resources\settings.png" />
     <BundleResource Include="Resources\settings_alternate.png" />
     <BundleResource Include="Resources\StatusBarIcon.png" />
