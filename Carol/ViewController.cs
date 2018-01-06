@@ -119,7 +119,13 @@ namespace Carol
                     {
 						 PlayerIcon.Image = new NSImage("icon_spotify.pdf");
 						 PlayerName.StringValue = app;
-                         AlbumArtView.Image = null;
+                         
+                         var getAlbumArt = File.ReadAllText("Scripts/GetAlbumArtSpotify.txt");
+                         script = new NSAppleScript(getAlbumArt);
+                         result = script.ExecuteAndReturnError(out errors);
+                         NSUrl artworkurl = new NSUrl(result.StringValue);
+                         NSImage cover = new NSImage(artworkurl);
+                         AlbumArtView.Image = cover;
                     }
 
                     containerHeight = (float)LyricsTextView.Bounds.Height;

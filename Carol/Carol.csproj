@@ -118,6 +118,7 @@
     <BundleResource Include="Scripts\LoginAdd.txt" />
     <BundleResource Include="Scripts\LoginCheck.txt" />
     <BundleResource Include="Scripts\LoginRemove.txt" />
+    <BundleResource Include="Scripts\GetAlbumArtSpotify.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Mac\Xamarin.Mac.CSharp.targets" />
 </Project>
