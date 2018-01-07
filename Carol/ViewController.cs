@@ -58,7 +58,7 @@ namespace Carol
 
             launch = new NSMenuItem("Launch at Login", new ObjCRuntime.Selector("launch:"), "");
             NSMenuItem about = new NSMenuItem("About", new ObjCRuntime.Selector("about:"), "");
-            NSMenuItem quit = new NSMenuItem("Quit", new ObjCRuntime.Selector("quit:"), "q");
+            NSMenuItem quit = new NSMenuItem("Quit Carol", new ObjCRuntime.Selector("quit:"), "q");
 
 
             settingsMenu.AddItem(launch);
