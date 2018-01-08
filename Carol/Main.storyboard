@@ -712,7 +712,7 @@
                                             <color key="fillColor" red="1" green="1" blue="1" alpha="0.2365421660958904" colorSpace="calibratedRGB"/>
                                         </box>
                                         <scrollView fixedFrame="YES" borderType="none" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" hasVerticalScroller="NO" usesPredominantAxisScrolling="NO" horizontalScrollElasticity="none" translatesAutoresizingMaskIntoConstraints="NO" id="EjX-ll-Pz2">
-                                            <rect key="frame" x="12" y="34" width="288" height="195"/>
+                                            <rect key="frame" x="12" y="30" width="288" height="195"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <clipView key="contentView" ambiguous="YES" drawsBackground="NO" copiesOnScroll="NO" id="cSK-XD-eQR">
                                                 <rect key="frame" x="0.0" y="0.0" width="288" height="195"/>
@@ -729,7 +729,7 @@
                                                             <fragment content="Play some jam">
                                                                 <attributes>
                                                                     <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                                    <font key="NSFont" metaFont="systemSemibold" size="27"/>
+                                                                    <font key="NSFont" metaFont="systemMedium" size="27"/>
                                                                     <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                                 </attributes>
                                                             </fragment>
@@ -749,17 +749,8 @@
                                         </scrollView>
                                     </subviews>
                                 </view>
-                                <color key="fillColor" white="0.0" alpha="0.79863556338028174" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="fillColor" white="0.0" alpha="0.71999999999999997" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </box>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5LI-lX-u2v">
-                                <rect key="frame" x="84" y="304" width="4" height="14"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <textFieldCell key="cell" sendsActionOnEndEditing="YES" id="6D5-Ai-Qdo">
-                                    <font key="font" metaFont="smallSystem"/>
-                                    <color key="textColor" red="0.50196081400000003" green="0.50196081400000003" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
                             <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xFl-eR-wgZ">
                                 <rect key="frame" x="36" y="300" width="14" height="14"/>
                                 <constraints>
@@ -769,7 +760,7 @@
                                 <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="f5f-82-oxZ"/>
                             </imageView>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="G9w-IW-v1x">
-                                <rect key="frame" x="82" y="323" width="264" height="17"/>
+                                <rect key="frame" x="84" y="323" width="260" height="17"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="260" id="ENP-Kw-TkT"/>
                                     <constraint firstAttribute="height" constant="17" id="jeI-y5-fSL"/>
@@ -777,6 +768,15 @@
                                 <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" placeholderString="" id="AOZ-G4-J7k">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" red="0.99404761904761907" green="0.98809523809523814" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5LI-lX-u2v">
+                                <rect key="frame" x="84" y="307" width="260" height="14"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <textFieldCell key="cell" sendsActionOnEndEditing="YES" id="6D5-Ai-Qdo">
+                                    <font key="font" metaFont="smallSystem"/>
+                                    <color key="textColor" red="0.50196081400000003" green="0.50196081400000003" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
