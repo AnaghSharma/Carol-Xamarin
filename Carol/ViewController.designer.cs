@@ -19,19 +19,16 @@ namespace Carol
 		AppKit.NSTextField ArtistName { get; set; }
 
 		[Outlet]
+		AppKit.NSVisualEffectView BlurOverlay { get; set; }
+
+		[Outlet]
 		AppKit.NSTextView LyricsTextView { get; set; }
 
 		[Outlet]
 		AppKit.NSScrollView MainScroll { get; set; }
 
 		[Outlet]
-		AppKit.NSVisualEffectView MediaPlayer { get; set; }
-
-		[Outlet]
 		AppKit.NSImageView PlayerIcon { get; set; }
-
-		[Outlet]
-		AppKit.NSTextField PlayerName { get; set; }
 
 		[Outlet]
 		AppKit.NSBox ProgressBackground { get; set; }
@@ -70,19 +67,9 @@ namespace Carol
 				MainScroll = null;
 			}
 
-			if (MediaPlayer != null) {
-				MediaPlayer.Dispose ();
-				MediaPlayer = null;
-			}
-
 			if (PlayerIcon != null) {
 				PlayerIcon.Dispose ();
 				PlayerIcon = null;
-			}
-
-			if (PlayerName != null) {
-				PlayerName.Dispose ();
-				PlayerName = null;
 			}
 
 			if (ProgressBackground != null) {
@@ -95,14 +82,19 @@ namespace Carol
 				ProgressBar = null;
 			}
 
+			if (SettingsButton != null) {
+				SettingsButton.Dispose ();
+				SettingsButton = null;
+			}
+
 			if (TrackName != null) {
 				TrackName.Dispose ();
 				TrackName = null;
 			}
 
-			if (SettingsButton != null) {
-				SettingsButton.Dispose ();
-				SettingsButton = null;
+			if (BlurOverlay != null) {
+				BlurOverlay.Dispose ();
+				BlurOverlay = null;
 			}
 		}
 	}

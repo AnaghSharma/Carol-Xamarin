@@ -38,10 +38,14 @@ namespace Carol
             LyricsTextView.BackgroundColor = NSColor.Clear;
 
             // Media Player is the Visual Effect View with Blur and Vibrancy
-			MediaPlayer.WantsLayer = true;
-			MediaPlayer.Material = NSVisualEffectMaterial.Dark;
-			MediaPlayer.BlendingMode = NSVisualEffectBlendingMode.WithinWindow;
-            MediaPlayer.Layer.CornerRadius = 4.0f;
+            //MediaPlayer.WantsLayer = true;
+            //MediaPlayer.Material = NSVisualEffectMaterial.Dark;
+            //MediaPlayer.BlendingMode = NSVisualEffectBlendingMode.WithinWindow;
+            //MediaPlayer.Layer.CornerRadius = 4.0f;
+
+            BlurOverlay.WantsLayer = true;
+            BlurOverlay.Material = NSVisualEffectMaterial.Dark;
+            BlurOverlay.BlendingMode = NSVisualEffectBlendingMode.WithinWindow;
 
             // Progress bar shows how much of lyrics have you covered. It works with scrollview
             progress = ProgressBar.Frame;
@@ -107,7 +111,7 @@ namespace Carol
                      if (app == "iTunes")
                      {
                          PlayerIcon.Image = new NSImage("icon_itunes.pdf");
-                         PlayerName.StringValue = app;
+                         
                          
                          var getAlbumArt = File.ReadAllText("Scripts/GetAlbumArtiTunes.txt");
                          script = new NSAppleScript(getAlbumArt);
@@ -118,7 +122,7 @@ namespace Carol
                      else 
                     {
 						 PlayerIcon.Image = new NSImage("icon_spotify.pdf");
-						 PlayerName.StringValue = app;
+						
                          
                          var getAlbumArt = File.ReadAllText("Scripts/GetAlbumArtSpotify.txt");
                          script = new NSAppleScript(getAlbumArt);
