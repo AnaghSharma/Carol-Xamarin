@@ -785,12 +785,18 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="5ud-9y-Ewu"/>
                             </imageView>
+                            <imageView hidden="YES" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6rY-BJ-3v1">
+                                <rect key="frame" x="86" y="280" width="44" height="14"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="explicit_tag" id="yz2-7S-Kga"/>
+                            </imageView>
                         </subviews>
                     </view>
                     <connections>
                         <outlet property="AlbumArtView" destination="4hu-ov-aYy" id="P7r-Tm-N15"/>
                         <outlet property="ArtistName" destination="5LI-lX-u2v" id="Aip-Vs-aes"/>
                         <outlet property="BlurOverlay" destination="n8l-nV-4cd" id="40X-Z5-iFf"/>
+                        <outlet property="ExplicitTag" destination="6rY-BJ-3v1" id="l6b-A0-m5C"/>
                         <outlet property="LyricsTextView" destination="Syc-Mp-Chh" id="5K6-se-aoy"/>
                         <outlet property="MainScroll" destination="EjX-ll-Pz2" id="QbB-6d-xBN"/>
                         <outlet property="PlayerIcon" destination="xFl-eR-wgZ" id="5ST-h7-mP7"/>
@@ -945,6 +951,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="explicit_tag" width="72" height="22"/>
         <image name="gradient_background" width="360" height="104"/>
         <image name="settings" width="18" height="18"/>
         <image name="settings_alternate" width="18" height="18"/>

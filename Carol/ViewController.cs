@@ -105,6 +105,11 @@ namespace Carol
                      LyricsTextView.Value = tracklyrics.message.body.lyrics.lyrics_body;
                      TrackName.StringValue = track;
                      ArtistName.StringValue = artist_name;
+
+                     if (tracklyrics.message.body.lyrics.@explicit == 1)
+                         ExplicitTag.Hidden = false;
+                     else
+                         ExplicitTag.Hidden = true;
                      
                      if (app == "iTunes")
                      {

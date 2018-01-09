@@ -22,6 +22,9 @@ namespace Carol
 		AppKit.NSVisualEffectView BlurOverlay { get; set; }
 
 		[Outlet]
+		AppKit.NSImageView ExplicitTag { get; set; }
+
+		[Outlet]
 		AppKit.NSTextView LyricsTextView { get; set; }
 
 		[Outlet]
@@ -60,6 +63,11 @@ namespace Carol
 				ArtistName = null;
 			}
 
+			if (BlurOverlay != null) {
+				BlurOverlay.Dispose ();
+				BlurOverlay = null;
+			}
+
 			if (LyricsTextView != null) {
 				LyricsTextView.Dispose ();
 				LyricsTextView = null;
@@ -90,19 +98,19 @@ namespace Carol
 				SettingsButton = null;
 			}
 
+			if (ThumbnailView != null) {
+				ThumbnailView.Dispose ();
+				ThumbnailView = null;
+			}
+
 			if (TrackName != null) {
 				TrackName.Dispose ();
 				TrackName = null;
 			}
 
-			if (BlurOverlay != null) {
-				BlurOverlay.Dispose ();
-				BlurOverlay = null;
-			}
-
-			if (ThumbnailView != null) {
-				ThumbnailView.Dispose ();
-				ThumbnailView = null;
+			if (ExplicitTag != null) {
+				ExplicitTag.Dispose ();
+				ExplicitTag = null;
 			}
 		}
 	}
