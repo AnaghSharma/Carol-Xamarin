@@ -37,15 +37,13 @@ namespace Carol
             lyricsHelper = new LyricsHelper();
             LyricsTextView.BackgroundColor = NSColor.Clear;
 
-            // Media Player is the Visual Effect View with Blur and Vibrancy
-            //MediaPlayer.WantsLayer = true;
-            //MediaPlayer.Material = NSVisualEffectMaterial.Dark;
-            //MediaPlayer.BlendingMode = NSVisualEffectBlendingMode.WithinWindow;
-            //MediaPlayer.Layer.CornerRadius = 4.0f;
-
+            // Blur Overlay is the Visual Effect View with Blur and Vibrancy
             BlurOverlay.WantsLayer = true;
             BlurOverlay.Material = NSVisualEffectMaterial.Dark;
             BlurOverlay.BlendingMode = NSVisualEffectBlendingMode.WithinWindow;
+
+            ThumbnailView.WantsLayer = true;
+            ThumbnailView.Layer.CornerRadius = 32.0f;
 
             // Progress bar shows how much of lyrics have you covered. It works with scrollview
             progress = ProgressBar.Frame;
@@ -101,12 +99,12 @@ namespace Carol
                 var track = result.DescriptorAtIndex(2).StringValue;
                 var app = result.DescriptorAtIndex(3).StringValue;
 
-                var lyrics = lyricsHelper.GetLyrics(track, artist, (response) =>
+                var lyrics = lyricsHelper.GetLyrics(track, artist, (artist_name, response) =>
                  {
                      TrackLyrics.RootObject tracklyrics = JsonConvert.DeserializeObject<TrackLyrics.RootObject>(response);
                      LyricsTextView.Value = tracklyrics.message.body.lyrics.lyrics_body;
                      TrackName.StringValue = track;
-                     ArtistName.StringValue = artist;
+                     ArtistName.StringValue = artist_name;
                      
                      if (app == "iTunes")
                      {
@@ -118,6 +116,7 @@ namespace Carol
                          result = script.ExecuteAndReturnError(out errors);
                          NSImage cover = new NSImage(result.Data);
                          AlbumArtView.Image = cover;
+                         ThumbnailView.Image = cover;
                      }
                      else 
                     {
@@ -130,6 +129,7 @@ namespace Carol
                          NSUrl artworkurl = new NSUrl(result.StringValue);
                          NSImage cover = new NSImage(artworkurl);
                          AlbumArtView.Image = cover;
+                         ThumbnailView.Image = cover;
                     }
 
                     containerHeight = (float)LyricsTextView.Bounds.Height;

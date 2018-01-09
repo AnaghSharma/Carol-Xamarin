@@ -673,7 +673,7 @@
                                 <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyUpOrDown" image="gradient_background" id="2MK-Mn-XKZ"/>
                             </imageView>
                             <button verticalHuggingPriority="750" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fJQ-Qm-OpT">
-                                <rect key="frame" x="153" y="283" width="20" height="20"/>
+                                <rect key="frame" x="324" y="279" width="20" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="20" id="3M3-cd-A7C"/>
                                     <constraint firstAttribute="height" constant="20" id="jY2-nH-TFh"/>
@@ -760,26 +760,31 @@
                                 <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="f5f-82-oxZ"/>
                             </imageView>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="G9w-IW-v1x">
-                                <rect key="frame" x="84" y="323" width="260" height="17"/>
+                                <rect key="frame" x="84" y="323" width="264" height="17"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="260" id="ENP-Kw-TkT"/>
                                     <constraint firstAttribute="height" constant="17" id="jeI-y5-fSL"/>
                                 </constraints>
                                 <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" placeholderString="" id="AOZ-G4-J7k">
-                                    <font key="font" metaFont="system"/>
+                                    <font key="font" metaFont="system" size="14"/>
                                     <color key="textColor" red="0.99404761904761907" green="0.98809523809523814" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5LI-lX-u2v">
-                                <rect key="frame" x="84" y="307" width="260" height="14"/>
+                                <rect key="frame" x="84" y="306" width="260" height="14"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <textFieldCell key="cell" sendsActionOnEndEditing="YES" id="6D5-Ai-Qdo">
                                     <font key="font" metaFont="smallSystem"/>
-                                    <color key="textColor" red="0.50196081400000003" green="0.50196081400000003" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="textColor" red="0.66422420739999999" green="0.66424006219999998" blue="0.66423153879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
+                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8eu-3o-xQg">
+                                <rect key="frame" x="12" y="276" width="64" height="64"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="5ud-9y-Ewu"/>
+                            </imageView>
                         </subviews>
                     </view>
                     <connections>
@@ -792,6 +797,7 @@
                         <outlet property="ProgressBackground" destination="BOR-1A-F26" id="Wl3-7m-hgH"/>
                         <outlet property="ProgressBar" destination="rnR-GE-7pv" id="zKn-o4-DKH"/>
                         <outlet property="SettingsButton" destination="fJQ-Qm-OpT" id="OBY-4P-qQH"/>
+                        <outlet property="ThumbnailView" destination="8eu-3o-xQg" id="6bE-L3-zdm"/>
                         <outlet property="TrackName" destination="G9w-IW-v1x" id="1LV-8J-8y6"/>
                     </connections>
                 </viewController>

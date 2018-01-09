@@ -40,6 +40,9 @@ namespace Carol
 		AppKit.NSButton SettingsButton { get; set; }
 
 		[Outlet]
+		AppKit.NSImageView ThumbnailView { get; set; }
+
+		[Outlet]
 		AppKit.NSTextField TrackName { get; set; }
 
 		[Action ("SettingsButtonClick:")]
@@ -95,6 +98,11 @@ namespace Carol
 			if (BlurOverlay != null) {
 				BlurOverlay.Dispose ();
 				BlurOverlay = null;
+			}
+
+			if (ThumbnailView != null) {
+				ThumbnailView.Dispose ();
+				ThumbnailView = null;
 			}
 		}
 	}

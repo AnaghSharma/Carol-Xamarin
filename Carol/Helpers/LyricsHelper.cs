@@ -21,6 +21,7 @@ namespace Carol.Helpers
         private readonly HttpClient client;
         private readonly String apikey;
         private int trackid;
+        private string artist_name;
 
         public LyricsHelper()
         {
@@ -42,6 +43,7 @@ namespace Carol.Helpers
 			{
 				Tracks.RootObject trackresult = JsonConvert.DeserializeObject<Tracks.RootObject>(await response.Content.ReadAsStringAsync());
 				trackid = trackresult.message.body.track_list[0].track.track_id;
+                artist_name = trackresult.message.body.track_list[0].track.artist_name;
 			}
 		}
 
@@ -52,7 +54,7 @@ namespace Carol.Helpers
         /// <param name="track">Track.</param>
         /// <param name="artist">Artist.</param>
         /// <param name="onSuccess">Action.</param>
-        public async Task GetLyrics(string track, string artist, Action<string> onSuccess)
+        public async Task GetLyrics(string track, string artist, Action<string, string> onSuccess)
         {
             await GetTrackId(track, artist);
 
@@ -60,7 +62,7 @@ namespace Carol.Helpers
 			var response = await client.GetAsync(uri.AbsoluteUri);
 			if (response.IsSuccessStatusCode)
 			{
-				onSuccess(await response.Content.ReadAsStringAsync());
+				onSuccess(artist_name, await response.Content.ReadAsStringAsync());
 			}
         }
 	}
