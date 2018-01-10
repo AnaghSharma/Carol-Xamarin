@@ -111,8 +111,6 @@
     <BundleResource Include="Resources\icon_spotify.pdf" />
     <BundleResource Include="Resources\gradient_background.png" />
     <BundleResource Include="Scripts\GetAlbumArtiTunes.txt" />
-    <BundleResource Include="Resources\settings.png" />
-    <BundleResource Include="Resources\settings_alternate.png" />
     <BundleResource Include="Resources\StatusBarIcon.png" />
     <BundleResource Include="Resources\Logo.png" />
     <BundleResource Include="Scripts\LoginAdd.txt" />
@@ -122,6 +120,9 @@
     <BundleResource Include="Resources\explicit_tag.png" />
     <BundleResource Include="Resources\open_browser.pdf" />
     <BundleResource Include="Resources\player_circular_background.pdf" />
+    <BundleResource Include="Resources\text_size.pdf" />
+    <BundleResource Include="Resources\settings.pdf" />
+    <BundleResource Include="Resources\settings_alternate.pdf" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Mac\Xamarin.Mac.CSharp.targets" />
 </Project>

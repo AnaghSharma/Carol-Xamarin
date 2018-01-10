@@ -48,6 +48,9 @@ namespace Carol
 		[Outlet]
 		AppKit.NSTextField TrackName { get; set; }
 
+		[Action ("ChangeTextSizeButtonClick:")]
+		partial void ChangeTextSizeButtonClick (Foundation.NSObject sender);
+
 		[Action ("SettingsButtonClick:")]
 		partial void SettingsButtonClick (Foundation.NSObject sender);
 		
@@ -66,6 +69,11 @@ namespace Carol
 			if (BlurOverlay != null) {
 				BlurOverlay.Dispose ();
 				BlurOverlay = null;
+			}
+
+			if (ExplicitTag != null) {
+				ExplicitTag.Dispose ();
+				ExplicitTag = null;
 			}
 
 			if (LyricsTextView != null) {
@@ -106,11 +114,6 @@ namespace Carol
 			if (TrackName != null) {
 				TrackName.Dispose ();
 				TrackName = null;
-			}
-
-			if (ExplicitTag != null) {
-				ExplicitTag.Dispose ();
-				ExplicitTag = null;
 			}
 		}
 	}

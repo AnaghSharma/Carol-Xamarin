@@ -672,32 +672,32 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyUpOrDown" image="gradient_background" id="2MK-Mn-XKZ"/>
                             </imageView>
-                            <button verticalHuggingPriority="750" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fJQ-Qm-OpT">
-                                <rect key="frame" x="324" y="279" width="20" height="20"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="20" id="3M3-cd-A7C"/>
-                                    <constraint firstAttribute="height" constant="20" id="jY2-nH-TFh"/>
-                                </constraints>
-                                <buttonCell key="cell" type="smallSquare" bezelStyle="smallSquare" image="settings" imagePosition="overlaps" alignment="center" alternateImage="settings_alternate" lineBreakMode="truncatingTail" state="on" imageScaling="proportionallyDown" inset="2" id="ri8-mD-fni">
-                                    <behavior key="behavior" lightByContents="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                </buttonCell>
-                                <connections>
-                                    <action selector="SettingsButtonClick:" target="XfG-lQ-9wD" id="QJ1-Ki-Xsy"/>
-                                </connections>
-                            </button>
                             <button verticalHuggingPriority="750" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Kxl-Mh-r6g">
-                                <rect key="frame" x="296" y="277" width="20" height="20"/>
+                                <rect key="frame" x="300" y="280" width="18" height="18"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="19w-ET-W7W"/>
                                     <constraint firstAttribute="width" constant="20" id="H0U-JT-ooY"/>
                                 </constraints>
-                                <buttonCell key="cell" type="smallSquare" bezelStyle="smallSquare" image="open_browser" imagePosition="overlaps" alignment="center" alternateImage="open_browser" lineBreakMode="truncatingTail" state="on" imageScaling="proportionallyDown" inset="2" id="ifG-LU-5qs">
+                                <buttonCell key="cell" type="smallSquare" bezelStyle="smallSquare" image="text_size" imagePosition="overlaps" alignment="center" alternateImage="text_size" lineBreakMode="truncatingTail" state="on" imageScaling="proportionallyDown" inset="2" id="ifG-LU-5qs">
                                     <behavior key="behavior" lightByContents="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
                                 <connections>
-                                    <action selector="SettingsButtonClick:" target="XfG-lQ-9wD" id="2Ea-JZ-fVp"/>
+                                    <action selector="ChangeTextSizeButtonClick:" target="XfG-lQ-9wD" id="8BQ-td-7nH"/>
+                                </connections>
+                            </button>
+                            <button verticalHuggingPriority="750" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AQh-RE-BZa">
+                                <rect key="frame" x="326" y="280" width="20" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="MK6-wn-GwE"/>
+                                    <constraint firstAttribute="width" constant="20" id="cAG-Op-e9s"/>
+                                </constraints>
+                                <buttonCell key="cell" type="smallSquare" bezelStyle="smallSquare" image="settings" imagePosition="overlaps" alignment="center" alternateImage="settings_alternate" lineBreakMode="truncatingTail" state="on" imageScaling="proportionallyDown" inset="2" id="QVh-aR-2fZ">
+                                    <behavior key="behavior" lightByContents="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="SettingsButtonClick:" target="XfG-lQ-9wD" id="By7-np-3Wb"/>
                                 </connections>
                             </button>
                             <box fixedFrame="YES" boxType="custom" borderType="none" cornerRadius="8" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="RmN-AL-QWv">
@@ -809,6 +809,17 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="explicit_tag" id="yz2-7S-Kga"/>
                             </imageView>
+                            <button verticalHuggingPriority="750" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="a2t-Sz-GHA">
+                                <rect key="frame" x="272" y="280" width="20" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="Caf-aI-6xb"/>
+                                    <constraint firstAttribute="width" constant="20" id="iXa-yT-edW"/>
+                                </constraints>
+                                <buttonCell key="cell" type="smallSquare" bezelStyle="smallSquare" image="open_browser" imagePosition="overlaps" alignment="center" alternateImage="open_browser" lineBreakMode="truncatingTail" state="on" imageScaling="proportionallyDown" inset="2" id="W8w-u3-aV6">
+                                    <behavior key="behavior" lightByContents="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                            </button>
                         </subviews>
                     </view>
                     <connections>
@@ -821,7 +832,7 @@
                         <outlet property="PlayerIcon" destination="xFl-eR-wgZ" id="5ST-h7-mP7"/>
                         <outlet property="ProgressBackground" destination="BOR-1A-F26" id="Wl3-7m-hgH"/>
                         <outlet property="ProgressBar" destination="rnR-GE-7pv" id="zKn-o4-DKH"/>
-                        <outlet property="SettingsButton" destination="fJQ-Qm-OpT" id="OBY-4P-qQH"/>
+                        <outlet property="SettingsButton" destination="AQh-RE-BZa" id="JPX-KB-HQA"/>
                         <outlet property="ThumbnailView" destination="8eu-3o-xQg" id="6bE-L3-zdm"/>
                         <outlet property="TrackName" destination="G9w-IW-v1x" id="1LV-8J-8y6"/>
                     </connections>
@@ -972,9 +983,10 @@
     <resources>
         <image name="explicit_tag" width="72" height="22"/>
         <image name="gradient_background" width="360" height="104"/>
-        <image name="open_browser" width="18" height="16"/>
+        <image name="open_browser" width="16" height="14"/>
         <image name="player_circular_background" width="28" height="28"/>
-        <image name="settings" width="18" height="18"/>
+        <image name="settings" width="14" height="14"/>
         <image name="settings_alternate" width="18" height="18"/>
+        <image name="text_size" width="17" height="13"/>
     </resources>
 </document>

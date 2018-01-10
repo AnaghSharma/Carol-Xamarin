@@ -35,6 +35,7 @@ namespace Carol
 
             // Do any additional setup after loading the view.
             lyricsHelper = new LyricsHelper();
+
             LyricsTextView.BackgroundColor = NSColor.Clear;
 
             // Blur Overlay is the Visual Effect View with Blur and Vibrancy
