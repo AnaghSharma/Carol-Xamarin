@@ -24,6 +24,8 @@ namespace Carol
             popover.ContentViewController = controller;
 
             StatusBarController statusBar = new StatusBarController(popover, "StatusBarIcon.png");
+
+            NSUserDefaults.StandardUserDefaults.RegisterDefaults(new NSDictionary(27.0f, "TextSize"));
         }
 
         public override void WillTerminate(NSNotification notification)

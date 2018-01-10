@@ -37,6 +37,8 @@ namespace Carol
             lyricsHelper = new LyricsHelper();
 
             LyricsTextView.BackgroundColor = NSColor.Clear;
+            LyricsTextView.Font = NSFont.LabelFontOfSize(NSUserDefaults.StandardUserDefaults.FloatForKey("TextSize"));
+
 
             // Blur Overlay is the Visual Effect View with Blur and Vibrancy
             BlurOverlay.WantsLayer = true;
@@ -197,6 +199,12 @@ namespace Carol
                 launch.State = NSCellStateValue.On;
             
             NSMenu.PopUpContextMenu(settingsMenu, current, sender as NSView);
+        }
+
+        partial void ChangeTextSizeButtonClick(NSObject sender)
+        {
+            LyricsTextView.Font = NSFont.LabelFontOfSize(21.0f);
+            NSUserDefaults.StandardUserDefaults.SetFloat(21.0f, "TextSize");
         }
 
         //Method to handle Launch at Login functionality
