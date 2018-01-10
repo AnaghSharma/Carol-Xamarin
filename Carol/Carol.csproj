@@ -120,6 +120,8 @@
     <BundleResource Include="Scripts\LoginRemove.txt" />
     <BundleResource Include="Scripts\GetAlbumArtSpotify.txt" />
     <BundleResource Include="Resources\explicit_tag.png" />
+    <BundleResource Include="Resources\open_browser.pdf" />
+    <BundleResource Include="Resources\player_circular_background.pdf" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Mac\Xamarin.Mac.CSharp.targets" />
 </Project>

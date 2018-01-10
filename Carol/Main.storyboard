@@ -686,6 +686,20 @@
                                     <action selector="SettingsButtonClick:" target="XfG-lQ-9wD" id="QJ1-Ki-Xsy"/>
                                 </connections>
                             </button>
+                            <button verticalHuggingPriority="750" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Kxl-Mh-r6g">
+                                <rect key="frame" x="296" y="277" width="20" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="19w-ET-W7W"/>
+                                    <constraint firstAttribute="width" constant="20" id="H0U-JT-ooY"/>
+                                </constraints>
+                                <buttonCell key="cell" type="smallSquare" bezelStyle="smallSquare" image="open_browser" imagePosition="overlaps" alignment="center" alternateImage="open_browser" lineBreakMode="truncatingTail" state="on" imageScaling="proportionallyDown" inset="2" id="ifG-LU-5qs">
+                                    <behavior key="behavior" lightByContents="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="SettingsButtonClick:" target="XfG-lQ-9wD" id="2Ea-JZ-fVp"/>
+                                </connections>
+                            </button>
                             <box fixedFrame="YES" boxType="custom" borderType="none" cornerRadius="8" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="RmN-AL-QWv">
                                 <rect key="frame" x="12" y="12" width="336" height="245"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
@@ -751,14 +765,6 @@
                                 </view>
                                 <color key="fillColor" white="0.0" alpha="0.71999999999999997" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </box>
-                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xFl-eR-wgZ">
-                                <rect key="frame" x="36" y="300" width="14" height="14"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="14" id="Kj1-XC-K8P"/>
-                                    <constraint firstAttribute="height" constant="14" id="aUR-Qn-WNt"/>
-                                </constraints>
-                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="f5f-82-oxZ"/>
-                            </imageView>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="G9w-IW-v1x">
                                 <rect key="frame" x="84" y="323" width="264" height="17"/>
                                 <constraints>
@@ -784,6 +790,19 @@
                                 <rect key="frame" x="12" y="276" width="64" height="64"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="5ud-9y-Ewu"/>
+                            </imageView>
+                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LlL-fM-qMg">
+                                <rect key="frame" x="30" y="294" width="28" height="28"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="player_circular_background" id="ePG-aq-Q53"/>
+                            </imageView>
+                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xFl-eR-wgZ">
+                                <rect key="frame" x="37" y="301" width="14" height="14"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="14" id="Kj1-XC-K8P"/>
+                                    <constraint firstAttribute="height" constant="14" id="aUR-Qn-WNt"/>
+                                </constraints>
+                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="f5f-82-oxZ"/>
                             </imageView>
                             <imageView hidden="YES" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6rY-BJ-3v1">
                                 <rect key="frame" x="86" y="280" width="44" height="14"/>
@@ -953,6 +972,8 @@
     <resources>
         <image name="explicit_tag" width="72" height="22"/>
         <image name="gradient_background" width="360" height="104"/>
+        <image name="open_browser" width="18" height="16"/>
+        <image name="player_circular_background" width="28" height="28"/>
         <image name="settings" width="18" height="18"/>
         <image name="settings_alternate" width="18" height="18"/>
     </resources>
