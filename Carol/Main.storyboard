@@ -673,7 +673,7 @@
                                 <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyUpOrDown" image="gradient_background" id="2MK-Mn-XKZ"/>
                             </imageView>
                             <button verticalHuggingPriority="750" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Kxl-Mh-r6g">
-                                <rect key="frame" x="300" y="280" width="18" height="18"/>
+                                <rect key="frame" x="300" y="280" width="20" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="19w-ET-W7W"/>
                                     <constraint firstAttribute="width" constant="20" id="H0U-JT-ooY"/>
@@ -985,8 +985,8 @@
         <image name="gradient_background" width="360" height="104"/>
         <image name="open_browser" width="16" height="14"/>
         <image name="player_circular_background" width="28" height="28"/>
-        <image name="settings" width="14" height="14"/>
-        <image name="settings_alternate" width="18" height="18"/>
+        <image name="settings" width="15" height="15"/>
+        <image name="settings_alternate" width="15" height="15"/>
         <image name="text_size" width="17" height="13"/>
     </resources>
 </document>

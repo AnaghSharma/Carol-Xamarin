@@ -37,8 +37,7 @@ namespace Carol
             lyricsHelper = new LyricsHelper();
 
             LyricsTextView.BackgroundColor = NSColor.Clear;
-            LyricsTextView.Font = NSFont.LabelFontOfSize(NSUserDefaults.StandardUserDefaults.FloatForKey("TextSize"));
-
+            LyricsTextView.Font = NSFont.SystemFontOfSize(NSUserDefaults.StandardUserDefaults.FloatForKey("TextSize"), 0.2f);
 
             // Blur Overlay is the Visual Effect View with Blur and Vibrancy
             BlurOverlay.WantsLayer = true;
@@ -203,8 +202,21 @@ namespace Carol
 
         partial void ChangeTextSizeButtonClick(NSObject sender)
         {
-            LyricsTextView.Font = NSFont.LabelFontOfSize(21.0f);
-            NSUserDefaults.StandardUserDefaults.SetFloat(21.0f, "TextSize");
+            switch (NSUserDefaults.StandardUserDefaults.FloatForKey("TextSize"))
+            {
+                case 21.0f : LyricsTextView.Font = NSFont.SystemFontOfSize(27.0f, 0.2f);
+                    NSUserDefaults.StandardUserDefaults.SetFloat(27.0f, "TextSize");
+                    break;
+                case 27.0f:
+                    LyricsTextView.Font = NSFont.SystemFontOfSize(32.0f, 0.2f);
+                    NSUserDefaults.StandardUserDefaults.SetFloat(32.0f, "TextSize");
+                    break;
+                case 32.0f:
+                    LyricsTextView.Font = NSFont.SystemFontOfSize(21.0f, 0.2f);
+                    NSUserDefaults.StandardUserDefaults.SetFloat(21.0f, "TextSize");
+                    break;
+            }
+
         }
 
         //Method to handle Launch at Login functionality
