@@ -769,7 +769,6 @@
                                 <rect key="frame" x="84" y="323" width="264" height="17"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="260" id="ENP-Kw-TkT"/>
-                                    <constraint firstAttribute="height" constant="17" id="jeI-y5-fSL"/>
                                 </constraints>
                                 <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" placeholderString="" id="AOZ-G4-J7k">
                                     <font key="font" metaFont="system" size="14"/>
