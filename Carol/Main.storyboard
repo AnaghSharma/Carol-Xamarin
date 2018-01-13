@@ -819,6 +819,9 @@
                                     <behavior key="behavior" lightByContents="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
+                                <connections>
+                                    <action selector="OpenInBrowserButtonClick:" target="XfG-lQ-9wD" id="tYL-AE-a6w"/>
+                                </connections>
                             </button>
                         </subviews>
                     </view>

@@ -51,6 +51,9 @@ namespace Carol
 		[Action ("ChangeTextSizeButtonClick:")]
 		partial void ChangeTextSizeButtonClick (Foundation.NSObject sender);
 
+		[Action ("OpenInBrowserButtonClick:")]
+		partial void OpenInBrowserButtonClick (Foundation.NSObject sender);
+
 		[Action ("SettingsButtonClick:")]
 		partial void SettingsButtonClick (Foundation.NSObject sender);
 		

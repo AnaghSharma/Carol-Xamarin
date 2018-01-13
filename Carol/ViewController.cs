@@ -23,6 +23,7 @@ namespace Carol
         bool isLoginItem;
         public static event EventHandler QuitButtonClicked;
         public static event EventHandler AboutMenuItemClicked;
+        string track_share_url;
 
         public ViewController(IntPtr handle) : base(handle)
         {
@@ -101,12 +102,13 @@ namespace Carol
                 var track = result.DescriptorAtIndex(2).StringValue;
                 var app = result.DescriptorAtIndex(3).StringValue;
 
-                var lyrics = lyricsHelper.GetLyrics(track, artist, (artist_name, response) =>
+                var lyrics = lyricsHelper.GetLyrics(track, artist, (response, artist_name, share_url) =>
                  {
                      TrackLyrics.RootObject tracklyrics = JsonConvert.DeserializeObject<TrackLyrics.RootObject>(response);
                      LyricsTextView.Value = tracklyrics.message.body.lyrics.lyrics_body;
                      TrackName.StringValue = track;
                      ArtistName.StringValue = artist_name;
+                     track_share_url = share_url;
 
                      if (tracklyrics.message.body.lyrics.@explicit == 1)
                          ExplicitTag.Hidden = false;
@@ -217,6 +219,11 @@ namespace Carol
                     break;
             }
 
+        }
+
+        partial void OpenInBrowserButtonClick(NSObject sender)
+        {
+            NSWorkspace.SharedWorkspace.OpenUrl(new NSUrl(track_share_url));
         }
 
         //Method to handle Launch at Login functionality
