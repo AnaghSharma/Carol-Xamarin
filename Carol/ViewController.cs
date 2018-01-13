@@ -218,7 +218,8 @@ namespace Carol
                     NSUserDefaults.StandardUserDefaults.SetFloat(21.0f, "TextSize");
                     break;
             }
-
+            containerHeight = (float)LyricsTextView.Bounds.Height;
+            NSNotificationCenter.DefaultCenter.PostNotificationName(NSView.BoundsChangedNotification, MainScroll.ContentView);
         }
 
         partial void OpenInBrowserButtonClick(NSObject sender)
