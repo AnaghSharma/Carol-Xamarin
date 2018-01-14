@@ -27,6 +27,7 @@ namespace Carol
 
             NSUserDefaults.StandardUserDefaults.RegisterDefaults(new NSDictionary(27.0f, "TextSize"));
             NSUserDefaults.StandardUserDefaults.RegisterDefaults(new NSDictionary(false, "LaunchLogin"));
+            NSUserDefaults.StandardUserDefaults.RegisterDefaults(new NSDictionary(true, "BackgroundArtwork"));
         }
 
         public override void WillTerminate(NSNotification notification)

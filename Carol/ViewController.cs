@@ -22,7 +22,7 @@ namespace Carol
         NSAppleEventDescriptor result;
 
         NSMenu settingsMenu;
-        NSMenuItem launch;
+        NSMenuItem launch, artwork;
         NSCursor cursor;
 
         public static event EventHandler QuitButtonClicked;
@@ -63,11 +63,13 @@ namespace Carol
             #region Settings Menu
             settingsMenu = new NSMenu();
 
+            artwork = new NSMenuItem("Background Artwork", new ObjCRuntime.Selector("artwork:"), "");
             launch = new NSMenuItem("Launch at Login", new ObjCRuntime.Selector("launch:"), "");
             NSMenuItem about = new NSMenuItem("About", new ObjCRuntime.Selector("about:"), "");
             NSMenuItem quit = new NSMenuItem("Quit Carol", new ObjCRuntime.Selector("quit:"), "q");
 
 
+            settingsMenu.AddItem(artwork);
             settingsMenu.AddItem(launch);
             settingsMenu.AddItem(about);
             settingsMenu.AddItem(NSMenuItem.SeparatorItem);
@@ -183,13 +185,9 @@ namespace Carol
 
         partial void SettingsButtonClick(NSObject sender)
         {
-            if (!NSUserDefaults.StandardUserDefaults.BoolForKey("LaunchLogin"))
-            {
-                launch.State = NSCellStateValue.Off;
-            }
-            else
-                launch.State = NSCellStateValue.On;
-            
+            launch.State = (NSUserDefaults.StandardUserDefaults.BoolForKey("LaunchLogin")) ? NSCellStateValue.On : NSCellStateValue.Off;
+            artwork.State = (NSUserDefaults.StandardUserDefaults.BoolForKey("BackgroundArtwork")) ? NSCellStateValue.On : NSCellStateValue.Off;
+
             NSMenu.PopUpContextMenu(settingsMenu, NSApplication.SharedApplication.CurrentEvent, sender as NSView);
         }
 
@@ -233,6 +231,22 @@ namespace Carol
                 script.ExecuteAndReturnError(out errors);
                 NSUserDefaults.StandardUserDefaults.SetBool(false, "LaunchLogin");
             }         }
+
+        //Method to show/hide album artwork in background
+        [Export("artwork:")]
+        void Artwork(NSObject sender)
+        {
+            if (NSUserDefaults.StandardUserDefaults.BoolForKey("BackgroundArtwork"))
+            {
+                AlbumArtView.Hidden = true;
+                NSUserDefaults.StandardUserDefaults.SetBool(false, "BackgroundArtwork");
+            }
+            else
+            {
+                AlbumArtView.Hidden = false;
+                NSUserDefaults.StandardUserDefaults.SetBool(true, "BackgroundArtwork");;
+            }
+        }
          //Delegating the About Menu Item click event to Helpers/StatusBarController.cs
         [Export("about:")]
         void About(NSObject sender)
