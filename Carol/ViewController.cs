@@ -11,19 +11,23 @@ namespace Carol
 {
     public partial class ViewController : NSViewController
     {
-        NSAppleScript script;
-        NSDictionary errors;
-        NSAppleEventDescriptor result;
         LyricsHelper lyricsHelper;
         CGRect progress;
         float containerHeight;
-        NSTrackingArea hoverarea;
+        nfloat width;
+        string track_share_url;
+
+        NSAppleScript script;
+        NSDictionary errors;
+        NSAppleEventDescriptor result;
+
         NSMenu settingsMenu;
         NSMenuItem launch;
-        bool isLoginItem;
+        NSCursor cursor;
+
         public static event EventHandler QuitButtonClicked;
         public static event EventHandler AboutMenuItemClicked;
-        string track_share_url;
+
 
         public ViewController(IntPtr handle) : base(handle)
         {
@@ -58,8 +62,6 @@ namespace Carol
 
             #region Settings Menu
             settingsMenu = new NSMenu();
-            hoverarea = new NSTrackingArea(SettingsButton.Bounds, NSTrackingAreaOptions.MouseEnteredAndExited | NSTrackingAreaOptions.ActiveAlways, this, null);
-            SettingsButton.AddTrackingArea(hoverarea);
 
             launch = new NSMenuItem("Launch at Login", new ObjCRuntime.Selector("launch:"), "");
             NSMenuItem about = new NSMenuItem("About", new ObjCRuntime.Selector("about:"), "");
@@ -72,6 +74,10 @@ namespace Carol
             settingsMenu.AddItem(quit);
             #endregion
 
+            OpenInBrowserButton.AddTrackingArea(new NSTrackingArea(OpenInBrowserButton.Bounds, NSTrackingAreaOptions.MouseEnteredAndExited | NSTrackingAreaOptions.ActiveAlways, this, null));
+            ChangeTextSizeButton.AddTrackingArea(new NSTrackingArea(ChangeTextSizeButton.Bounds, NSTrackingAreaOptions.MouseEnteredAndExited | NSTrackingAreaOptions.ActiveAlways, this, null));
+            SettingsButton.AddTrackingArea(new NSTrackingArea(SettingsButton.Bounds, NSTrackingAreaOptions.MouseEnteredAndExited | NSTrackingAreaOptions.ActiveAlways, this, null));
+            cursor = NSCursor.CurrentSystemCursor;
 		}
 
         public override NSObject RepresentedObject
@@ -91,8 +97,7 @@ namespace Carol
 		{
             base.ViewDidAppear();
 
-			var getCurrentSongScript = File.ReadAllText("Scripts/GetCurrentSong.txt");
-			script = new NSAppleScript(getCurrentSongScript);
+            script = new NSAppleScript(File.ReadAllText("Scripts/GetCurrentSong.txt"));
 			result = script.ExecuteAndReturnError(out errors);
 
             //The NumberofItems property is being used to handle different use cases. Check GetCurrentSong.txt in Scripts folder to know more
@@ -118,10 +123,7 @@ namespace Carol
                      if (app == "iTunes")
                      {
                          PlayerIcon.Image = new NSImage("icon_itunes.pdf");
-                         
-                         
-                         var getAlbumArt = File.ReadAllText("Scripts/GetAlbumArtiTunes.txt");
-                         script = new NSAppleScript(getAlbumArt);
+                         script = new NSAppleScript(File.ReadAllText("Scripts/GetAlbumArtiTunes.txt"));
                          result = script.ExecuteAndReturnError(out errors);
                          NSImage cover = new NSImage(result.Data);
                          AlbumArtView.Image = cover;
@@ -130,10 +132,7 @@ namespace Carol
                      else 
                     {
 						 PlayerIcon.Image = new NSImage("icon_spotify.pdf");
-						
-                         
-                         var getAlbumArt = File.ReadAllText("Scripts/GetAlbumArtSpotify.txt");
-                         script = new NSAppleScript(getAlbumArt);
+                         script = new NSAppleScript(File.ReadAllText("Scripts/GetAlbumArtSpotify.txt"));
                          result = script.ExecuteAndReturnError(out errors);
                          NSUrl artworkurl = new NSUrl(result.StringValue);
                          NSImage cover = new NSImage(artworkurl);
@@ -171,7 +170,7 @@ namespace Carol
             var view = notification.Object as NSView;
             var position = view.Bounds.Location.Y;
 
-            var width = (position * 100) / (containerHeight - MainScroll.Bounds.Height);
+            width = (position * 100) / (containerHeight - MainScroll.Bounds.Height);
             if (width > 4 && width <= 100)
                 progress.Width = width;
             else if (width < 0)
@@ -184,22 +183,14 @@ namespace Carol
 
         partial void SettingsButtonClick(NSObject sender)
         {
-            var current = NSApplication.SharedApplication.CurrentEvent;
-
-            //Check if the app is in login items of macOS or not
-            var checkLoginItemsScript = File.ReadAllText("Scripts/LoginCheck.txt");
-            script = new NSAppleScript(checkLoginItemsScript);
-            result = script.ExecuteAndReturnError(out errors);
-            isLoginItem = result.BooleanValue;
-
-            if (!isLoginItem)
+            if (!NSUserDefaults.StandardUserDefaults.BoolForKey("LaunchLogin"))
             {
                 launch.State = NSCellStateValue.Off;
             }
-            else if (isLoginItem)
+            else
                 launch.State = NSCellStateValue.On;
             
-            NSMenu.PopUpContextMenu(settingsMenu, current, sender as NSView);
+            NSMenu.PopUpContextMenu(settingsMenu, NSApplication.SharedApplication.CurrentEvent, sender as NSView);
         }
 
         partial void ChangeTextSizeButtonClick(NSObject sender)
@@ -227,19 +218,20 @@ namespace Carol
             NSWorkspace.SharedWorkspace.OpenUrl(new NSUrl(track_share_url));
         }
 
+
         //Method to handle Launch at Login functionality
         [Export("launch:")]         void Launch(NSObject sender)         {
-            if (!isLoginItem)
+            if (!NSUserDefaults.StandardUserDefaults.BoolForKey("LaunchLogin"))
             {
-                var addToLoginScript = File.ReadAllText("Scripts/LoginAdd.txt");
-                script = new NSAppleScript(addToLoginScript);
+                script = new NSAppleScript(File.ReadAllText("Scripts/LoginAdd.txt"));
                 script.ExecuteAndReturnError(out errors);
+                NSUserDefaults.StandardUserDefaults.SetBool(true, "LaunchLogin");
             }
             else
             {
-                var removeFromLoginScript = File.ReadAllText("Scripts/LoginRemove.txt");
-                script = new NSAppleScript(removeFromLoginScript);
+                script = new NSAppleScript(File.ReadAllText("Scripts/LoginRemove.txt"));
                 script.ExecuteAndReturnError(out errors);
+                NSUserDefaults.StandardUserDefaults.SetBool(false, "LaunchLogin");
             }         }
          //Delegating the About Menu Item click event to Helpers/StatusBarController.cs
         [Export("about:")]
@@ -250,5 +242,22 @@ namespace Carol
 
         //Delegating the Quit Menu Item click event to Helpers/StatusBarController.cs
         [Export("quit:")]         void Quit(NSObject sender)         {             QuitButtonClicked?.Invoke(this, null);         }
+
+        //Method override to change cursor to pointing hand on Mouse Enter (Hover)
+        public override void MouseEntered(NSEvent theEvent)
+        {
+            base.MouseEntered(theEvent);
+
+            cursor = NSCursor.PointingHandCursor;
+            cursor.Push();
+        }
+
+        //Method override to change cursor to pointing hand on Mouse Exit
+        public override void MouseExited(NSEvent theEvent)
+        {
+            base.MouseEntered(theEvent);
+
+            cursor.Pop();
+        }
     }
 }

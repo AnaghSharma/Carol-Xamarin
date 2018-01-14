@@ -22,6 +22,9 @@ namespace Carol
 		AppKit.NSVisualEffectView BlurOverlay { get; set; }
 
 		[Outlet]
+		AppKit.NSButton ChangeTextSizeButton { get; set; }
+
+		[Outlet]
 		AppKit.NSImageView ExplicitTag { get; set; }
 
 		[Outlet]
@@ -29,6 +32,9 @@ namespace Carol
 
 		[Outlet]
 		AppKit.NSScrollView MainScroll { get; set; }
+
+		[Outlet]
+		AppKit.NSButton OpenInBrowserButton { get; set; }
 
 		[Outlet]
 		AppKit.NSImageView PlayerIcon { get; set; }
@@ -117,6 +123,16 @@ namespace Carol
 			if (TrackName != null) {
 				TrackName.Dispose ();
 				TrackName = null;
+			}
+
+			if (OpenInBrowserButton != null) {
+				OpenInBrowserButton.Dispose ();
+				OpenInBrowserButton = null;
+			}
+
+			if (ChangeTextSizeButton != null) {
+				ChangeTextSizeButton.Dispose ();
+				ChangeTextSizeButton = null;
 			}
 		}
 	}

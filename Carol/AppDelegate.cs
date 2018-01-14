@@ -26,6 +26,7 @@ namespace Carol
             StatusBarController statusBar = new StatusBarController(popover, "StatusBarIcon.png");
 
             NSUserDefaults.StandardUserDefaults.RegisterDefaults(new NSDictionary(27.0f, "TextSize"));
+            NSUserDefaults.StandardUserDefaults.RegisterDefaults(new NSDictionary(false, "LaunchLogin"));
         }
 
         public override void WillTerminate(NSNotification notification)

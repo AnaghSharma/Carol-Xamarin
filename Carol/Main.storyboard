@@ -766,7 +766,7 @@
                                 <color key="fillColor" white="0.0" alpha="0.71999999999999997" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </box>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="G9w-IW-v1x">
-                                <rect key="frame" x="84" y="323" width="264" height="17"/>
+                                <rect key="frame" x="84" y="323" width="264" height="18"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="260" id="ENP-Kw-TkT"/>
                                 </constraints>
@@ -828,9 +828,11 @@
                         <outlet property="AlbumArtView" destination="4hu-ov-aYy" id="P7r-Tm-N15"/>
                         <outlet property="ArtistName" destination="5LI-lX-u2v" id="Aip-Vs-aes"/>
                         <outlet property="BlurOverlay" destination="n8l-nV-4cd" id="40X-Z5-iFf"/>
+                        <outlet property="ChangeTextSizeButton" destination="Kxl-Mh-r6g" id="4YU-Gc-EoK"/>
                         <outlet property="ExplicitTag" destination="6rY-BJ-3v1" id="l6b-A0-m5C"/>
                         <outlet property="LyricsTextView" destination="Syc-Mp-Chh" id="5K6-se-aoy"/>
                         <outlet property="MainScroll" destination="EjX-ll-Pz2" id="QbB-6d-xBN"/>
+                        <outlet property="OpenInBrowserButton" destination="a2t-Sz-GHA" id="HgO-ph-lA1"/>
                         <outlet property="PlayerIcon" destination="xFl-eR-wgZ" id="5ST-h7-mP7"/>
                         <outlet property="ProgressBackground" destination="BOR-1A-F26" id="Wl3-7m-hgH"/>
                         <outlet property="ProgressBar" destination="rnR-GE-7pv" id="zKn-o4-DKH"/>
