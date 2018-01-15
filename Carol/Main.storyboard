@@ -672,7 +672,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyUpOrDown" image="gradient_background" id="2MK-Mn-XKZ"/>
                             </imageView>
-                            <button verticalHuggingPriority="750" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Kxl-Mh-r6g">
+                            <button toolTip="Change text size" verticalHuggingPriority="750" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Kxl-Mh-r6g">
                                 <rect key="frame" x="300" y="280" width="20" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="19w-ET-W7W"/>
@@ -686,7 +686,7 @@
                                     <action selector="ChangeTextSizeButtonClick:" target="XfG-lQ-9wD" id="8BQ-td-7nH"/>
                                 </connections>
                             </button>
-                            <button verticalHuggingPriority="750" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AQh-RE-BZa">
+                            <button toolTip="Settings" verticalHuggingPriority="750" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AQh-RE-BZa">
                                 <rect key="frame" x="326" y="280" width="20" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="MK6-wn-GwE"/>
@@ -808,7 +808,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="explicit_tag" id="yz2-7S-Kga"/>
                             </imageView>
-                            <button verticalHuggingPriority="750" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="a2t-Sz-GHA">
+                            <button toolTip="Open in browser" verticalHuggingPriority="750" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="a2t-Sz-GHA">
                                 <rect key="frame" x="272" y="280" width="20" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="Caf-aI-6xb"/>
