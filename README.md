@@ -32,8 +32,7 @@ Thanks for showing interest in this project and its development. If you think th
 
 ## Note
 1. The app uses the free version of Musixmatch API which returns only 30% of a song's lyrics.
-2. Background artwork only works with songs that are in your iTunes library.
-3. The API calls are limited to 2000 per day.
+2. The API calls are limited to 2000 per day.
 
 ## Contact
 ![Follow me on Twitter](https://twitter.com/AnaghSharma)
