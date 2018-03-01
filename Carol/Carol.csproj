@@ -75,6 +75,7 @@
     <Folder Include="Controls\" />
     <Folder Include="Scripts\" />
     <Folder Include="Models\" />
+    <Folder Include="Helpers\StateMachine\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Info.plist" />
@@ -100,6 +101,8 @@
       <DependentUpon>AboutViewController.cs</DependentUpon>
     </Compile>
     <Compile Include="Controls\HyperlinkTextField.cs" />
+    <Compile Include="Helpers\StateMachine\StatefulViewController.cs" />
+    <Compile Include="Helpers\StateMachine\ViewStateMachine.cs" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Main.storyboard" />
