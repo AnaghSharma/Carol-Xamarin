@@ -1,4 +1,6 @@
 ﻿using System;
+using Carol.Helpers.StateMachine.ViewStates;
+
 namespace Carol.Helpers.StateMachine
 {
     public enum States
@@ -6,6 +8,7 @@ namespace Carol.Helpers.StateMachine
         Idle,
         Loading,
         Content,
+        Empty,
         Error
     }
 
@@ -21,8 +24,15 @@ namespace Carol.Helpers.StateMachine
     {
         public StatefulViewController currentState;
 
-        public ViewStateMachine()
+        public ViewStateMachine(States initialState)
         {
+            if (initialState == States.Idle)
+                currentState = new IdleState();
+        }
+
+        public void SetupInitialView()
+        {
+            currentState.Handle(this);
         }
     }
 }

@@ -8,6 +8,7 @@ namespace Carol
     public class AppDelegate : NSApplicationDelegate
     {
         NSPopover popover;
+        public ViewController controller;
 
         public AppDelegate()
         {
@@ -19,7 +20,7 @@ namespace Carol
             // Insert code here to initialize your application
 
             var storyboard = NSStoryboard.FromName("Main", null);
-            var controller = storyboard.InstantiateControllerWithIdentifier("PopupController") as ViewController;
+            controller = storyboard.InstantiateControllerWithIdentifier("PopupController") as ViewController;
 
             popover.ContentViewController = controller;
 

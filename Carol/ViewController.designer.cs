@@ -80,6 +80,11 @@ namespace Carol
 				BlurOverlay = null;
 			}
 
+			if (ChangeTextSizeButton != null) {
+				ChangeTextSizeButton.Dispose ();
+				ChangeTextSizeButton = null;
+			}
+
 			if (ExplicitTag != null) {
 				ExplicitTag.Dispose ();
 				ExplicitTag = null;
@@ -93,6 +98,11 @@ namespace Carol
 			if (MainScroll != null) {
 				MainScroll.Dispose ();
 				MainScroll = null;
+			}
+
+			if (OpenInBrowserButton != null) {
+				OpenInBrowserButton.Dispose ();
+				OpenInBrowserButton = null;
 			}
 
 			if (PlayerIcon != null) {
@@ -123,16 +133,6 @@ namespace Carol
 			if (TrackName != null) {
 				TrackName.Dispose ();
 				TrackName = null;
-			}
-
-			if (OpenInBrowserButton != null) {
-				OpenInBrowserButton.Dispose ();
-				OpenInBrowserButton = null;
-			}
-
-			if (ChangeTextSizeButton != null) {
-				ChangeTextSizeButton.Dispose ();
-				ChangeTextSizeButton = null;
 			}
 		}
 	}

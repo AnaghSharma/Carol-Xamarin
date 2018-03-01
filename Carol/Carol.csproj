@@ -76,6 +76,8 @@
     <Folder Include="Scripts\" />
     <Folder Include="Models\" />
     <Folder Include="Helpers\StateMachine\" />
+    <Folder Include="Helpers\StateMachine\ViewStates\" />
+    <Folder Include="Views\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Info.plist" />
@@ -103,9 +105,16 @@
     <Compile Include="Controls\HyperlinkTextField.cs" />
     <Compile Include="Helpers\StateMachine\StatefulViewController.cs" />
     <Compile Include="Helpers\StateMachine\ViewStateMachine.cs" />
+    <Compile Include="Helpers\StateMachine\ViewStates\IdleState.cs" />
+    <Compile Include="Helpers\LoadNib.cs" />
+    <Compile Include="Views\IdleView.cs" />
+    <Compile Include="Views\IdleView.designer.cs">
+      <DependentUpon>IdleView.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Main.storyboard" />
+    <InterfaceDefinition Include="Views\IdleView.xib" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Scripts\GetCurrentSong.txt" />
