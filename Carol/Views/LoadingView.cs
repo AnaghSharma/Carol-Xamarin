@@ -1,22 +1,24 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using Foundation;
 using AppKit;
 
 namespace Carol.Views
 {
-    public partial class IdleView : NSView
+    public partial class LoadingView : NSView
     {
         #region Constructors
 
         // Called when created from unmanaged code
-        public IdleView(IntPtr handle) : base(handle)
+        public LoadingView(IntPtr handle) : base(handle)
         {
             Initialize();
         }
 
         // Called when created directly from a XIB file
         [Export("initWithCoder:")]
-        public IdleView(NSCoder coder) : base(coder)
+        public LoadingView(NSCoder coder) : base(coder)
         {
             Initialize();
         }

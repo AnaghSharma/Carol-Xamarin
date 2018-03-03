@@ -111,10 +111,21 @@
     <Compile Include="Views\IdleView.designer.cs">
       <DependentUpon>IdleView.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\ContentView.cs" />
+    <Compile Include="Views\ContentView.designer.cs">
+      <DependentUpon>ContentView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Helpers\StateMachine\ViewStates\LoadingState.cs" />
+    <Compile Include="Views\LoadingView.cs" />
+    <Compile Include="Views\LoadingView.designer.cs">
+      <DependentUpon>LoadingView.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Main.storyboard" />
     <InterfaceDefinition Include="Views\IdleView.xib" />
+    <InterfaceDefinition Include="Views\ContentView.xib" />
+    <InterfaceDefinition Include="Views\LoadingView.xib" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Scripts\GetCurrentSong.txt" />

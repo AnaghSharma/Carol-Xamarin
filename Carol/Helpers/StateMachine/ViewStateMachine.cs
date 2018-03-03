@@ -30,9 +30,24 @@ namespace Carol.Helpers.StateMachine
                 currentState = new IdleState();
         }
 
-        public void SetupInitialView()
+        public void SetupInitialView() => currentState.Enter(this);
+
+        void TransitionToState(States _currentState, Triggers _trigger)
         {
-            currentState.Handle(this);
+            currentState.Exit(this);
+            switch(_currentState)
+            {
+                case States.Idle:
+                    if (_trigger == Triggers.Load)
+                        currentState = new LoadingState();
+                    break;
+            }
+        }
+
+        public void StartLoading()
+        {
+            TransitionToState(States.Idle, Triggers.Load);
+            currentState.Enter(this);
         }
     }
 }

@@ -7,14 +7,20 @@
 using Foundation;
 using System.CodeDom.Compiler;
 
-namespace Carol
+namespace Carol.Views
 {
-	[Register ("ViewController")]
-	partial class ViewController
+	[Register ("LoadingView")]
+	partial class LoadingView
 	{
+		[Outlet]
+		AppKit.NSProgressIndicator ProgressSpinner { get; set; }
 		
 		void ReleaseDesignerOutlets ()
 		{
+			if (ProgressSpinner != null) {
+				ProgressSpinner.Dispose ();
+				ProgressSpinner = null;
+			}
 		}
 	}
 }
