@@ -23,6 +23,7 @@ namespace Carol
             controller = storyboard.InstantiateControllerWithIdentifier("PopupController") as ViewController;
 
             popover.ContentViewController = controller;
+            popover.SetAppearance(NSAppearance.GetAppearance(NSAppearance.NameVibrantDark));
 
             StatusBarController statusBar = new StatusBarController(popover, "StatusBarIcon.png");
 

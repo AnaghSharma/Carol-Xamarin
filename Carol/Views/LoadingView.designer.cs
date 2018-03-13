@@ -13,13 +13,13 @@ namespace Carol.Views
 	partial class LoadingView
 	{
 		[Outlet]
-		AppKit.NSProgressIndicator ProgressSpinner { get; set; }
+		AppKit.NSProgressIndicator Loader { get; set; }
 		
 		void ReleaseDesignerOutlets ()
 		{
-			if (ProgressSpinner != null) {
-				ProgressSpinner.Dispose ();
-				ProgressSpinner = null;
+			if (Loader != null) {
+				Loader.Dispose ();
+				Loader = null;
 			}
 		}
 	}

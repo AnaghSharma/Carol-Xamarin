@@ -1,12 +1,7 @@
 ﻿﻿﻿using System;
-using System.IO;
 using AppKit;
-using Carol.Helpers;
 using Carol.Helpers.StateMachine;
-using Carol.Models;
-using CoreGraphics;
 using Foundation;
-using Newtonsoft.Json;
 
 namespace Carol
 {
@@ -23,8 +18,8 @@ namespace Carol
         {
             base.ViewDidLoad();
 
+            View.Appearance = new NSAppearance(@"Dark", null);
             stateMachine = new ViewStateMachine(States.Idle);
-
 		}
 
         public override NSObject RepresentedObject
