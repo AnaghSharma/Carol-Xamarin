@@ -85,6 +85,8 @@ namespace Carol
                         track_share_url = share_url;
                         stateMachine.ShowContent();
                     }
+                    else
+                        stateMachine.ShowEmpty();
                 });
             }
             else if (result.NumberOfItems == 0)

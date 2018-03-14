@@ -3,11 +3,11 @@ using Carol.Views;
 
 namespace Carol.Helpers.StateMachine.ViewStates
 {
-    public class ContentState : StatefulViewController
+    public class EmptyState : StatefulViewController
     {
         public override void Enter(ViewStateMachine stateMachine)
         {
-            ContainerView = LoadNib.LoadViewFromNib<ContentView>("ContentView", CurrentDelegate.controller.View);
+            ContainerView = LoadNib.LoadViewFromNib<EmptyView>("EmptyView", CurrentDelegate.controller.View);
             ContainerView.Frame = CurrentDelegate.controller.View.Bounds;
             CurrentDelegate.controller.View.AddSubview(ContainerView, NSWindowOrderingMode.Above, CurrentDelegate.controller.View);
         }

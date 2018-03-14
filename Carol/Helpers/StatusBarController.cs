@@ -54,6 +54,9 @@ namespace Carol.Helpers
             ContentView.AboutMenuItemClicked += HandleAboutMenuItemClicked;
             ContentView.QuitButtonClicked += HandleQuitButtonClicked;
 
+            EmptyView.AboutMenuItemClicked += HandleAboutMenuItemClicked;
+            EmptyView.QuitButtonClicked += HandleQuitButtonClicked;
+
             storyboard = NSStoryboard.FromName("Main", null);
             windowController = storyboard.InstantiateControllerWithIdentifier("AboutWindow") as NSWindowController;
         }
@@ -64,6 +67,9 @@ namespace Carol.Helpers
         {
             ContentView.AboutMenuItemClicked -= HandleAboutMenuItemClicked;
             ContentView.QuitButtonClicked -= HandleQuitButtonClicked;
+
+            EmptyView.AboutMenuItemClicked -= HandleAboutMenuItemClicked;
+            EmptyView.QuitButtonClicked -= HandleQuitButtonClicked;
         }
 
         [Export("toggle:")]

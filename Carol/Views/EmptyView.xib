@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="13771" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="13771"/>
+        <capability name="box content view" minToolsVersion="7.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+        <capability name="system font weights other than Regular or Bold" minToolsVersion="7.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner"/>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customView misplaced="YES" id="2" customClass="EmptyView">
+            <rect key="frame" x="0.0" y="0.0" width="360" height="360"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <box boxType="custom" borderType="none" id="gZG-sy-DFz">
+                    <rect key="frame" x="0.0" y="0.0" width="360" height="360"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <view key="contentView" id="Qa4-kA-1YR">
+                        <rect key="frame" x="0.0" y="0.0" width="360" height="360"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" id="UVi-7i-e6b">
+                                <rect key="frame" x="0.0" y="0.0" width="360" height="360"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyUpOrDown" id="BRH-2f-nef"/>
+                            </imageView>
+                            <visualEffectView appearanceType="vibrantDark" blendingMode="behindWindow" material="dark" state="active" id="GWP-ud-Xjm">
+                                <rect key="frame" x="0.0" y="0.0" width="360" height="360"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            </visualEffectView>
+                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" id="Fpq-wL-pSG">
+                                <rect key="frame" x="0.0" y="256" width="360" height="104"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyUpOrDown" image="gradient_background" id="VX1-hI-pRX"/>
+                            </imageView>
+                            <box misplaced="YES" boxType="custom" borderType="none" cornerRadius="8" titlePosition="noTitle" id="Vei-2L-2Nz">
+                                <rect key="frame" x="12" y="12" width="336" height="74"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <view key="contentView" id="IPF-Lf-XyT">
+                                    <rect key="frame" x="0.0" y="0.0" width="336" height="74"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" id="dUD-9u-hdd">
+                                            <rect key="frame" x="10" y="14" width="316" height="50"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                            <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="Looks like the song you are playing does not have lyrics." id="n6U-c7-eIr">
+                                                <font key="font" metaFont="systemMedium" size="21"/>
+                                                <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                        </textField>
+                                    </subviews>
+                                </view>
+                                <color key="fillColor" white="0.0" alpha="0.71999999999999997" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </box>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="Egj-dx-afk">
+                                <rect key="frame" x="84" y="323" width="264" height="18"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" placeholderString="" id="kWR-pW-Z5z">
+                                    <font key="font" metaFont="system" size="14"/>
+                                    <color key="textColor" red="0.99404761900000005" green="0.9880952381" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="dX5-ld-Azt">
+                                <rect key="frame" x="84" y="306" width="260" height="14"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <textFieldCell key="cell" sendsActionOnEndEditing="YES" id="2zq-YA-fV7">
+                                    <font key="font" metaFont="smallSystem"/>
+                                    <color key="textColor" red="0.66422420739999999" green="0.66424006219999998" blue="0.66423153879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" id="qGM-8f-pCT">
+                                <rect key="frame" x="12" y="276" width="64" height="64"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="Wjk-yn-oOV"/>
+                            </imageView>
+                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" id="cXO-B8-dZX">
+                                <rect key="frame" x="30" y="294" width="28" height="28"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="player_circular_background" id="TO6-Pg-dcZ"/>
+                            </imageView>
+                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" id="3Rd-CS-Heo">
+                                <rect key="frame" x="37" y="301" width="14" height="14"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="vQ3-Ph-ecR"/>
+                            </imageView>
+                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" id="YZe-8J-kow">
+                                <rect key="frame" x="86" y="282" width="72" height="14"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="instrumental_tag" id="cT8-q4-3Sc"/>
+                            </imageView>
+                            <button toolTip="Settings" verticalHuggingPriority="750" id="Wud-ff-JHb">
+                                <rect key="frame" x="326" y="280" width="20" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="smallSquare" bezelStyle="smallSquare" image="settings" imagePosition="overlaps" alignment="center" alternateImage="settings_alternate" lineBreakMode="truncatingTail" state="on" imageScaling="proportionallyDown" inset="2" id="Kv2-4L-ydm">
+                                    <behavior key="behavior" lightByContents="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="SettingsButtonClick:" target="2" id="5oQ-D4-vaa"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                    </view>
+                    <color key="fillColor" red="0.12984204290000001" green="0.12984612579999999" blue="0.12984395030000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                </box>
+            </subviews>
+            <connections>
+                <outlet property="AlbumArtView" destination="UVi-7i-e6b" id="GWw-DZ-rOy"/>
+                <outlet property="ArtistName" destination="dX5-ld-Azt" id="mfp-NL-3R0"/>
+                <outlet property="BlurOverlay" destination="GWP-ud-Xjm" id="2Sn-o5-cwl"/>
+                <outlet property="InstrumentalTag" destination="YZe-8J-kow" id="bO5-pk-LN0"/>
+                <outlet property="PlayerIcon" destination="3Rd-CS-Heo" id="AGd-kX-nbf"/>
+                <outlet property="SettingsButton" destination="Wud-ff-JHb" id="nxm-h4-lnf"/>
+                <outlet property="ThumbnailView" destination="qGM-8f-pCT" id="xwg-Dm-hiq"/>
+                <outlet property="TrackName" destination="Egj-dx-afk" id="puq-f1-KUO"/>
+            </connections>
+        </customView>
+    </objects>
+    <resources>
+        <image name="gradient_background" width="360" height="104"/>
+        <image name="instrumental_tag" width="120" height="22"/>
+        <image name="player_circular_background" width="28" height="28"/>
+        <image name="settings" width="15" height="15"/>
+        <image name="settings_alternate" width="15" height="15"/>
+    </resources>
+</document>

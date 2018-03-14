@@ -121,12 +121,18 @@
       <DependentUpon>LoadingView.cs</DependentUpon>
     </Compile>
     <Compile Include="Helpers\StateMachine\ViewStates\ContentState.cs" />
+    <Compile Include="Views\EmptyView.cs" />
+    <Compile Include="Views\EmptyView.designer.cs">
+      <DependentUpon>EmptyView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Helpers\StateMachine\ViewStates\EmptyState.cs" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Main.storyboard" />
     <InterfaceDefinition Include="Views\IdleView.xib" />
     <InterfaceDefinition Include="Views\ContentView.xib" />
     <InterfaceDefinition Include="Views\LoadingView.xib" />
+    <InterfaceDefinition Include="Views\EmptyView.xib" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Scripts\GetCurrentSong.txt" />
@@ -147,6 +153,7 @@
     <BundleResource Include="Resources\text_size.pdf" />
     <BundleResource Include="Resources\settings.pdf" />
     <BundleResource Include="Resources\settings_alternate.pdf" />
+    <BundleResource Include="Resources\instrumental_tag.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Mac\Xamarin.Mac.CSharp.targets" />
 </Project>
