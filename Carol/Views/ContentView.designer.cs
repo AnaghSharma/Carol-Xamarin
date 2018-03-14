@@ -22,6 +22,9 @@ namespace Carol.Views
 		AppKit.NSVisualEffectView BlurOverlay { get; set; }
 
 		[Outlet]
+		AppKit.NSButton ChangeTextSizeButton { get; set; }
+
+		[Outlet]
 		AppKit.NSImageView ExplicitTag { get; set; }
 
 		[Outlet]
@@ -29,6 +32,9 @@ namespace Carol.Views
 
 		[Outlet]
 		AppKit.NSScrollView MainScroll { get; set; }
+
+		[Outlet]
+		AppKit.NSButton OpenInBrowserButton { get; set; }
 
 		[Outlet]
 		AppKit.NSImageView PlayerIcon { get; set; }
@@ -40,10 +46,22 @@ namespace Carol.Views
 		AppKit.NSBox ProgressBar { get; set; }
 
 		[Outlet]
+		AppKit.NSButton SettingsButton { get; set; }
+
+		[Outlet]
 		AppKit.NSImageView ThumbnailView { get; set; }
 
 		[Outlet]
 		AppKit.NSTextField TrackName { get; set; }
+
+		[Action ("ChangeTextSizeButtonClick:")]
+		partial void ChangeTextSizeButtonClick (Foundation.NSObject sender);
+
+		[Action ("OpenInBrowserButtonClick:")]
+		partial void OpenInBrowserButtonClick (Foundation.NSObject sender);
+
+		[Action ("SettingsButtonClick:")]
+		partial void SettingsButtonClick (Foundation.NSObject sender);
 		
 		void ReleaseDesignerOutlets ()
 		{
@@ -100,6 +118,21 @@ namespace Carol.Views
 			if (ExplicitTag != null) {
 				ExplicitTag.Dispose ();
 				ExplicitTag = null;
+			}
+
+			if (OpenInBrowserButton != null) {
+				OpenInBrowserButton.Dispose ();
+				OpenInBrowserButton = null;
+			}
+
+			if (ChangeTextSizeButton != null) {
+				ChangeTextSizeButton.Dispose ();
+				ChangeTextSizeButton = null;
+			}
+
+			if (SettingsButton != null) {
+				SettingsButton.Dispose ();
+				SettingsButton = null;
 			}
 		}
 	}

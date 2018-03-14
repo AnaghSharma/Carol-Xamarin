@@ -81,7 +81,10 @@ namespace Carol
                     tracklyrics = JsonConvert.DeserializeObject<TrackLyrics.RootObject>(response);
 
                     if (tracklyrics.message.body.lyrics.instrumental == 0)
+                    {
+                        track_share_url = share_url;
                         stateMachine.ShowContent();
+                    }
                 });
             }
             else if (result.NumberOfItems == 0)

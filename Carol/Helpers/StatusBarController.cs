@@ -10,6 +10,7 @@
 
 using AppKit;
 using Foundation;
+using Carol.Views;
 
 namespace Carol.Helpers
 {
@@ -50,8 +51,8 @@ namespace Carol.Helpers
 			eventMonitor = new EventMonitor((NSEventMask.LeftMouseDown | NSEventMask.RightMouseDown), MouseEventHandler);
 			eventMonitor.Start();
 
-            //ViewController.AboutMenuItemClicked += HandleAboutMenuItemClicked;
-            //ViewController.QuitButtonClicked += HandleQuitButtonClicked;
+            ContentView.AboutMenuItemClicked += HandleAboutMenuItemClicked;
+            ContentView.QuitButtonClicked += HandleQuitButtonClicked;
 
             storyboard = NSStoryboard.FromName("Main", null);
             windowController = storyboard.InstantiateControllerWithIdentifier("AboutWindow") as NSWindowController;
@@ -61,8 +62,8 @@ namespace Carol.Helpers
         //Destructor
         ~StatusBarController()
         {
-            //ViewController.AboutMenuItemClicked -= HandleAboutMenuItemClicked;
-            //ViewController.QuitButtonClicked -= HandleQuitButtonClicked;
+            ContentView.AboutMenuItemClicked -= HandleAboutMenuItemClicked;
+            ContentView.QuitButtonClicked -= HandleQuitButtonClicked;
         }
 
         [Export("toggle:")]

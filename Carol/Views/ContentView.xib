@@ -138,6 +138,39 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="explicit_tag" id="egq-Cm-DYq"/>
                             </imageView>
+                            <button toolTip="Open in browser" verticalHuggingPriority="750" misplaced="YES" id="2Ls-1W-oHG">
+                                <rect key="frame" x="272" y="280" width="20" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="smallSquare" bezelStyle="smallSquare" image="open_browser" imagePosition="overlaps" alignment="center" alternateImage="open_browser" lineBreakMode="truncatingTail" state="on" imageScaling="proportionallyDown" inset="2" id="ND8-Jn-QVg">
+                                    <behavior key="behavior" lightByContents="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="OpenInBrowserButtonClick:" target="2" id="LX0-hX-Aoi"/>
+                                </connections>
+                            </button>
+                            <button toolTip="Change text size" verticalHuggingPriority="750" misplaced="YES" id="5DB-Ol-nbc">
+                                <rect key="frame" x="300" y="280" width="20" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="smallSquare" bezelStyle="smallSquare" image="text_size" imagePosition="overlaps" alignment="center" alternateImage="text_size" lineBreakMode="truncatingTail" state="on" imageScaling="proportionallyDown" inset="2" id="vNJ-Cb-9jD">
+                                    <behavior key="behavior" lightByContents="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="ChangeTextSizeButtonClick:" target="2" id="Moi-6u-8yf"/>
+                                </connections>
+                            </button>
+                            <button toolTip="Settings" verticalHuggingPriority="750" misplaced="YES" id="hnd-5R-aJQ">
+                                <rect key="frame" x="326" y="280" width="20" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="smallSquare" bezelStyle="smallSquare" image="settings" imagePosition="overlaps" alignment="center" alternateImage="settings_alternate" lineBreakMode="truncatingTail" state="on" imageScaling="proportionallyDown" inset="2" id="NX3-DW-AQ9">
+                                    <behavior key="behavior" lightByContents="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="SettingsButtonClick:" target="2" id="ZcK-cT-ZRU"/>
+                                </connections>
+                            </button>
                         </subviews>
                     </view>
                     <color key="fillColor" red="0.12984204290000001" green="0.12984612579999999" blue="0.12984395030000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -147,12 +180,15 @@
                 <outlet property="AlbumArtView" destination="kBF-s7-726" id="wYJ-G4-1ek"/>
                 <outlet property="ArtistName" destination="ACF-x9-Wdx" id="MCq-e1-7d4"/>
                 <outlet property="BlurOverlay" destination="PKn-CY-yyi" id="zIr-GD-qZ3"/>
+                <outlet property="ChangeTextSizeButton" destination="5DB-Ol-nbc" id="BVx-Ew-g9B"/>
                 <outlet property="ExplicitTag" destination="ImK-mL-XMV" id="pAk-Z1-kLc"/>
                 <outlet property="LyricsTextView" destination="WTt-U9-Ckm" id="z8J-qS-1KF"/>
                 <outlet property="MainScroll" destination="sjb-OC-tBX" id="MRQ-Uj-G5G"/>
+                <outlet property="OpenInBrowserButton" destination="2Ls-1W-oHG" id="JET-fl-2FI"/>
                 <outlet property="PlayerIcon" destination="UwA-oA-GN6" id="bz8-gr-saf"/>
                 <outlet property="ProgressBackground" destination="V4H-15-7QL" id="sqS-GC-Nq8"/>
                 <outlet property="ProgressBar" destination="KYW-cA-yF8" id="OXX-1E-JVi"/>
+                <outlet property="SettingsButton" destination="hnd-5R-aJQ" id="eo4-hA-X1Q"/>
                 <outlet property="ThumbnailView" destination="9MW-rd-X3E" id="SCG-uS-nvC"/>
                 <outlet property="TrackName" destination="W8o-Q1-rcw" id="Ts8-fp-muz"/>
             </connections>
@@ -161,6 +197,10 @@
     <resources>
         <image name="explicit_tag" width="72" height="22"/>
         <image name="gradient_background" width="360" height="104"/>
+        <image name="open_browser" width="16" height="14"/>
         <image name="player_circular_background" width="28" height="28"/>
+        <image name="settings" width="15" height="15"/>
+        <image name="settings_alternate" width="15" height="15"/>
+        <image name="text_size" width="17" height="13"/>
     </resources>
 </document>

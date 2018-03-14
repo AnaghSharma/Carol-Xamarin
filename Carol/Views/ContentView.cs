@@ -17,6 +17,13 @@ namespace Carol.Views
         CGRect progress;
         float containerHeight;
         nfloat width;
+
+        NSMenu settingsMenu;
+        NSMenuItem launch, artwork;
+        NSCursor cursor;
+
+        public static event EventHandler QuitButtonClicked;
+        public static event EventHandler AboutMenuItemClicked;
         
         #region Constructors
 
@@ -64,6 +71,27 @@ namespace Carol.Views
             MainScroll.ContentView.PostsBoundsChangedNotifications = true;
             NSNotificationCenter.DefaultCenter.AddObserver(this, new ObjCRuntime.Selector("boundsChange:"),
             NSView.BoundsChangedNotification, MainScroll.ContentView);
+
+            #region Settings Menu
+            settingsMenu = new NSMenu();
+
+            artwork = new NSMenuItem("Background Artwork", new ObjCRuntime.Selector("artwork:"), "");
+            launch = new NSMenuItem("Launch at Login", new ObjCRuntime.Selector("launch:"), "");
+            NSMenuItem about = new NSMenuItem("About", new ObjCRuntime.Selector("about:"), "");
+            NSMenuItem quit = new NSMenuItem("Quit Carol", new ObjCRuntime.Selector("quit:"), "q");
+
+
+            settingsMenu.AddItem(artwork);
+            settingsMenu.AddItem(launch);
+            settingsMenu.AddItem(about);
+            settingsMenu.AddItem(NSMenuItem.SeparatorItem);
+            settingsMenu.AddItem(quit);
+            #endregion
+
+            OpenInBrowserButton.AddTrackingArea(new NSTrackingArea(OpenInBrowserButton.Bounds, NSTrackingAreaOptions.MouseEnteredAndExited | NSTrackingAreaOptions.ActiveAlways, this, null));
+            ChangeTextSizeButton.AddTrackingArea(new NSTrackingArea(ChangeTextSizeButton.Bounds, NSTrackingAreaOptions.MouseEnteredAndExited | NSTrackingAreaOptions.ActiveAlways, this, null));
+            SettingsButton.AddTrackingArea(new NSTrackingArea(SettingsButton.Bounds, NSTrackingAreaOptions.MouseEnteredAndExited | NSTrackingAreaOptions.ActiveAlways, this, null));
+            cursor = NSCursor.CurrentSystemCursor;
 		}
 
 		public override void ViewDidMoveToWindow()
@@ -73,8 +101,12 @@ namespace Carol.Views
             LyricsTextView.Value = currentDelegate.controller.TrackLyrics.message.body.lyrics.lyrics_body;
             TrackName.StringValue = currentDelegate.controller.Track;
             ArtistName.StringValue = currentDelegate.controller.Artist;
-            //track_share_url = currentDelegate.controller.ShareUrl;
 
+            if (currentDelegate.controller.TrackLyrics.message.body.lyrics.@explicit == 1)
+                ExplicitTag.Hidden = false;
+            else
+                ExplicitTag.Hidden = true;
+            
             if (currentDelegate.controller.App == "iTunes")
             {
                 PlayerIcon.Image = new NSImage("icon_itunes.pdf");
@@ -114,6 +146,98 @@ namespace Carol.Views
             else if (width > 100)
                 progress.Width = 100;
             ProgressBar.Frame = progress;
+        }
+
+        partial void SettingsButtonClick(NSObject sender)
+        {
+            launch.State = (NSUserDefaults.StandardUserDefaults.BoolForKey("LaunchLogin")) ? NSCellStateValue.On : NSCellStateValue.Off;
+            artwork.State = (NSUserDefaults.StandardUserDefaults.BoolForKey("BackgroundArtwork")) ? NSCellStateValue.On : NSCellStateValue.Off;
+
+            NSMenu.PopUpContextMenu(settingsMenu, NSApplication.SharedApplication.CurrentEvent, sender as NSView);
+        }
+
+        partial void ChangeTextSizeButtonClick(NSObject sender)
+        {
+            switch (NSUserDefaults.StandardUserDefaults.FloatForKey("TextSize"))
+            {
+                case 21.0f:
+                    LyricsTextView.Font = NSFont.SystemFontOfSize(27.0f, 0.2f);
+                    NSUserDefaults.StandardUserDefaults.SetFloat(27.0f, "TextSize");
+                    break;
+                case 27.0f:
+                    LyricsTextView.Font = NSFont.SystemFontOfSize(32.0f, 0.2f);
+                    NSUserDefaults.StandardUserDefaults.SetFloat(32.0f, "TextSize");
+                    break;
+                case 32.0f:
+                    LyricsTextView.Font = NSFont.SystemFontOfSize(21.0f, 0.2f);
+                    NSUserDefaults.StandardUserDefaults.SetFloat(21.0f, "TextSize");
+                    break;
+            }
+            containerHeight = (float)LyricsTextView.Bounds.Height;
+            NSNotificationCenter.DefaultCenter.PostNotificationName(NSView.BoundsChangedNotification, MainScroll.ContentView);
+        }
+
+        partial void OpenInBrowserButtonClick(NSObject sender)
+        {
+            NSWorkspace.SharedWorkspace.OpenUrl(new NSUrl(currentDelegate.controller.ShareUrl));
+        }
+
+
+        //Method to handle Launch at Login functionality
+        [Export("launch:")]         void Launch(NSObject sender)         {
+            if (!NSUserDefaults.StandardUserDefaults.BoolForKey("LaunchLogin"))
+            {
+                script = new NSAppleScript(File.ReadAllText("Scripts/LoginAdd.txt"));
+                script.ExecuteAndReturnError(out errors);
+                NSUserDefaults.StandardUserDefaults.SetBool(true, "LaunchLogin");
+            }
+            else
+            {
+                script = new NSAppleScript(File.ReadAllText("Scripts/LoginRemove.txt"));
+                script.ExecuteAndReturnError(out errors);
+                NSUserDefaults.StandardUserDefaults.SetBool(false, "LaunchLogin");
+            }         }
+
+        //Method to show/hide album artwork in background
+        [Export("artwork:")]
+        void Artwork(NSObject sender)
+        {
+            if (NSUserDefaults.StandardUserDefaults.BoolForKey("BackgroundArtwork"))
+            {
+                AlbumArtView.Hidden = true;
+                NSUserDefaults.StandardUserDefaults.SetBool(false, "BackgroundArtwork");
+            }
+            else
+            {
+                AlbumArtView.Hidden = false;
+                NSUserDefaults.StandardUserDefaults.SetBool(true, "BackgroundArtwork"); ;
+            }
+        }
+         //Delegating the About Menu Item click event to Helpers/StatusBarController.cs
+        [Export("about:")]
+        void About(NSObject sender)
+        {
+            AboutMenuItemClicked?.Invoke(this, null);
+        }
+
+        //Delegating the Quit Menu Item click event to Helpers/StatusBarController.cs
+        [Export("quit:")]         void Quit(NSObject sender)         {             QuitButtonClicked?.Invoke(this, null);         }
+
+        //Method override to change cursor to pointing hand on Mouse Enter (Hover)
+        public override void MouseEntered(NSEvent theEvent)
+        {
+            base.MouseEntered(theEvent);
+
+            cursor = NSCursor.PointingHandCursor;
+            cursor.Push();
+        }
+
+        //Method override to change cursor to pointing hand on Mouse Exit
+        public override void MouseExited(NSEvent theEvent)
+        {
+            base.MouseEntered(theEvent);
+
+            cursor.Pop();
         }
 	}
 }
