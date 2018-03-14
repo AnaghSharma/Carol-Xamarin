@@ -120,6 +120,7 @@
     <Compile Include="Views\LoadingView.designer.cs">
       <DependentUpon>LoadingView.cs</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\StateMachine\ViewStates\ContentState.cs" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Main.storyboard" />
