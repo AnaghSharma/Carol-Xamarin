@@ -46,6 +46,8 @@ namespace Carol.Helpers.StateMachine
                         currentState = new ContentState();
                     else if (_trigger == Triggers.ShowEmpty)
                         currentState = new EmptyState();
+                    else if (_trigger == Triggers.ThrowError)
+                        currentState = new ErrorState();
                     break;
             }
         }
@@ -65,6 +67,12 @@ namespace Carol.Helpers.StateMachine
         public void ShowEmpty()
         {
             TransitionToState(States.Loading, Triggers.ShowEmpty);
+            currentState.Enter(this);
+        }
+
+        public void ShowError()
+        {
+            TransitionToState(States.Loading, Triggers.ThrowError);
             currentState.Enter(this);
         }
     }

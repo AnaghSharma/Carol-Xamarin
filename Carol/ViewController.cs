@@ -4,6 +4,7 @@ using AppKit;
 using Carol.Helpers;
 using Carol.Helpers.StateMachine;
 using Carol.Models;
+using Carol.Views;
 using Foundation;
 using Newtonsoft.Json;
 
@@ -29,11 +30,14 @@ namespace Carol
 
         public TrackLyrics.RootObject TrackLyrics => tracklyrics;
 
-        public delegate void HandleLyrics(NSObject arg);
-
         public ViewController(IntPtr handle) : base(handle)
         {
             
+        }
+
+        ~ViewController()
+        {
+            ErrorView.RetryButtonClicked -= HandleRetryButtonClick;
         }
 
         public override void ViewDidLoad()
@@ -44,6 +48,8 @@ namespace Carol
             stateMachine = new ViewStateMachine(States.Idle);
 
             lyricsHelper = new LyricsHelper();
+
+            ErrorView.RetryButtonClicked += HandleRetryButtonClick;
 		}
 
         public override NSObject RepresentedObject
@@ -64,6 +70,11 @@ namespace Carol
             base.ViewDidAppear();
 
             stateMachine.SetupInitialView();
+            FetchLyrics();
+        }
+
+        private void FetchLyrics()
+        {
             stateMachine.StartLoading();
 
             script = new NSAppleScript(File.ReadAllText("Scripts/GetCurrentSong.txt"));
@@ -95,18 +106,26 @@ namespace Carol
                 {
                     case "1":
                         //LyricsTextView.Value = "No track playing";
+                        stateMachine.ShowError();
                         break;
                     case "2":
                         //LyricsTextView.Value = "No music app is running";
+                        stateMachine.ShowError();
                         break;
                     case "3":
                         //LyricsTextView.Value = "You playin' two songs at a time. Livin' in 3017";
+                        stateMachine.ShowError();
                         break;
                 }
             }
             else
                 Console.WriteLine("Duh");
             //LyricsTextView.Value = "Something went wrong. It happens.";
+        }
+
+        void HandleRetryButtonClick(object sender, EventArgs e)
+        {
+            FetchLyrics();
         }
     }
 }

@@ -125,6 +125,11 @@
       <DependentUpon>EmptyView.cs</DependentUpon>
     </Compile>
     <Compile Include="Helpers\StateMachine\ViewStates\EmptyState.cs" />
+    <Compile Include="Views\ErrorView.cs" />
+    <Compile Include="Views\ErrorView.designer.cs">
+      <DependentUpon>ErrorView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Helpers\StateMachine\ViewStates\ErrorState.cs" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Main.storyboard" />
@@ -132,6 +137,7 @@
     <InterfaceDefinition Include="Views\ContentView.xib" />
     <InterfaceDefinition Include="Views\LoadingView.xib" />
     <InterfaceDefinition Include="Views\EmptyView.xib" />
+    <InterfaceDefinition Include="Views\ErrorView.xib" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Scripts\GetCurrentSong.txt" />
