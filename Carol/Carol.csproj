@@ -130,6 +130,7 @@
       <DependentUpon>ErrorView.cs</DependentUpon>
     </Compile>
     <Compile Include="Helpers\StateMachine\ViewStates\ErrorState.cs" />
+    <Compile Include="Helpers\Reachability.cs" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Main.storyboard" />

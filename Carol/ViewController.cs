@@ -77,50 +77,56 @@ namespace Carol
         {
             stateMachine.StartLoading();
 
-            script = new NSAppleScript(File.ReadAllText("Scripts/GetCurrentSong.txt"));
-            result = script.ExecuteAndReturnError(out errors);
-
-            //The NumberofItems property is being used to handle different use cases. Check GetCurrentSong.txt in Scripts folder to know more
-            if (result.NumberOfItems == 3)
+            if (Reachability.IsNetworkAvailable())
             {
-                artist = result.DescriptorAtIndex(1).StringValue;
-                track = result.DescriptorAtIndex(2).StringValue;
-                app = result.DescriptorAtIndex(3).StringValue;
+                script = new NSAppleScript(File.ReadAllText("Scripts/GetCurrentSong.txt"));
+                result = script.ExecuteAndReturnError(out errors);
 
-                var lyrics = lyricsHelper.GetLyrics(track, artist, (response, artist_name, share_url) =>
+                //The NumberofItems property is being used to handle different use cases. Check GetCurrentSong.txt in Scripts folder to know more
+                if (result.NumberOfItems == 3)
                 {
-                    tracklyrics = JsonConvert.DeserializeObject<TrackLyrics.RootObject>(response);
+                    artist = result.DescriptorAtIndex(1).StringValue;
+                    track = result.DescriptorAtIndex(2).StringValue;
+                    app = result.DescriptorAtIndex(3).StringValue;
 
-                    if (tracklyrics.message.body.lyrics.instrumental == 0)
+                    var lyrics = lyricsHelper.GetLyrics(track, artist, (response, artist_name, share_url) =>
                     {
-                        track_share_url = share_url;
-                        stateMachine.ShowContent();
-                    }
-                    else
-                        stateMachine.ShowEmpty();
-                });
-            }
-            else if (result.NumberOfItems == 0)
-            {
-                switch (result.StringValue)
-                {
-                    case "1":
-                        //LyricsTextView.Value = "No track playing";
-                        stateMachine.ShowError();
-                        break;
-                    case "2":
-                        //LyricsTextView.Value = "No music app is running";
-                        stateMachine.ShowError();
-                        break;
-                    case "3":
-                        //LyricsTextView.Value = "You playin' two songs at a time. Livin' in 3017";
-                        stateMachine.ShowError();
-                        break;
+                        tracklyrics = JsonConvert.DeserializeObject<TrackLyrics.RootObject>(response);
+
+                        if (tracklyrics.message.body.lyrics.instrumental == 0)
+                        {
+                            track_share_url = share_url;
+                            stateMachine.ShowContent();
+                        }
+                        else
+                            stateMachine.ShowEmpty();
+                    });
                 }
+                else if (result.NumberOfItems == 0)
+                {
+                    switch (result.StringValue)
+                    {
+                        case "1":
+                            //LyricsTextView.Value = "No track playing";
+                            stateMachine.ShowError();
+                            break;
+                        case "2":
+                            //LyricsTextView.Value = "No music app is running";
+                            stateMachine.ShowError();
+                            break;
+                        case "3":
+                            //LyricsTextView.Value = "You playin' two songs at a time. Livin' in 3017";
+                            stateMachine.ShowError();
+                            break;
+                    }
+                }
+                else
+                    Console.WriteLine("Duh");
+                //LyricsTextView.Value = "Something went wrong. It happens.";   
             }
+
             else
-                Console.WriteLine("Duh");
-            //LyricsTextView.Value = "Something went wrong. It happens.";
+                stateMachine.ShowError();
         }
 
         void HandleRetryButtonClick(object sender, EventArgs e)
