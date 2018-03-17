@@ -45,9 +45,7 @@ namespace Carol.Helpers
 
         private static void OnChange(NetworkReachabilityFlags flags)
         {
-            var h = ReachabilityChanged;
-            if (h != null)
-                h(null, EventArgs.Empty);
+            ReachabilityChanged?.Invoke(null, EventArgs.Empty);
         }
     }
 }

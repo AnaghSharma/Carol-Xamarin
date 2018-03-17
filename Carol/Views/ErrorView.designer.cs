@@ -12,11 +12,26 @@ namespace Carol.Views
 	[Register ("ErrorView")]
 	partial class ErrorView
 	{
+		[Outlet]
+		AppKit.NSTextField ErrorTextView { get; set; }
+
+		[Outlet]
+		AppKit.NSButton RetryButton { get; set; }
+
 		[Action ("RetryButtonClick:")]
 		partial void RetryButtonClick (Foundation.NSObject sender);
 		
 		void ReleaseDesignerOutlets ()
 		{
+			if (ErrorTextView != null) {
+				ErrorTextView.Dispose ();
+				ErrorTextView = null;
+			}
+
+			if (RetryButton != null) {
+				RetryButton.Dispose ();
+				RetryButton = null;
+			}
 		}
 	}
 }

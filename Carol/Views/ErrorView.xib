@@ -9,7 +9,7 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner"/>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
-        <customObject id="-3" userLabel="Application"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <customView misplaced="YES" id="2" customClass="ErrorView">
             <rect key="frame" x="0.0" y="0.0" width="360" height="360"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
@@ -22,16 +22,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" id="KXi-md-b6a">
-                                <rect key="frame" x="71" y="188" width="218" height="17"/>
+                                <rect key="frame" x="18" y="172" width="324" height="17"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Can't find lyrics of the current song" id="vji-f6-cXR">
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Can't find lyrics of the current song" id="vji-f6-cXR">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
                             <button verticalHuggingPriority="750" misplaced="YES" id="9Ar-oV-ism">
-                                <rect key="frame" x="144" y="148" width="73" height="32"/>
+                                <rect key="frame" x="144" y="132" width="73" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <buttonCell key="cell" type="push" title="Retry" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="bdR-EB-Gwp">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -46,6 +46,10 @@
                     <color key="fillColor" red="0.12984204290000001" green="0.12984612579999999" blue="0.12984395030000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                 </box>
             </subviews>
+            <connections>
+                <outlet property="ErrorTextView" destination="KXi-md-b6a" id="3gX-bk-QKf"/>
+                <outlet property="RetryButton" destination="9Ar-oV-ism" id="zXr-IK-D5q"/>
+            </connections>
         </customView>
     </objects>
 </document>

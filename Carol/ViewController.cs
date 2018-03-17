@@ -30,6 +30,9 @@ namespace Carol
 
         public TrackLyrics.RootObject TrackLyrics => tracklyrics;
 
+        public static event EventHandler NetworkErrorOccurred;
+        public static event EventHandler LyricsNotFoundOccurred;
+
         public ViewController(IntPtr handle) : base(handle)
         {
             
@@ -126,7 +129,10 @@ namespace Carol
             }
 
             else
+            {
                 stateMachine.ShowError();
+                NetworkErrorOccurred?.Invoke(this, null);
+            }
         }
 
         void HandleRetryButtonClick(object sender, EventArgs e)

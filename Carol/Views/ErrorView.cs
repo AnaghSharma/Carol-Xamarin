@@ -25,6 +25,8 @@ namespace Carol.Views
         // Shared initialization code
         void Initialize()
         {
+            ViewController.NetworkErrorOccurred += HandleNetworkError;
+            ViewController.LyricsNotFoundOccurred += HandleLyricsNotFound;
         }
 
 		#endregion
@@ -33,5 +35,16 @@ namespace Carol.Views
 		{
             RetryButtonClicked?.Invoke(this, null);
 		}
+
+        void HandleNetworkError(object sender, EventArgs e)
+        {
+            ErrorTextView.StringValue = "Looks like there is no internet connection.";
+            RetryButton.Hidden = true;
+        }
+
+        void HandleLyricsNotFound(object sender, EventArgs e)
+        {
+            ErrorTextView.StringValue = "Could not find the lyrics of this song.";
+        }
 	}
 }
