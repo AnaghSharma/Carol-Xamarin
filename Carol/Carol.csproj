@@ -160,6 +160,7 @@
     <BundleResource Include="Resources\settings.pdf" />
     <BundleResource Include="Resources\settings_alternate.pdf" />
     <BundleResource Include="Resources\instrumental_tag.png" />
+    <BundleResource Include="Resources\Dark.car" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Mac\Xamarin.Mac.CSharp.targets" />
 </Project>
