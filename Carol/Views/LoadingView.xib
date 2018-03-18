@@ -22,11 +22,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <progressIndicator wantsLayer="YES" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" maxValue="100" doubleValue="4" bezeled="NO" indeterminate="YES" controlSize="small" style="spinning" id="onI-hk-ob1">
-                                <rect key="frame" x="172" y="185" width="16" height="16"/>
+                                <rect key="frame" x="172" y="49" width="16" height="16"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                             </progressIndicator>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" id="gXo-RD-gaT">
-                                <rect key="frame" x="128" y="160" width="104" height="17"/>
+                                <rect key="frame" x="128" y="24" width="104" height="17"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Fetching Lyrics..." id="iR3-Ox-BjU">
                                     <font key="font" metaFont="system"/>
@@ -34,6 +34,11 @@
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
+                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" id="XPz-z8-k7o">
+                                <rect key="frame" x="119" y="137" width="107" height="107"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="loading_image" id="eEg-Te-TRH"/>
+                            </imageView>
                         </subviews>
                     </view>
                     <color key="fillColor" red="0.12984204290000001" green="0.12984612579999999" blue="0.12984395030000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -44,4 +49,7 @@
             </connections>
         </customView>
     </objects>
+    <resources>
+        <image name="loading_image" width="244" height="172"/>
+    </resources>
 </document>

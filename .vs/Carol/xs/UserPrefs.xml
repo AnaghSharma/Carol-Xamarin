@@ -1,12 +1,8 @@
 ﻿<Properties StartupConfiguration="{442A926A-9DBD-483B-84C7-88CADA16994C}|Default" GitUserInfo="UsingGIT">
   <MonoDevelop.Ide.Workbench ActiveDocument="Carol Status">
     <Files>
-      <File FileName="Carol/Helpers/StateMachine/ViewStateMachine.cs" Line="76" Column="1" />
-      <File FileName="Carol/ViewController.cs" Line="98" Column="1" />
-      <File FileName="Carol/Views/ErrorView.cs" Line="29" Column="43" />
-      <File FileName="Carol/Views/ContentView.cs" Line="238" Column="13" />
-      <File FileName="Carol/Helpers/StateMachine/ViewStates/EmptyState.cs" Line="18" Column="10" />
-      <File FileName="Carol/Helpers/StatusBarController.cs" Line="89" Column="9" />
+      <File FileName="Carol/ViewController.cs" Line="6" Column="20" />
+      <File FileName="Carol/Helpers/StatusBarController.cs" Line="1" Column="1" />
       <File FileName="Carol Status" />
     </Files>
   </MonoDevelop.Ide.Workbench>
