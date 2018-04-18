@@ -49,6 +49,7 @@ namespace Carol
 
             View.Appearance = new NSAppearance(@"Dark", null);
             stateMachine = new ViewStateMachine(States.Idle);
+            stateMachine.SetupInitialView();
 
             lyricsHelper = new LyricsHelper();
 
@@ -72,7 +73,6 @@ namespace Carol
         {
             base.ViewDidAppear();
 
-            stateMachine.SetupInitialView();
             FetchLyrics();
         }
 
