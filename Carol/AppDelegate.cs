@@ -9,10 +9,13 @@ namespace Carol
     {
         NSPopover popover;
         public ViewController controller;
+        NSDictionary defaultSettings;
 
         public AppDelegate()
         {
             popover = new NSPopover();
+
+            defaultSettings = new NSDictionary("DefaultPreferences.plist");
         }
 
         public override void DidFinishLaunching(NSNotification notification)
@@ -27,9 +30,7 @@ namespace Carol
 
             StatusBarController statusBar = new StatusBarController(popover, "StatusBarIcon.png");
 
-            NSUserDefaults.StandardUserDefaults.RegisterDefaults(new NSDictionary(27.0f, "TextSize"));
-            NSUserDefaults.StandardUserDefaults.RegisterDefaults(new NSDictionary(false, "LaunchLogin"));
-            NSUserDefaults.StandardUserDefaults.RegisterDefaults(new NSDictionary(true, "BackgroundArtwork"));
+            NSUserDefaults.StandardUserDefaults.RegisterDefaults(defaultSettings);
         }
 
         public override void WillTerminate(NSNotification notification)

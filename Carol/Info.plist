@@ -45,5 +45,7 @@
 			</dict>
 		</dict>
 	</dict>
+	<key>LSApplicationCategoryType</key>
+	<string>public.app-category.music</string>
 </dict>
 </plist>
