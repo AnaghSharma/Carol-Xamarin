@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="13771"/>
-        <capability name="box content view" minToolsVersion="7.0"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14109"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
         <capability name="stacking Non-gravity area distributions on NSStackView" minToolsVersion="7.0" minSystemVersion="10.11"/>
     </dependencies>
@@ -680,7 +679,8 @@
                 <windowController storyboardIdentifier="AboutWindow" id="7L0-UJ-mzo" sceneMemberID="viewController">
                     <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="Fud-Gr-h7W">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES"/>
-                        <rect key="contentRect" x="245" y="222" width="480" height="270"/>
+                        <windowPositionMask key="initialPositionMask" topStrut="YES" bottomStrut="YES"/>
+                        <rect key="contentRect" x="245" y="640" width="480" height="270"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
                         <connections>
                             <outlet property="delegate" destination="7L0-UJ-mzo" id="Uwj-xT-oXu"/>
@@ -699,18 +699,9 @@
             <objects>
                 <viewController id="an7-CN-1bD" customClass="AboutViewController" sceneMemberID="viewController">
                     <view key="view" id="dGd-6m-SWN">
-                        <rect key="frame" x="0.0" y="0.0" width="480" height="288"/>
+                        <rect key="frame" x="0.0" y="0.0" width="480" height="260"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <box boxType="custom" borderType="none" borderWidth="0.0" translatesAutoresizingMaskIntoConstraints="NO" id="QQc-kk-MlN">
-                                <rect key="frame" x="20" y="232" width="80" height="5"/>
-                                <view key="contentView" id="eiA-oi-Ktj">
-                                    <rect key="frame" x="0.0" y="0.0" width="80" height="5"/>
-                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                </view>
-                                <color key="borderColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="fillColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="1" colorSpace="calibratedRGB"/>
-                            </box>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="LJw-cG-RzK">
                                 <rect key="frame" x="18" y="193" width="78" height="34"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="About" id="YIU-zk-2G2">
@@ -789,15 +780,11 @@
                             </stackView>
                         </subviews>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="QQc-kk-MlN" secondAttribute="trailing" constant="380" id="4Ze-P6-12e"/>
                             <constraint firstItem="DL5-pE-lIT" firstAttribute="top" secondItem="LJw-cG-RzK" secondAttribute="bottom" constant="20" id="EsI-PS-Q11"/>
                             <constraint firstItem="5Ps-F5-h1E" firstAttribute="baseline" secondItem="sJQ-NC-dXN" secondAttribute="baseline" id="JVR-Gi-uZE"/>
                             <constraint firstItem="sJQ-NC-dXN" firstAttribute="leading" secondItem="5Ps-F5-h1E" secondAttribute="trailing" constant="24" id="MG0-iJ-egc"/>
-                            <constraint firstItem="QQc-kk-MlN" firstAttribute="top" secondItem="dGd-6m-SWN" secondAttribute="top" constant="51" id="OpI-9f-GhY"/>
                             <constraint firstItem="5Ps-F5-h1E" firstAttribute="top" secondItem="DL5-pE-lIT" secondAttribute="bottom" constant="85" id="PiR-em-7PC"/>
-                            <constraint firstItem="QQc-kk-MlN" firstAttribute="leading" secondItem="DL5-pE-lIT" secondAttribute="leading" id="YLg-7g-AHc"/>
                             <constraint firstItem="5Ps-F5-h1E" firstAttribute="leading" secondItem="dGd-6m-SWN" secondAttribute="leading" constant="20" symbolic="YES" id="ZHd-V1-Qhx"/>
-                            <constraint firstItem="LJw-cG-RzK" firstAttribute="top" secondItem="QQc-kk-MlN" secondAttribute="bottom" constant="5" id="aA1-E8-UUi"/>
                             <constraint firstAttribute="bottom" secondItem="5Ps-F5-h1E" secondAttribute="bottom" constant="17" id="meZ-Ff-izJ"/>
                             <constraint firstItem="5Ps-F5-h1E" firstAttribute="leading" secondItem="LJw-cG-RzK" secondAttribute="leading" id="tLh-09-0aT"/>
                             <constraint firstItem="5Ps-F5-h1E" firstAttribute="leading" secondItem="DL5-pE-lIT" secondAttribute="leading" id="uiU-MB-fzy"/>
