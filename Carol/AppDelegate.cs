@@ -10,6 +10,9 @@ namespace Carol
         NSPopover popover;
         public ViewController controller;
         NSDictionary defaultSettings;
+        StatusBarController statusBar;
+
+        public StatusBarController StatusBar => statusBar;
 
         public AppDelegate()
         {
@@ -28,7 +31,7 @@ namespace Carol
             popover.ContentViewController = controller;
             popover.SetAppearance(NSAppearance.GetAppearance(NSAppearance.NameVibrantDark));
 
-            StatusBarController statusBar = new StatusBarController(popover, "StatusBarIcon.png");
+            statusBar = new StatusBarController(popover, "StatusBarIcon.png");
 
             NSUserDefaults.StandardUserDefaults.RegisterDefaults(defaultSettings);
         }

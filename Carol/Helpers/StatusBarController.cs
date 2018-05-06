@@ -87,7 +87,7 @@ namespace Carol.Helpers
             eventMonitor.Start();
         }
 
-        void HidePopover(NSObject sender)
+        public void HidePopover(NSObject sender)
         {
             popover.PerformClose(sender);
             eventMonitor.Stop();

@@ -180,6 +180,7 @@ namespace Carol.Views
         partial void OpenInBrowserButtonClick(NSObject sender)
         {
             NSWorkspace.SharedWorkspace.OpenUrl(new NSUrl(currentDelegate.controller.ShareUrl));
+            currentDelegate.StatusBar.HidePopover(sender);
         }
 
 
