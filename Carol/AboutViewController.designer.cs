@@ -13,10 +13,10 @@ namespace Carol
 	partial class AboutViewController
 	{
 		[Outlet]
-		Carol.Controls.HyperlinkTextField GitHubLink { get; set; }
+		Carol.Controls.HyperlinkTextField AboutLink { get; set; }
 
 		[Outlet]
-		Carol.Controls.HyperlinkTextField TwitterLink { get; set; }
+		Carol.Controls.HyperlinkTextField GitHubLink { get; set; }
 		
 		void ReleaseDesignerOutlets ()
 		{
@@ -25,9 +25,9 @@ namespace Carol
 				GitHubLink = null;
 			}
 
-			if (TwitterLink != null) {
-				TwitterLink.Dispose ();
-				TwitterLink = null;
+			if (AboutLink != null) {
+				AboutLink.Dispose ();
+				AboutLink = null;
 			}
 		}
 	}

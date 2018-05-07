@@ -40,8 +40,8 @@ namespace Carol
         {
             base.ViewDidLoad();
 
+            AboutLink.Href = "http://www.anaghsharma.com";
             GitHubLink.Href = "https://github.com/AnaghSharma/Carol";
-            TwitterLink.Href = "https://twitter.com/AnaghSharma";
         }
 
     }

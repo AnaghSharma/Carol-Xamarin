@@ -163,6 +163,9 @@
     <BundleResource Include="Resources\Dark.car" />
     <BundleResource Include="Resources\loading_image.png" />
     <BundleResource Include="Resources\DefaultPreferences.plist" />
+    <BundleResource Include="Resources\about_logo.pdf" />
+    <BundleResource Include="Resources\about_background.pdf" />
+    <BundleResource Include="Resources\about_hero.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Mac\Xamarin.Mac.CSharp.targets" />
 </Project>
