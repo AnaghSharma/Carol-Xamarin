@@ -32,6 +32,9 @@ namespace Carol
 
         public static event EventHandler NetworkErrorOccurred;
         public static event EventHandler LyricsNotFoundOccurred;
+		public static event EventHandler NothingPlayingFound;
+		public static event EventHandler NoMusicAppRunningFound;
+		public static event EventHandler MultiPlayingFound;
 
         public ViewController(IntPtr handle) : base(handle)
         {
@@ -110,22 +113,24 @@ namespace Carol
                     switch (result.StringValue)
                     {
                         case "1":
-                            //LyricsTextView.Value = "No track playing";
                             stateMachine.ShowError();
+							NothingPlayingFound?.Invoke(this, null);
                             break;
                         case "2":
-                            //LyricsTextView.Value = "No music app is running";
                             stateMachine.ShowError();
+							NoMusicAppRunningFound?.Invoke(this, null);
                             break;
                         case "3":
-                            //LyricsTextView.Value = "You playin' two songs at a time. Livin' in 3017";
                             stateMachine.ShowError();
+							MultiPlayingFound?.Invoke(this, null);
                             break;
                     }
                 }
                 else
-                    Console.WriteLine("Duh");
-                //LyricsTextView.Value = "Something went wrong. It happens.";   
+				{
+					stateMachine.ShowError();
+					LyricsNotFoundOccurred?.Invoke(this, null);
+				}   
             }
 
             else

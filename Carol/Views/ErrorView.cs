@@ -27,6 +27,9 @@ namespace Carol.Views
         {
             ViewController.NetworkErrorOccurred += HandleNetworkError;
             ViewController.LyricsNotFoundOccurred += HandleLyricsNotFound;
+			ViewController.NothingPlayingFound += HandleNothingPlayingFound;
+			ViewController.NoMusicAppRunningFound += HandleNoMusicAppRunningFound;
+			ViewController.MultiPlayingFound += HandleMultiPlayingFound;
         }
 
 		#endregion
@@ -45,6 +48,24 @@ namespace Carol.Views
         void HandleLyricsNotFound(object sender, EventArgs e)
         {
             ErrorTextView.StringValue = "Could not find the lyrics of this song.";
+        }
+
+		void HandleNothingPlayingFound(object sender, EventArgs e)
+        {
+			ErrorTextView.StringValue = "No track playing.";
+			RetryButton.Hidden = true;
+        }
+
+		void HandleNoMusicAppRunningFound(object sender, EventArgs e)
+        {
+			ErrorTextView.StringValue = "No music app is running.";
+			RetryButton.Hidden = true;
+        }
+
+		void HandleMultiPlayingFound(object sender, EventArgs e)
+        {
+			ErrorTextView.StringValue = "You playin' two songs at a time. Livin' in 3017";
+			RetryButton.Hidden = true;
         }
 	}
 }
