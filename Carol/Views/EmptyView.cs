@@ -17,8 +17,8 @@ namespace Carol.Views
         NSMenuItem launch, artwork;
         NSCursor cursor;
 
-        public static event EventHandler QuitButtonClicked;
-        public static event EventHandler AboutMenuItemClicked;
+		NSWindowController windowController;
+        NSWindow aboutWindow;
 
         #region Constructors
 
@@ -74,6 +74,8 @@ namespace Carol.Views
 
             SettingsButton.AddTrackingArea(new NSTrackingArea(SettingsButton.Bounds, NSTrackingAreaOptions.MouseEnteredAndExited | NSTrackingAreaOptions.ActiveAlways, this, null));
             cursor = NSCursor.CurrentSystemCursor;
+
+			windowController = currentDelegate.Storyboard.InstantiateControllerWithIdentifier("AboutWindow") as NSWindowController;
         }
 
         public override void ViewDidMoveToWindow()
@@ -150,14 +152,30 @@ namespace Carol.Views
         [Export("about:")]
         void About(NSObject sender)
         {
-            AboutMenuItemClicked?.Invoke(this, null);
+			currentDelegate.StatusBar.HidePopover(sender);
+
+            aboutWindow = windowController.Window;
+            aboutWindow.Title = "";
+            aboutWindow.TitlebarAppearsTransparent = true;
+            aboutWindow.MovableByWindowBackground = true;
+
+            windowController.ShowWindow(sender as NSObject);
         }
 
         //Delegating the Quit Menu Item click event to Helpers/StatusBarController.cs
         [Export("quit:")]
         void Quit(NSObject sender)
         {
-            QuitButtonClicked?.Invoke(this, null);
+			currentDelegate.StatusBar.HidePopover(sender);
+            var alert = new NSAlert()
+            {
+                MessageText = "Are you sure you want to Quit Carol?"
+            };
+            alert.AddButton("Quit");
+            alert.AddButton("Cancel");
+            var retValue = alert.RunModal();
+            if (retValue == 1000)
+                NSApplication.SharedApplication.Terminate((sender as NSObject));
         }
 
         //Method override to change cursor to pointing hand on Mouse Enter (Hover)

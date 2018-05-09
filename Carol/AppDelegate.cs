@@ -7,12 +7,14 @@ namespace Carol
     [Register("AppDelegate")]
     public class AppDelegate : NSApplicationDelegate
     {
+		NSStoryboard storyboard;
         NSPopover popover;
         public ViewController controller;
         NSDictionary defaultSettings;
         StatusBarController statusBar;
 
         public StatusBarController StatusBar => statusBar;
+		public NSStoryboard Storyboard => storyboard;
 
         public AppDelegate()
         {
@@ -25,7 +27,7 @@ namespace Carol
         {
             // Insert code here to initialize your application
 
-            var storyboard = NSStoryboard.FromName("Main", null);
+            storyboard = NSStoryboard.FromName("Main", null);
             controller = storyboard.InstantiateControllerWithIdentifier("PopupController") as ViewController;
 
             popover.ContentViewController = controller;

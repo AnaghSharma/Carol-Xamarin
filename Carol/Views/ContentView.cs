@@ -22,10 +22,10 @@ namespace Carol.Views
         NSMenuItem launch, artwork;
         NSCursor cursor;
 
-        public static event EventHandler QuitButtonClicked;
-        public static event EventHandler AboutMenuItemClicked;
-        
-        #region Constructors
+		NSWindowController windowController;
+		NSWindow aboutWindow;
+
+		#region Constructors
 
         // Called when created from unmanaged code
         public ContentView(IntPtr handle) : base(handle)
@@ -92,8 +92,10 @@ namespace Carol.Views
             ChangeTextSizeButton.AddTrackingArea(new NSTrackingArea(ChangeTextSizeButton.Bounds, NSTrackingAreaOptions.MouseEnteredAndExited | NSTrackingAreaOptions.ActiveAlways, this, null));
             SettingsButton.AddTrackingArea(new NSTrackingArea(SettingsButton.Bounds, NSTrackingAreaOptions.MouseEnteredAndExited | NSTrackingAreaOptions.ActiveAlways, this, null));
             cursor = NSCursor.CurrentSystemCursor;
+           
+			windowController = currentDelegate.Storyboard.InstantiateControllerWithIdentifier("AboutWindow") as NSWindowController;
 		}
-
+        
 		public override void ViewDidMoveToWindow()
 		{
             base.ViewDidMoveToWindow();
@@ -218,11 +220,28 @@ namespace Carol.Views
         [Export("about:")]
         void About(NSObject sender)
         {
-            AboutMenuItemClicked?.Invoke(this, null);
+			currentDelegate.StatusBar.HidePopover(sender);
+
+			aboutWindow = windowController.Window;
+            aboutWindow.Title = "";
+            aboutWindow.TitlebarAppearsTransparent = true;
+            aboutWindow.MovableByWindowBackground = true;
+
+			windowController.ShowWindow(sender as NSObject);
         }
 
         //Delegating the Quit Menu Item click event to Helpers/StatusBarController.cs
-        [Export("quit:")]         void Quit(NSObject sender)         {             QuitButtonClicked?.Invoke(this, null);         }
+        [Export("quit:")]         void Quit(NSObject sender) 		{
+			currentDelegate.StatusBar.HidePopover(sender);
+			var alert = new NSAlert()
+            {
+                MessageText = "Are you sure you want to Quit Carol?"
+            };
+            alert.AddButton("Quit");
+            alert.AddButton("Cancel");
+            var retValue = alert.RunModal();
+            if (retValue == 1000)
+                NSApplication.SharedApplication.Terminate((sender as NSObject));         }
 
         //Method override to change cursor to pointing hand on Mouse Enter (Hover)
         public override void MouseEntered(NSEvent theEvent)
