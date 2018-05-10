@@ -1,4 +1,13 @@
-﻿using System;
+﻿/*
+ * Abstract base class for the different states of state machine
+ * 
+ * Author - Anagh Sharma
+ * http://www.anaghsharma.com
+ * 
+ * 2018
+ * 
+ */
+
 using AppKit;
 
 namespace Carol.Helpers.StateMachine

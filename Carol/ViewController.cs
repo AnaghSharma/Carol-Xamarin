@@ -50,7 +50,10 @@ namespace Carol
         {
             base.ViewDidLoad();
 
+            //Loading the dark theme from Dark.car file in Resources
             View.Appearance = new NSAppearance(@"Dark", null);
+
+            //Setting the initial state of the state machine
             stateMachine = new ViewStateMachine(States.Idle);
             stateMachine.SetupInitialView();
 
@@ -112,6 +115,8 @@ namespace Carol
                 {
                     switch (result.StringValue)
                     {
+						//Transitioning to error state of state machine and calling the corresponding delegate method
+                        //These delegates method are being used so that one view can be reused for various error cases.
                         case "1":
                             stateMachine.ShowError();
 							NothingPlayingFound?.Invoke(this, null);

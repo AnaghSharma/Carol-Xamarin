@@ -1,4 +1,14 @@
-﻿using AppKit;
+﻿/*
+ * Helper class corresponding to the no content UI state
+ * 
+ * Author - Anagh Sharma
+ * http://www.anaghsharma.com
+ * 
+ * 2018
+ * 
+ */
+
+using AppKit;
 using Carol.Views;
 
 namespace Carol.Helpers.StateMachine.ViewStates

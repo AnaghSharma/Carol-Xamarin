@@ -1,4 +1,14 @@
-﻿using System;
+﻿/*
+ * Helper class to check if Network is available or not
+ * 
+ * Author - Anagh Sharma
+ * http://www.anaghsharma.com
+ * 
+ * 2018
+ * 
+ */
+
+using System;
 using System.Net;
 using CoreFoundation;
 using SystemConfiguration;

@@ -1,4 +1,13 @@
-﻿using System;
+﻿/*
+ * Helper class corresponding to the initial UI state
+ * 
+ * Author - Anagh Sharma
+ * http://www.anaghsharma.com
+ * 
+ * 2018
+ * 
+ */
+
 using AppKit;
 using Carol.Views;
 

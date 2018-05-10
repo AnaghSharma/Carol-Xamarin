@@ -12,7 +12,7 @@ namespace Carol
         public ViewController controller;
         NSDictionary defaultSettings;
         StatusBarController statusBar;
-
+        
         public StatusBarController StatusBar => statusBar;
 		public NSStoryboard Storyboard => storyboard;
 
@@ -20,6 +20,7 @@ namespace Carol
         {
             popover = new NSPopover();
 
+            //Loading the default preferences from a .plist file
             defaultSettings = new NSDictionary("DefaultPreferences.plist");
         }
 
@@ -35,6 +36,7 @@ namespace Carol
 
             statusBar = new StatusBarController(popover, "StatusBarIcon.png");
 
+            //Registering the default settings loaded from the .plist file in the constructor
             NSUserDefaults.StandardUserDefaults.RegisterDefaults(defaultSettings);
         }
 

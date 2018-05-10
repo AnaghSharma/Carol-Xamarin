@@ -54,6 +54,7 @@ namespace Carol.Views
             currentDelegate = NSApplication.SharedApplication.Delegate as AppDelegate;
 
             LyricsTextView.BackgroundColor = NSColor.Clear;
+            //Getting the font size from preferences
             LyricsTextView.Font = NSFont.SystemFontOfSize(NSUserDefaults.StandardUserDefaults.FloatForKey("TextSize"), 0.2f);
 
             // Blur Overlay is the Visual Effect View with Blur and Vibrancy
@@ -175,6 +176,8 @@ namespace Carol.Views
                     NSUserDefaults.StandardUserDefaults.SetFloat(21.0f, "TextSize");
                     break;
             }
+
+            //To make sure the progress bar is updated accordingly whenever user changes text size
             containerHeight = (float)LyricsTextView.Bounds.Height;
             NSNotificationCenter.DefaultCenter.PostNotificationName(NSView.BoundsChangedNotification, MainScroll.ContentView);
         }

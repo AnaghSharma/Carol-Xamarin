@@ -1,4 +1,14 @@
-﻿using System;
+﻿/*
+ * Helper class corresponding to the loading UI state
+ * 
+ * Author - Anagh Sharma
+ * http://www.anaghsharma.com
+ * 
+ * 2018
+ * 
+ */
+
+using System;
 using AppKit;
 using Carol.Views;
 
