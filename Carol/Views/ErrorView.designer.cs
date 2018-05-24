@@ -16,6 +16,9 @@ namespace Carol.Views
 		AppKit.NSTextField ErrorTextView { get; set; }
 
 		[Outlet]
+		AppKit.NSImageView IllustrationContainer { get; set; }
+
+		[Outlet]
 		AppKit.NSButton RetryButton { get; set; }
 
 		[Action ("RetryButtonClick:")]
@@ -31,6 +34,11 @@ namespace Carol.Views
 			if (RetryButton != null) {
 				RetryButton.Dispose ();
 				RetryButton = null;
+			}
+
+			if (IllustrationContainer != null) {
+				IllustrationContainer.Dispose ();
+				IllustrationContainer = null;
 			}
 		}
 	}

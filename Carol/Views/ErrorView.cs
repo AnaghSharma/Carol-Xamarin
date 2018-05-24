@@ -51,10 +51,11 @@ namespace Carol.Views
         }
 
 		void HandleNothingPlayingFound(object sender, EventArgs e)
-        {
-			ErrorTextView.StringValue = "No track playing.";
+		{
+			ErrorTextView.StringValue = "No track is playing. Play something from your awesome collection.";
+			IllustrationContainer.Image = new NSImage("illustration_no_music.png");
 			RetryButton.Hidden = true;
-        }
+		}
 
 		void HandleNoMusicAppRunningFound(object sender, EventArgs e)
         {
@@ -66,6 +67,6 @@ namespace Carol.Views
         {
 			ErrorTextView.StringValue = "You playin' two songs at a time. Livin' in 3017";
 			RetryButton.Hidden = true;
-        }
+		}
 	}
 }
