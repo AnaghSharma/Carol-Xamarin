@@ -59,7 +59,8 @@ namespace Carol.Views
 
 		void HandleNoMusicAppRunningFound(object sender, EventArgs e)
         {
-			ErrorTextView.StringValue = "No music app is running.";
+			ErrorTextView.StringValue = "No music app is running. Play some music from one of the apps.";
+			IllustrationContainer.Image = new NSImage("illustration_no_app.png");
 			RetryButton.Hidden = true;
         }
 
