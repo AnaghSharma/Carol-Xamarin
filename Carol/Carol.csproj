@@ -168,6 +168,7 @@
     <BundleResource Include="Resources\about_hero.png" />
     <BundleResource Include="Resources\illustration_no_music.png" />
     <BundleResource Include="Resources\illustration_no_app.png" />
+    <BundleResource Include="Resources\illustration_two_songs.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Mac\Xamarin.Mac.CSharp.targets" />
 </Project>

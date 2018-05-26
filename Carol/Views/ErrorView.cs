@@ -66,7 +66,8 @@ namespace Carol.Views
 
 		void HandleMultiPlayingFound(object sender, EventArgs e)
         {
-			ErrorTextView.StringValue = "You playin' two songs at a time. Livin' in 3017";
+			ErrorTextView.StringValue = "You playin' two songs at a time. Living in 3018.";
+			IllustrationContainer.Image = new NSImage("illustration_two_songs.png");
 			RetryButton.Hidden = true;
 		}
 	}
