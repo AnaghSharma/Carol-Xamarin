@@ -47,7 +47,8 @@ namespace Carol.Views
 
         void HandleLyricsNotFound(object sender, EventArgs e)
         {
-            ErrorTextView.StringValue = "Could not find the lyrics of this song.";
+            ErrorTextView.StringValue = "Oops, could not find the lyrics of this song. Please try again later.";
+			IllustrationContainer.Image = new NSImage("illustration_not_found.png");
         }
 
 		void HandleNothingPlayingFound(object sender, EventArgs e)
