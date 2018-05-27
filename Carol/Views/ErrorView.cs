@@ -42,6 +42,7 @@ namespace Carol.Views
         void HandleNetworkError(object sender, EventArgs e)
         {
             ErrorTextView.StringValue = "Looks like there is no internet connection.";
+			IllustrationContainer.Image = new NSImage("illustration_no_internet.png");
             RetryButton.Hidden = true;
         }
 
