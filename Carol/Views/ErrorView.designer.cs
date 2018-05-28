@@ -19,7 +19,19 @@ namespace Carol.Views
 		AppKit.NSImageView IllustrationContainer { get; set; }
 
 		[Outlet]
+		AppKit.NSButton iTunesButton { get; set; }
+
+		[Outlet]
 		AppKit.NSButton RetryButton { get; set; }
+
+		[Outlet]
+		AppKit.NSButton SpotifyButton { get; set; }
+
+		[Action ("OpeniTunesButtonClick:")]
+		partial void OpeniTunesButtonClick (Foundation.NSObject sender);
+
+		[Action ("OpenSpotifyButtonClick:")]
+		partial void OpenSpotifyButtonClick (Foundation.NSObject sender);
 
 		[Action ("RetryButtonClick:")]
 		partial void RetryButtonClick (Foundation.NSObject sender);
@@ -31,14 +43,24 @@ namespace Carol.Views
 				ErrorTextView = null;
 			}
 
+			if (IllustrationContainer != null) {
+				IllustrationContainer.Dispose ();
+				IllustrationContainer = null;
+			}
+
 			if (RetryButton != null) {
 				RetryButton.Dispose ();
 				RetryButton = null;
 			}
 
-			if (IllustrationContainer != null) {
-				IllustrationContainer.Dispose ();
-				IllustrationContainer = null;
+			if (iTunesButton != null) {
+				iTunesButton.Dispose ();
+				iTunesButton = null;
+			}
+
+			if (SpotifyButton != null) {
+				SpotifyButton.Dispose ();
+				SpotifyButton = null;
 			}
 		}
 	}

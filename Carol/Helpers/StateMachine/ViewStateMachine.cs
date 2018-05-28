@@ -76,7 +76,7 @@ namespace Carol.Helpers.StateMachine
             currentState.Enter(this);
         }
 
-        //The method to call load a view when there is content
+        //Method to load a view when there is content
         public void ShowContent()
         {
             TransitionToState(States.Loading, Triggers.ShowContent);

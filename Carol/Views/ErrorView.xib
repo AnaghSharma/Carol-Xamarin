@@ -35,7 +35,7 @@
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <button verticalHuggingPriority="750" misplaced="YES" id="9Ar-oV-ism">
+                            <button hidden="YES" verticalHuggingPriority="750" misplaced="YES" id="9Ar-oV-ism">
                                 <rect key="frame" x="144" y="5" width="73" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <buttonCell key="cell" type="push" title="Retry" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="bdR-EB-Gwp">
@@ -44,6 +44,28 @@
                                 </buttonCell>
                                 <connections>
                                     <action selector="RetryButtonClick:" target="2" id="LL8-38-HIp"/>
+                                </connections>
+                            </button>
+                            <button hidden="YES" toolTip="Open iTunes" verticalHuggingPriority="750" misplaced="YES" id="JUr-m9-XfG">
+                                <rect key="frame" x="152" y="14" width="24" height="24"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="smallSquare" bezelStyle="smallSquare" image="icon_itunes" imagePosition="overlaps" alignment="center" lineBreakMode="truncatingTail" state="on" imageScaling="proportionallyUpOrDown" inset="2" id="ZbQ-ec-L9k">
+                                    <behavior key="behavior" lightByContents="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="OpeniTunesButtonClick:" target="2" id="VWb-Lq-fgl"/>
+                                </connections>
+                            </button>
+                            <button hidden="YES" toolTip="Open Spotify" verticalHuggingPriority="750" misplaced="YES" id="94N-GD-2NL">
+                                <rect key="frame" x="184" y="14" width="24" height="25"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="smallSquare" bezelStyle="smallSquare" image="icon_spotify" imagePosition="overlaps" alignment="center" lineBreakMode="truncatingTail" state="on" imageScaling="proportionallyDown" inset="2" id="SYn-LT-kJ7">
+                                    <behavior key="behavior" lightByContents="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="OpenSpotifyButtonClick:" target="2" id="aN9-JU-w7E"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -55,7 +77,13 @@
                 <outlet property="ErrorTextView" destination="KXi-md-b6a" id="3gX-bk-QKf"/>
                 <outlet property="IllustrationContainer" destination="cb6-Jf-Ung" id="9Px-Ei-7cp"/>
                 <outlet property="RetryButton" destination="9Ar-oV-ism" id="zXr-IK-D5q"/>
+                <outlet property="SpotifyButton" destination="94N-GD-2NL" id="FFc-kN-TtJ"/>
+                <outlet property="iTunesButton" destination="JUr-m9-XfG" id="4NG-cy-kMy"/>
             </connections>
         </customView>
     </objects>
+    <resources>
+        <image name="icon_itunes" width="16" height="16"/>
+        <image name="icon_spotify" width="351" height="351"/>
+    </resources>
 </document>
