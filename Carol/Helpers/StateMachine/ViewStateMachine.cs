@@ -39,7 +39,7 @@ namespace Carol.Helpers.StateMachine
                 currentState = new IdleState();
         }
 
-        public void SetupInitialView() => currentState.Enter(this);
+        public void SetupInitialView() => currentState.Enter();
 
         //Basic idea is to transition to a particular state from current state whenever triggered
         //and then calling the Enter method which loads the required view from a .xib file (from 
@@ -48,7 +48,7 @@ namespace Carol.Helpers.StateMachine
 
         void TransitionToState(States _currentState, Triggers _trigger)
         {
-            currentState.Exit(this);
+            currentState.Exit();
             switch(_currentState)
             {
                 case States.Idle:
@@ -73,28 +73,28 @@ namespace Carol.Helpers.StateMachine
         public void StartLoading()
         {
             TransitionToState(States.Idle, Triggers.Load);
-            currentState.Enter(this);
+            currentState.Enter();
         }
 
         //Method to load a view when there is content
         public void ShowContent()
         {
             TransitionToState(States.Loading, Triggers.ShowContent);
-            currentState.Enter(this);
+            currentState.Enter();
         }
 
         //Method to load a view when there is no content
         public void ShowEmpty()
         {
             TransitionToState(States.Loading, Triggers.ShowEmpty);
-            currentState.Enter(this);
+            currentState.Enter();
         }
 
         //Method to load a view whenever there is error
         public void ShowError()
         {
             TransitionToState(States.Loading, Triggers.ThrowError);
-            currentState.Enter(this);
+            currentState.Enter();
         }
     }
 }

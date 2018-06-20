@@ -16,13 +16,16 @@ namespace Carol.Helpers.StateMachine.ViewStates
 {
     public class LoadingState : StatefulViewController
     {
-        public override void Enter(ViewStateMachine stateMachine)
+        public override void Enter()
         {
             ContainerView = LoadNib.LoadViewFromNib<LoadingView>("LoadingView", CurrentDelegate.controller.View);
             ContainerView.Frame = CurrentDelegate.controller.View.Bounds;
             CurrentDelegate.controller.View.AddSubview(ContainerView, NSWindowOrderingMode.Above, CurrentDelegate.controller.View);
         }
 
-        public override void Exit(ViewStateMachine stateMachine) => ContainerView.RemoveFromSuperview();
-    }
+		public override void Exit()
+		{
+			ContainerView.RemoveFromSuperview();
+		}
+	}
 }

@@ -16,7 +16,7 @@ namespace Carol.Helpers.StateMachine
     {
         public NSView ContainerView;
         public AppDelegate CurrentDelegate = NSApplication.SharedApplication.Delegate as AppDelegate;
-        public abstract void Enter(ViewStateMachine stateMachine);
-        public abstract void Exit(ViewStateMachine stateMachine);
+        public abstract void Enter();
+        public abstract void Exit();
     }
 }

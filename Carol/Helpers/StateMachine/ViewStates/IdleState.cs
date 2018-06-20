@@ -15,14 +15,14 @@ namespace Carol.Helpers.StateMachine.ViewStates
 {
     public class IdleState : StatefulViewController
     {
-        public override void Enter(ViewStateMachine stateMachine)
+        public override void Enter()
         {
             ContainerView = LoadNib.LoadViewFromNib<IdleView>("IdleView", CurrentDelegate.controller.View);
             ContainerView.Frame = CurrentDelegate.controller.View.Bounds;
             CurrentDelegate.controller.View.AddSubview(ContainerView, NSWindowOrderingMode.Above, CurrentDelegate.controller.View);
         }
-
-        public override void Exit(ViewStateMachine stateMachine)
+        
+        public override void Exit()
         {
             ContainerView.RemoveFromSuperview();
         }
