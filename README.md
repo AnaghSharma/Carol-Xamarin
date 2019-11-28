@@ -1,9 +1,10 @@
-
 <p align="center"><img width=97% src="https://www.dropbox.com/s/ui6ihgtrnrx7hdc/GitHub%20Hero.jpg?raw=1"></p>
 <h2 align="center">Carol</h2>
 <p align="center">Carol is a minimal and beautiful lyrics app for macOS</p>
 <br>
 <p align="center"><img width=100% src="https://www.dropbox.com/s/kaa8wtuiop2oig5/Screenshots.png?raw=1"></p>
+<br>
+<a class="gumroad-button" href="https://gum.co/jTGQEa" target="_blank">Buy the latest version for macOS Catalina</a>
 <br>
 
 ## Features
